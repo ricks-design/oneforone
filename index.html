@@ -17,8 +17,8 @@
   --green-tint:#e3edee;
   --amber:#dca23a;
   --amber-deep:#c98a1e;
-  --champ:#e7cd74;
-  --champ-deep:#d9bd55;
+  --champ:#d47334;
+  --champ-deep:#bd6329;
   --white:#fdfcf8;
   --radius:18px;
 }
@@ -43,9 +43,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(245,242,234,.9);backdrop-f
 .nav-links a:hover{opacity:1}
 .btn-donate{
   font-family:'Space Grotesk';font-weight:600;font-size:15px;
-  background:var(--champ);color:var(--ink) !important;opacity:1 !important;
+  background:var(--champ);color:#fff !important;opacity:1 !important;
   padding:11px 26px;border-radius:999px;text-decoration:none;
-  transition:background .15s,transform .15s;box-shadow:0 3px 14px rgba(217,189,85,.4);
+  transition:background .15s,transform .15s;box-shadow:0 3px 14px rgba(212,115,52,.38);
 }
 .btn-donate:hover{background:var(--champ-deep);transform:translateY(-1px)}
 .burger{display:none;margin-left:auto;z-index:120;width:44px;height:44px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px}
@@ -71,7 +71,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(245,242,234,.9);backdrop-f
 .hero-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
 .btn-hero{font-family:'Syne';font-weight:700;font-size:16px;padding:15px 32px;border-radius:999px;text-decoration:none;transition:transform .15s}
 .btn-hero:hover{transform:translateY(-2px)}
-.btn-hero.primary{background:var(--champ);color:var(--ink);box-shadow:0 6px 24px rgba(0,0,0,.32)}
+.btn-hero.primary{background:var(--champ);color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.32)}
 .btn-hero.ghost{border:1.5px solid rgba(255,255,255,.75);color:#fff;backdrop-filter:blur(4px)}
 
 /* ---------- STATS ---------- */
@@ -95,24 +95,22 @@ h2{font-weight:700;font-size:clamp(27px,3.1vw,40px);line-height:1.12;max-width:1
 .big11{font-family:'Syne';font-weight:800;font-size:clamp(64px,9vw,132px);line-height:.92;letter-spacing:-.05em}
 .big11 .arrow{color:var(--amber)}
 .one2one p.body{font-size:18px;max-width:32em}
-/* Native Geldfluss-Grafik */
-.flowcard{margin-top:52px;background:var(--white);border:1px solid var(--sand);border-radius:var(--radius);padding:38px 42px;box-shadow:0 16px 48px rgba(24,26,23,.07)}
-.flowcard h3{font-size:21px;font-weight:800;margin-bottom:26px}
-.flow-steps{display:flex;align-items:stretch;gap:14px;margin-bottom:40px}
-.fstep{flex:1;background:var(--green-tint);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:5px}
-.fstep .fico{font-size:26px;margin-bottom:4px}
-.fstep strong{font-size:15.5px;font-family:'Space Grotesk'}
-.fstep span{font-size:13.5px;color:rgba(24,26,23,.62);line-height:1.4}
-.farrow{display:flex;align-items:center;justify-content:center;color:var(--green);font-size:24px;font-weight:700;flex:0 0 auto}
-.flow-sub{font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:rgba(24,26,23,.5);margin-bottom:20px}
-.breakdown{display:grid;grid-template-columns:1fr 1fr;gap:22px 44px}
-.brow .btop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;gap:12px}
-.blabel{font-weight:600;font-size:15.5px}
-.bnote{font-weight:400;font-size:13px;color:rgba(24,26,23,.5)}
-.bpct{font-family:'Syne';font-weight:800;font-size:22px;color:var(--green);letter-spacing:-.02em}
-.btrack{height:9px;background:var(--sand);border-radius:99px;overflow:hidden}
-.btrack i{display:block;height:100%;background:var(--green);border-radius:99px;transition:width 1s cubic-bezier(.5,0,.2,1)}
-.flow-note{font-size:13.5px;color:rgba(24,26,23,.55);margin-top:26px;line-height:1.5}
+/* Native Geldfluss-Grafik – kompakt */
+.flowcard{margin-top:36px;background:var(--white);border:1px solid var(--sand);border-radius:16px;padding:24px 28px;box-shadow:0 12px 36px rgba(24,26,23,.06)}
+.flow-top{display:flex;justify-content:space-between;align-items:center;gap:16px 28px;flex-wrap:wrap;margin-bottom:18px}
+.flowcard h3{font-size:18px;font-weight:800}
+.flow-strip{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:13.5px}
+.flow-strip b{font-family:'Space Grotesk';font-weight:600}
+.flow-strip .fsep{color:var(--green);font-weight:700}
+.stackbar{display:flex;height:15px;border-radius:99px;overflow:hidden;gap:2px;background:var(--sand)}
+.stackbar i{display:block;height:100%;transition:width .9s cubic-bezier(.5,0,.2,1)}
+.stackbar .s1{background:#0e5f66}.stackbar .s2{background:#4f8b91}.stackbar .s3{background:#8fb6ba}.stackbar .s4{background:#c2d7d9}
+.legend{display:flex;flex-wrap:wrap;gap:9px 24px;margin-top:16px}
+.legend .lg{display:flex;align-items:center;gap:8px;font-size:14px}
+.legend .lg b{font-family:'Syne';font-weight:800;letter-spacing:-.01em}
+.legend .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+.legend .d1{background:#0e5f66}.legend .d2{background:#4f8b91}.legend .d3{background:#8fb6ba}.legend .d4{background:#c2d7d9}
+.flow-note{font-size:12.5px;color:rgba(24,26,23,.55);margin-top:16px;line-height:1.5}
 
 /* ---------- KACHELN ---------- */
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
@@ -154,7 +152,7 @@ input[type=range]{width:100%;margin-top:30px;accent-color:var(--amber);height:6p
 .calc-result .line:last-child{border:none;margin:0;padding:0}
 .calc-result .ico{font-size:25px;line-height:1.2}
 .calc-cta{margin-top:28px}
-.btn-light{font-family:'Syne';font-weight:700;font-size:16px;background:var(--champ);color:var(--ink) !important;padding:14px 34px;border-radius:999px;text-decoration:none;display:inline-block;transition:transform .15s,background .15s}
+.btn-light{font-family:'Syne';font-weight:700;font-size:16px;background:var(--champ);color:#fff !important;padding:14px 34px;border-radius:999px;text-decoration:none;display:inline-block;transition:transform .15s,background .15s}
 .btn-light:hover{background:var(--champ-deep)}
 .btn-light:hover{transform:translateY(-2px)}
 .calc .fine{font-size:14px;color:rgba(255,255,255,.6);margin-top:14px}
@@ -229,7 +227,7 @@ input[type=range]{width:100%;margin-top:30px;accent-color:var(--amber);height:6p
 .kv .v{font-weight:600;font-family:'Space Grotesk'}
 .copy-iban{display:flex;align-items:center;gap:10px;background:var(--white);border:1px dashed var(--sand);border-radius:12px;padding:13px 16px;font-size:15px;font-weight:600;margin-bottom:10px}
 .copy-iban button{margin-left:auto;border:none;background:var(--ink);color:#fff;font-family:'Space Grotesk';font-weight:600;font-size:13px;padding:7px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
-.btn-paypal{font-family:'Syne';font-weight:700;font-size:16px;display:inline-block;background:var(--champ);color:var(--ink);padding:14px 32px;border-radius:999px;text-decoration:none;transition:transform .15s,background .15s}
+.btn-paypal{font-family:'Syne';font-weight:700;font-size:16px;display:inline-block;background:var(--champ);color:#fff;padding:14px 32px;border-radius:999px;text-decoration:none;transition:transform .15s,background .15s}
 .btn-paypal:hover{background:var(--champ-deep)}
 .btn-paypal:hover{transform:translateY(-2px)}
 .badge{display:inline-block;font-size:13px;font-weight:600;background:var(--sand);border-radius:999px;padding:5px 13px;margin-top:14px}
@@ -252,10 +250,8 @@ footer a:hover{color:#fff}
   .one2one-grid,.calc-box,.donate-grid{grid-template-columns:1fr;gap:32px}
   .one2one-grid{grid-template-columns:1fr;gap:8px}
   .one2one p.body{margin-top:8px}
-  .flow-steps{flex-direction:column}
-  .farrow{transform:rotate(90deg);padding:2px 0}
-  .breakdown{grid-template-columns:1fr;gap:18px}
-  .flowcard{padding:28px 24px}
+  .flowcard{padding:22px 20px}
+  .legend{gap:8px 18px}
   .tiles,.story-grid{grid-template-columns:1fr}
   .f-grid{grid-template-columns:1fr}
   .calc-box{padding:32px 26px}
@@ -343,21 +339,22 @@ footer a:hover{color:#fff}
     </div>
 
     <div class="flowcard">
-      <h3>Was passiert mit deiner Spende?</h3>
-      <div class="flow-steps">
-        <div class="fstep"><span class="fico">💶</span><strong>Deine Spende</strong><span>per Überweisung oder PayPal</span></div>
-        <div class="farrow" aria-hidden="true">→</div>
-        <div class="fstep"><span class="fico">📡</span><strong>Direkt ans Team in Kenia</strong><span>Onlineüberweisung, ohne Umweg</span></div>
-        <div class="farrow" aria-hidden="true">→</div>
-        <div class="fstep"><span class="fico">🤝</span><strong>Einsatz vor Ort</strong><span>bezahlt in Korogocho &amp; Mathare</span></div>
+      <div class="flow-top">
+        <h3>Was passiert mit deiner Spende?</h3>
+        <div class="flow-strip">
+          <b>💶 Deine Spende</b><span class="fsep" aria-hidden="true">→</span>
+          <b>📡 Direkt nach Kenia</b><span class="fsep" aria-hidden="true">→</span>
+          <b>🤝 Einsatz vor Ort</b>
+        </div>
       </div>
-
-      <div class="flow-sub">Wohin die Mittel fließen</div>
-      <div class="breakdown">
-        <div class="brow"><div class="btop"><span class="blabel">Schulgebühren</span><span class="bpct">82&thinsp;%</span></div><div class="btrack"><i style="width:82%"></i></div></div>
-        <div class="brow"><div class="btop"><span class="blabel">Bücherei <span class="bnote">(Miete &amp; Ausstattung)</span></span><span class="bpct">10&thinsp;%</span></div><div class="btrack"><i style="width:10%"></i></div></div>
-        <div class="brow"><div class="btop"><span class="blabel">Freiwillige vor Ort</span><span class="bpct">5&thinsp;%</span></div><div class="btrack"><i style="width:5%"></i></div></div>
-        <div class="brow"><div class="btop"><span class="blabel">Porridge-Zutaten <span class="bnote">(wöchentlich)</span></span><span class="bpct">3&thinsp;%</span></div><div class="btrack"><i style="width:3%"></i></div></div>
+      <div class="stackbar" role="img" aria-label="Aufteilung der Mittel: 82 % Schulgebühren, 10 % Bücherei, 5 % Freiwillige vor Ort, 3 % Porridge-Zutaten">
+        <i class="s1" style="width:82%"></i><i class="s2" style="width:10%"></i><i class="s3" style="width:5%"></i><i class="s4" style="width:3%"></i>
+      </div>
+      <div class="legend">
+        <span class="lg"><i class="d1"></i>Schulgebühren <b>82&thinsp;%</b></span>
+        <span class="lg"><i class="d2"></i>Bücherei <b>10&thinsp;%</b></span>
+        <span class="lg"><i class="d3"></i>Freiwillige vor Ort <b>5&thinsp;%</b></span>
+        <span class="lg"><i class="d4"></i>Porridge-Zutaten <b>3&thinsp;%</b></span>
       </div>
       <p class="flow-note">Pro Überweisung an unser Team nach Kenia fallen minimale Bankgebühren an – gerechnet auf das Gesamtspendenvolumen ca. 0,5&thinsp;%.</p>
     </div>
@@ -562,7 +559,7 @@ const io=new IntersectionObserver(es=>{es.forEach(en=>{if(!en.isIntersecting)ret
 document.querySelectorAll('.counter').forEach(c=>io.observe(c));
 
 /* Balken der Geldfluss-Grafik beim Sichtbarwerden füllen */
-const bars=document.querySelectorAll('.btrack i');
+const bars=document.querySelectorAll('.stackbar i');
 bars.forEach(b=>{b.dataset.w=b.style.width;if(!reduced)b.style.width='0'});
 const barIO=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.style.width=en.target.dataset.w;barIO.unobserve(en.target)}})},{threshold:.6});
 bars.forEach(b=>barIO.observe(b));

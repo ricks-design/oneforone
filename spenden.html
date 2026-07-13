@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spenden | One for One</title>
+<meta name="description" content="Spende an One for One per PayPal oder Überweisung – oder übernimm eine Patenschaft. Jeder Euro kommt 1:1 an.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="bilder/logo.png" alt="One for One Logo"><span>One for One</span></a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="leben-in-kenia.html">Vor Ort</a><a href="projekte.html">Projekte</a><a href="kinder.html">Die Kinder</a><a href="community-center.html">Community Center</a><a href="team.html">Team</a><a class="btn-donate" href="spenden.html">Spenden</a></div>
+    <button class="burger" id="burger" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-head">
+    <a class="nav-logo" href="index.html"><img src="bilder/logo.png" alt="One for One Logo"><span>One for One</span></a>
+    <button class="mm-close" id="mmClose" aria-label="Schließen">✕</button>
+  </div>
+  <a class="mm-link" href="index.html">Home</a><a class="mm-link" href="leben-in-kenia.html">Vor Ort</a><a class="mm-link" href="projekte.html">Projekte</a><a class="mm-link" href="kinder.html">Die Kinder</a><a class="mm-link" href="community-center.html">Community Center</a><a class="mm-link" href="team.html">Team</a>
+  <a class="btn-donate" href="spenden.html">Jetzt spenden</a>
+</div>
+<header class="subhero"><div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> › Spenden</div>
+    <h1>Jeder Euro kommt 1 : 1 an</h1><p>Ob einmalig, als Dauerauftrag oder als Patenschaft – so unterstützt du One for One.</p></div></header>
+<section class="donate"><div class="wrap">
+  <div class="donate-grid">
+    <div class="d-card"><h3>💳 Per PayPal</h3><p>Schnell und unkompliziert – einmalig oder als monatliche Unterstützung.</p>
+      <a class="btn-paypal" href="https://www.paypal.com/donate?hosted_button_id=JUGWVZEM9XX8U" target="_blank" rel="noopener">Mit PayPal spenden</a></div>
+    <div class="d-card"><h3>🏦 Per Überweisung</h3><p>Klassisch aufs Vereinskonto – ideal auch für Daueraufträge.</p>
+      <div class="kv"><span class="k">Empfänger</span><span class="v">One for One e.V.</span><span class="k">Bank</span><span class="v">VR-Bank Altenburger Land / Skatbank</span><span class="k">BIC</span><span class="v">GENODEF1SLR</span></div>
+      <div class="copy-iban"><span id="iban">DE59 8306 5408 0005 4428 18</span><button onclick="copyIban(this)">IBAN kopieren</button></div>
+      <p class="fee-note">Pro Überweisung an unser Team nach Kenia fallen minimale Bankgebühren an – gerechnet auf das Gesamtspendenvolumen ca. 0,5&thinsp;%.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="patenband"><div class="wrap patenband-inner">
+  <div><div class="eyebrow">Patenschaft</div><h2>Begleite ein Kind durch seine Schulzeit</h2><p>Mit einer regelmäßigen Spende übernimmst du die Patenschaft für ein Kind – idealerweise durch die gesamte Schullaufbahn. Aktuell werden bereits 62 Kinder durch direkte Patenschaften gefördert. Schreib uns, dann finden wir gemeinsam die passende Patenschaft.</p></div>
+  <a class="btn-paten" href="mailto:info@one-for.one">info@one-for.one</a>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Kostenübersicht</div>
+  <h2>Was einzelne Beträge bewirken</h2>
+  <p class="lead">Bereits ab 1 Euro pro Woche kann ein Kind in der Schule essen. Ein Anhaltspunkt:</p>
+  <h3 style="font-family:'Syne';font-weight:800;font-size:19px;margin-top:32px">Dauerhaft anfallende Kosten</h3>
+  <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
+    <tr><td>Schulgebühren</td><td>ab 25 € / Jahr bzw. 8 € / Term</td></tr>
+    <tr><td>Essen in der Schule (Frühstück + Mittag)</td><td>ab 1 € / Woche</td></tr></table>
+  <h3 style="font-family:'Syne';font-weight:800;font-size:19px;margin-top:32px">Jährlich einmalig</h3>
+  <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
+    <tr><td>Examensgebühr</td><td>ab 5 €</td></tr>
+    <tr><td>Tagebuch (Diary)</td><td>ab 1 €</td></tr>
+    <tr><td>Beurteilungsbuch (Assessment book)</td><td>ab 1,50 €</td></tr>
+    <tr><td>Abschlussgebühr (Graduation)</td><td>ab 10 €</td></tr></table>
+  <h3 style="font-family:'Syne';font-weight:800;font-size:19px;margin-top:32px">Einmalig</h3>
+  <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
+    <tr><td>Schuluniform</td><td>ab 15 €</td></tr>
+    <tr><td>Schulranzen / Rucksack</td><td>ab 7 €</td></tr>
+    <tr><td>Schuhe (Teil der Uniform)</td><td>ab 13 €</td></tr>
+    <tr><td>Trainingsanzug der Schule</td><td>ab 10 €</td></tr>
+    <tr><td>Schulbank mit Stuhl</td><td>ab 25 €</td></tr>
+    <tr><td>Aufnahmegebühr</td><td>ab 2 €</td></tr>
+    <tr><td>Einstufungsgespräch</td><td>ab 3 €</td></tr></table>
+</div></section>
+
+<section style="background:var(--white);border-top:1px solid var(--sand)"><div class="wrap">
+  <div class="eyebrow">Häufige Fragen</div>
+  <h2>Gut zu wissen, bevor du spendest</h2>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q">Kommt meine Spende wirklich vollständig an?</button><div class="faq-a"><div>Ja. One for One arbeitet komplett ehrenamtlich – keine Gehälter, keine Verwaltungskosten. Deine Spende geht per Onlineüberweisung direkt an unser Team in Kenia. Lediglich für die Überweisung fallen minimale Bankgebühren an (ca. 0,5 % des Gesamtspendenvolumens).</div></div></div>
+    <div class="faq-item"><button class="faq-q">Bekomme ich eine Spendenbescheinigung?</button><div class="faq-a"><div>Als eingetragener gemeinnütziger Verein stellen wir dir auf Wunsch eine Zuwendungsbestätigung aus. Gib bei der Überweisung deine Adresse an oder melde dich per E-Mail.</div></div></div>
+    <div class="faq-item"><button class="faq-q">Wie funktioniert eine Patenschaft?</button><div class="faq-a"><div>Mit einer regelmäßigen Spende begleitest du gezielt ein Kind. Schreib uns an info@one-for.one – wir besprechen alle Details und finden eine passende Patenschaft.</div></div></div>
+    <div class="faq-item"><button class="faq-q">Wie bleibe ich auf dem Laufenden?</button><div class="faq-a"><div>Über Instagram (@one4one_ev) und unseren WhatsApp-Kanal teilen wir regelmäßig Updates aus Korogocho und Mathare.</div></div></div>
+  </div>
+  <div style="margin-top:32px"><a class="btn-solid" href="https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G" target="_blank" rel="noopener">WhatsApp-Kanal folgen</a></div>
+</div></section>
+<footer>
+  <div class="wrap f-grid">
+    <div class="f-brand">
+      <img src="bilder/logo.png" alt="One for One Logo">
+      <p>One for One e.V. unterstützt Kinder in Korogocho und Mathare (Nairobi) – mit Bildung, Ernährung und einem Ort zum Wachsen. Gegründet 2024, komplett ehrenamtlich.</p>
+    </div>
+    <div>
+      <h4>Folge uns</h4>
+      <a href="https://www.instagram.com/one4one_ev/" target="_blank" rel="noopener">Instagram · @one4one_ev</a>
+      <a href="https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G" target="_blank" rel="noopener">WhatsApp-Kanal</a>
+      <a href="https://one-for.one/de/" target="_blank" rel="noopener">one-for.one</a>
+    </div>
+    <div>
+      <h4>Spendenkonto</h4>
+      <div class="f-iban">One for One e.V.<br>VR-Bank Altenburger Land / Skatbank<br>IBAN: DE59 8306 5408 0005 4428 18<br>BIC: GENODEF1SLR</div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>© 2026 One for One e.V.</span>
+    <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

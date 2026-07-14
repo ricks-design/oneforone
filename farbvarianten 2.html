@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One for One – Farbvarianten im Vergleich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --page:#e9e6df;
+    --ink:#1f1e1b;
+    --muted:#6f6b62;
+    --line:#cfcac0;
+    --demo-base:#f5f2ea;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--page);
+    color:var(--ink);
+    font-family:"Space Grotesk",system-ui,sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- Rahmen der Vergleichsseite ---------- */
+  .wrap{max-width:1180px;margin:0 auto;padding:56px 24px 96px}
+
+  .lede{max-width:720px;margin-bottom:16px}
+  .kicker{
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:14px;
+  }
+  h1{
+    font-family:"Syne",sans-serif;font-weight:800;
+    font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-.02em;
+    margin-bottom:14px;
+  }
+  .lede p{color:var(--muted);max-width:58ch}
+  .lede p + p{margin-top:10px}
+  .lede strong{color:var(--ink)}
+
+  .jump{
+    display:flex;flex-wrap:wrap;gap:8px;
+    margin:26px 0 44px;padding-top:22px;border-top:1px solid var(--line);
+  }
+  .jump a{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 13px 7px 9px;border:1px solid var(--line);border-radius:999px;
+    text-decoration:none;color:var(--ink);font-size:13px;font-weight:500;
+    background:rgba(255,255,255,.5);transition:border-color .15s,background .15s;
+  }
+  .jump a:hover,.jump a:focus-visible{border-color:var(--ink);background:#fff}
+  .jump a i{width:11px;height:11px;border-radius:50%;display:inline-block}
+
+  /* ---------- Variantenkopf ---------- */
+  .variant{margin-bottom:72px;scroll-margin-top:24px}
+  .vhead{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .vnum{
+    flex:0 0 auto;width:38px;height:38px;border-radius:50%;
+    display:grid;place-items:center;color:#fff;
+    font-family:"Syne",sans-serif;font-weight:700;font-size:17px;
+  }
+  .vtitle{flex:1 1 240px;min-width:0}
+  .vtitle h2{
+    font-family:"Syne",sans-serif;font-weight:700;font-size:22px;
+    letter-spacing:-.01em;line-height:1.2;
+  }
+  .vtitle span{color:var(--muted);font-size:13.5px}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:5px 10px 5px 6px;border:1px solid var(--line);border-radius:6px;
+    background:#fff;font-size:11.5px;font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  }
+  .chip i{width:14px;height:14px;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+
+  /* ---------- Mini-Website ---------- */
+  .demo{
+    background:var(--demo-base);
+    border:1px solid var(--line);
+    border-radius:10px;overflow:hidden;
+    box-shadow:0 18px 40px -28px rgba(0,0,0,.5);
+    container-type:inline-size;
+  }
+
+  .d-nav{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:13px 20px;border-bottom:1px solid rgba(0,0,0,.07);
+  }
+  .d-logo{font-family:"Syne",sans-serif;font-weight:800;font-size:15px;letter-spacing:-.01em;color:var(--p)}
+  .d-links{display:flex;align-items:center;gap:16px;font-size:12.5px;color:var(--p)}
+  .d-links > span:not(.d-btn){opacity:.72}
+  .d-btn{
+    background:var(--cta);color:#fff;border-radius:999px;
+    padding:6px 14px;font-size:12px;font-weight:700;letter-spacing:.01em;
+  }
+
+  .d-hero{position:relative;height:250px;overflow:hidden}
+  .ph{
+    position:absolute;inset:0;
+    background:radial-gradient(120% 90% at 78% 22%, #b9b3a8 0%, #8f897e 42%, #4e4a44 100%);
+  }
+  .ph::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(200deg, rgba(255,255,255,.14) 0 32%, transparent 32.5%),
+      linear-gradient(160deg, rgba(0,0,0,.18) 0 46%, transparent 46.5%);
+    mix-blend-mode:overlay;
+  }
+  .ph-label{
+    position:absolute;right:12px;bottom:10px;z-index:3;
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);
+  }
+  .shade{position:absolute;inset:0;z-index:1}
+  .txt{position:absolute;z-index:2;left:24px;right:24px;bottom:24px;max-width:520px}
+  .eb{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;color:var(--eyebrow)}
+  .txt h3{
+    font-family:"Syne",sans-serif;font-weight:700;color:#fff;
+    font-size:clamp(20px,2.4vw,27px);line-height:1.18;letter-spacing:-.015em;
+  }
+  .cta{display:flex;gap:10px;align-items:center;margin-top:16px}
+  .ghost{
+    border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:999px;
+    padding:6px 14px;font-size:12px;font-weight:500;
+  }
+
+  .d-stats{
+    background:var(--p);color:#fff;
+    display:flex;gap:8px;padding:16px 20px;
+  }
+  .d-stats > div{
+    flex:1;display:flex;flex-direction:column;gap:2px;
+    font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.62);
+  }
+  .d-stats b{
+    font-family:"Syne",sans-serif;font-weight:700;font-size:24px;
+    letter-spacing:-.01em;color:#fff;text-transform:none;
+  }
+
+  .d-body{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+    padding:26px 20px;align-items:center;
+  }
+  .d-11{font-family:"Syne",sans-serif;font-weight:800;font-size:38px;letter-spacing:-.02em;color:var(--p);line-height:1}
+  .d-11 span{color:var(--cta)}
+  .d-cap{font-size:12px;color:rgba(0,0,0,.5);margin:8px 0 14px}
+  .d-bar{display:flex;height:12px;border-radius:3px;overflow:hidden}
+  .d-bar i{display:block;height:100%}
+  .d-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:rgba(0,0,0,.55)}
+  .d-legend span{display:inline-flex;align-items:center;gap:5px}
+  .d-legend em{width:8px;height:8px;border-radius:2px;font-style:normal}
+
+  .d-card{
+    background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:18px 18px 16px;
+  }
+  .d-card .eb{color:var(--cta)}
+  .d-card h4{font-family:"Syne",sans-serif;font-weight:700;font-size:17px;margin-bottom:6px;color:var(--p)}
+  .d-card p{font-size:13px;color:rgba(0,0,0,.6);margin-bottom:12px}
+  .more{font-size:12.5px;font-weight:700;color:var(--p)}
+
+  .d-foot{
+    background:var(--p);color:rgba(255,255,255,.72);
+    padding:13px 20px;font-size:11.5px;
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+
+  .note{
+    margin-top:12px;font-size:13px;color:var(--muted);
+    padding-left:14px;border-left:2px solid var(--line);
+  }
+
+  @container (max-width: 620px){
+    .d-body{grid-template-columns:1fr}
+    .d-links span:not(.d-btn){display:none}
+    .d-hero{height:210px}
+  }
+
+  .outro{
+    margin-top:8px;padding-top:28px;border-top:1px solid var(--line);
+    max-width:66ch;color:var(--muted);font-size:14px;
+  }
+  .outro strong{color:var(--ink)}
+
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lede">
+    <div class="kicker">One for One e.V. · Farbfindung · 14.07.2026</div>
+    <h1>Sieben Varianten,<br>im echten Zusammenhang.</h1>
+    <p>Jede Variante zeigt dasselbe Stück Website: Navigation, Header mit Foto, Zahlenband, das 1→1-Prinzip, eine Projektkarte, Footer. Nur die Farben ändern sich.</p>
+    <p>Das Prinzip in allen sieben: <strong>eine Primärfarbe, eine Spendenfarbe, Creme als Basis.</strong> Der Header steht bewusst gegen ein graues Platzhalterfoto – so lässt sich beurteilen, wie die Farbe neben euren Bildern wirkt, nicht neben einer leeren Fläche.</p>
+    <p>Nr. 6 und 7 sind die Grün-Varianten. Sie stehen ausdrücklich <strong>zur Diskussion</strong>, nachdem Niklas das bisherige Petrol abgelehnt hatte – nicht als Empfehlung.</p>
+  </div>
+
+  <nav class="jump" aria-label="Zu den Varianten springen">
+    <a href="#v1"><i style="background:#1f1e1b"></i>1 · Galerie</a>
+    <a href="#v2"><i style="background:#3d2f24"></i>2 · Espresso</a>
+    <a href="#v3"><i style="background:#26344d"></i>3 · Tinte</a>
+    <a href="#v4"><i style="background:#b5502f"></i>4 · Rost</a>
+    <a href="#v5"><i style="background:#5a5c46"></i>5 · Savanne</a>
+    <a href="#v6"><i style="background:#0e5f66"></i>6 · Petrol</a>
+    <a href="#v7"><i style="background:#23402f"></i>7 · Wald</a>
+  </nav>
+
+  <!-- ============ 1 GALERIE ============ -->
+  <section class="variant" id="v1" style="--p:#1f1e1b;--cta:#c56b4a;--eyebrow:#d9d4c9">
+    <div class="vhead">
+      <div class="vnum" style="background:#1f1e1b">1</div>
+      <div class="vtitle">
+        <h2>Galerie</h2>
+        <span>Anthrazit + Terrakotta · kein Farbton konkurriert mit den Fotos</span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#1f1e1b"></i>#1f1e1b</span>
+        <span class="chip"><i style="background:#c56b4a"></i>#c56b4a</span>
+        <span class="chip"><i style="background:#f5f2ea"></i>#f5f2ea</span>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="d-nav">
+        <span class="d-logo">One for One</span>
+        <div class="d-links"><span>Vor Ort</span><span>Projekte</span><span>Die Kinder</span><span class="d-btn">Spenden</span></div>
+      </div>
+      <div class="d-hero">
+        <div class="ph"></div>
+        <div class="shade" style="background:linear-gradient(90deg,rgba(31,30,27,.88),rgba(31,30,27,.35) 60%,transparent)"></div>
+        <span class="ph-label">Platzhalter Foto</span>
+        <div class="txt">
+          <div class="eb">Korogocho &amp; Mathare · Nairobi</div>
+          <h3>Manchmal braucht es nur <span style="color:#e08b63">kleine Dinge</span>, um die Welt eines Kindes zu verändern.</h3>
+          <div class="cta"><span class="d-btn">Jetzt spenden</span><span class="ghost">Projekte ansehen</span></div>
+        </div>
+      </div>
+      <div class="d-stats">
+        <div><b>237</b>Kinder in der Schule</div>
+        <div><b>2</b>Büchereien</div>
+        <div><b style="color:#e08b63">1 : 1</b>Jeder Euro kommt an</div>
+      </div>
+      <div class="d-body">
+        <div>
+          <div class="d-11">1 <span>→</span> 1</div>
+          <div class="d-cap">So verteilt sich jeder gespendete Euro.</div>
+          <div class="d-bar">
+            <i style="width:82%;background:#1f1e1b"></i><i style="width:10%;background:#5b5850"></i><i style="width:5%;background:#96928a"></i><i style="width:3%;background:#c9c5bd"></i>
+          </div>
+          <div class="d-legend">
+            <span><em style="background:#1f1e1b"></em>Schule</span>
+            <span><em style="background:#5b5850"></em>Büchereien</span>
+            <span><em style="background:#96928a"></em>Porridge</span>
+            <span><em style="background:#c9c5bd"></em>Verwaltung</span>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="eb">Projekte</div>
+          <h4>Die Büchereien</h4>
+          <p>Zwei Orte zum Lesen, Lernen und Ankommen – in Korogocho und Mathare.</p>
+          <span class="more">Mehr erfahren →</span>
+        </div>
+      </div>
+      <div class="d-foot"><span>© 2026 One for One e.V.</span><span>Impressum · Datenschutz</span></div>
+    </div>
+    <p class="note">Am konsequentesten für euren Foto-Anspruch: Die Seite ist der Rahmen, die Bilder sind der Inhalt. Risiko: kann streng wirken, wenn ein Foto mal nicht trägt.</p>
+  </section>
+
+  <!-- ============ 2 ESPRESSO ============ -->
+  <section class="variant" id="v2" style="--p:#3d2f24;--cta:#d47334;--eyebrow:#dcccb9">
+    <div class="vhead">
+      <div class="vnum" style="background:#3d2f24">2</div>
+      <div class="vtitle">
+        <h2>Espresso</h2>
+        <span>Dunkelbraun + gebranntes Orange · warm-monochrom, erdig</span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#3d2f24"></i>#3d2f24</span>
+        <span class="chip"><i style="background:#d47334"></i>#d47334</span>
+        <span class="chip"><i style="background:#f5f2ea"></i>#f5f2ea</span>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="d-nav">
+        <span class="d-logo">One for One</span>
+        <div class="d-links"><span>Vor Ort</span><span>Projekte</span><span>Die Kinder</span><span class="d-btn">Spenden</span></div>
+      </div>
+      <div class="d-hero">
+        <div class="ph"></div>
+        <div class="shade" style="background:linear-gradient(90deg,rgba(61,47,36,.9),rgba(61,47,36,.36) 60%,transparent)"></div>
+        <span class="ph-label">Platzhalter Foto</span>
+        <div class="txt">
+          <div class="eb">Korogocho &amp; Mathare · Nairobi</div>
+          <h3>Manchmal braucht es nur <span style="color:#f0954f">kleine Dinge</span>, um die Welt eines Kindes zu verändern.</h3>
+          <div class="cta"><span class="d-btn">Jetzt spenden</span><span class="ghost">Projekte ansehen</span></div>
+        </div>
+      </div>
+      <div class="d-stats">
+        <div><b>237</b>Kinder in der Schule</div>
+        <div><b>2</b>Büchereien</div>
+        <div><b style="color:#f0954f">1 : 1</b>Jeder Euro kommt an</div>
+      </div>
+      <div class="d-body">
+        <div>
+          <div class="d-11">1 <span>→</span> 1</div>
+          <div class="d-cap">So verteilt sich jeder gespendete Euro.</div>
+          <div class="d-bar">
+            <i style="width:82%;background:#3d2f24"></i><i style="width:10%;background:#6f5b48"></i><i style="width:5%;background:#a08c76"></i><i style="width:3%;background:#d3c5b4"></i>
+          </div>
+          <div class="d-legend">
+            <span><em style="background:#3d2f24"></em>Schule</span>
+            <span><em style="background:#6f5b48"></em>Büchereien</span>
+            <span><em style="background:#a08c76"></em>Porridge</span>
+            <span><em style="background:#d3c5b4"></em>Verwaltung</span>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="eb">Projekte</div>
+          <h4>Die Büchereien</h4>
+          <p>Zwei Orte zum Lesen, Lernen und Ankommen – in Korogocho und Mathare.</p>
+          <span class="more">Mehr erfahren →</span>
+        </div>
+      </div>
+      <div class="d-foot"><span>© 2026 One for One e.V.</span><span>Impressum · Datenschutz</span></div>
+    </div>
+    <p class="note">Die wärmere Schwester von Nr. 1 – am nächsten an eurer bisherigen Bildsprache. Primär- und CTA-Farbe liegen im selben Farbzweig: ruhig, aber der Button ist dadurch leiser als in Nr. 3.</p>
+  </section>
+
+  <!-- ============ 3 TINTE ============ -->
+  <section class="variant" id="v3" style="--p:#26344d;--cta:#c56b4a;--eyebrow:#c3cdda">
+    <div class="vhead">
+      <div class="vnum" style="background:#26344d">3</div>
+      <div class="vtitle">
+        <h2>Tinte</h2>
+        <span>Indigo + Terrakotta · kühl-elegant, starker Kontrast, ohne Grün</span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#26344d"></i>#26344d</span>
+        <span class="chip"><i style="background:#c56b4a"></i>#c56b4a</span>
+        <span class="chip"><i style="background:#f5f2ea"></i>#f5f2ea</span>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="d-nav">
+        <span class="d-logo">One for One</span>
+        <div class="d-links"><span>Vor Ort</span><span>Projekte</span><span>Die Kinder</span><span class="d-btn">Spenden</span></div>
+      </div>
+      <div class="d-hero">
+        <div class="ph"></div>
+        <div class="shade" style="background:linear-gradient(90deg,rgba(38,52,77,.88),rgba(38,52,77,.35) 60%,transparent)"></div>
+        <span class="ph-label">Platzhalter Foto</span>
+        <div class="txt">
+          <div class="eb">Korogocho &amp; Mathare · Nairobi</div>
+          <h3>Manchmal braucht es nur <span style="color:#e58f68">kleine Dinge</span>, um die Welt eines Kindes zu verändern.</h3>
+          <div class="cta"><span class="d-btn">Jetzt spenden</span><span class="ghost">Projekte ansehen</span></div>
+        </div>
+      </div>
+      <div class="d-stats">
+        <div><b>237</b>Kinder in der Schule</div>
+        <div><b>2</b>Büchereien</div>
+        <div><b style="color:#e08b63">1 : 1</b>Jeder Euro kommt an</div>
+      </div>
+      <div class="d-body">
+        <div>
+          <div class="d-11">1 <span>→</span> 1</div>
+          <div class="d-cap">So verteilt sich jeder gespendete Euro.</div>
+          <div class="d-bar">
+            <i style="width:82%;background:#26344d"></i><i style="width:10%;background:#5a6a83"></i><i style="width:5%;background:#93a0b3"></i><i style="width:3%;background:#c6cdd8"></i>
+          </div>
+          <div class="d-legend">
+            <span><em style="background:#26344d"></em>Schule</span>
+            <span><em style="background:#5a6a83"></em>Büchereien</span>
+            <span><em style="background:#93a0b3"></em>Porridge</span>
+            <span><em style="background:#c6cdd8"></em>Verwaltung</span>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="eb">Projekte</div>
+          <h4>Die Büchereien</h4>
+          <p>Zwei Orte zum Lesen, Lernen und Ankommen – in Korogocho und Mathare.</p>
+          <span class="more">Mehr erfahren →</span>
+        </div>
+      </div>
+      <div class="d-foot"><span>© 2026 One for One e.V.</span><span>Impressum · Datenschutz</span></div>
+    </div>
+    <p class="note">Der stärkste Kontrast der fünf – der Spenden-Button springt am deutlichsten heraus. Kühl; wirkt eher europäisch-institutionell als nach Nairobi.</p>
+  </section>
+
+  <!-- ============ 4 ROST ============ -->
+  <section class="variant" id="v4" style="--p:#b5502f;--cta:#1f1e1b;--eyebrow:#f2cdbd">
+    <div class="vhead">
+      <div class="vnum" style="background:#b5502f">4</div>
+      <div class="vtitle">
+        <h2>Rost</h2>
+        <span>Terrakotta als Markenfarbe + Anthrazit-Button</span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#b5502f"></i>#b5502f</span>
+        <span class="chip"><i style="background:#1f1e1b"></i>#1f1e1b</span>
+        <span class="chip"><i style="background:#f5f2ea"></i>#f5f2ea</span>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="d-nav">
+        <span class="d-logo">One for One</span>
+        <div class="d-links"><span>Vor Ort</span><span>Projekte</span><span>Die Kinder</span><span class="d-btn">Spenden</span></div>
+      </div>
+      <div class="d-hero">
+        <div class="ph"></div>
+        <div class="shade" style="background:linear-gradient(90deg,rgba(129,54,30,.9),rgba(129,54,30,.34) 60%,transparent)"></div>
+        <span class="ph-label">Platzhalter Foto</span>
+        <div class="txt">
+          <div class="eb">Korogocho &amp; Mathare · Nairobi</div>
+          <h3>Manchmal braucht es nur <span style="color:#f6d9c9">kleine Dinge</span>, um die Welt eines Kindes zu verändern.</h3>
+          <div class="cta"><span class="d-btn">Jetzt spenden</span><span class="ghost">Projekte ansehen</span></div>
+        </div>
+      </div>
+      <div class="d-stats">
+        <div><b>237</b>Kinder in der Schule</div>
+        <div><b>2</b>Büchereien</div>
+        <div><b style="color:#f6d9c9">1 : 1</b>Jeder Euro kommt an</div>
+      </div>
+      <div class="d-body">
+        <div>
+          <div class="d-11">1 <span>→</span> 1</div>
+          <div class="d-cap">So verteilt sich jeder gespendete Euro.</div>
+          <div class="d-bar">
+            <i style="width:82%;background:#b5502f"></i><i style="width:10%;background:#cd7f63"></i><i style="width:5%;background:#e0aa96"></i><i style="width:3%;background:#efd7cc"></i>
+          </div>
+          <div class="d-legend">
+            <span><em style="background:#b5502f"></em>Schule</span>
+            <span><em style="background:#cd7f63"></em>Büchereien</span>
+            <span><em style="background:#e0aa96"></em>Porridge</span>
+            <span><em style="background:#efd7cc"></em>Verwaltung</span>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="eb">Projekte</div>
+          <h4>Die Büchereien</h4>
+          <p>Zwei Orte zum Lesen, Lernen und Ankommen – in Korogocho und Mathare.</p>
+          <span class="more">Mehr erfahren →</span>
+        </div>
+      </div>
+      <div class="d-foot"><span>© 2026 One for One e.V.</span><span>Impressum · Datenschutz</span></div>
+    </div>
+    <p class="note">Die einzige Variante mit einer echten, wiedererkennbaren Markenfarbe – gut fürs Gedächtnis, riskant neben Fotos, in denen Erd- und Rottöne ohnehin dominieren. Der Header-Verlauf musste hier abgedunkelt werden, sonst trägt der weiße Text nicht.</p>
+  </section>
+
+  <!-- ============ 5 SAVANNE ============ -->
+  <section class="variant" id="v5" style="--p:#5a5c46;--cta:#cf9f52;--eyebrow:#d8d5c3">
+    <div class="vhead">
+      <div class="vnum" style="background:#5a5c46">5</div>
+      <div class="vtitle">
+        <h2>Savanne</h2>
+        <span>Olivgrau + Ocker · sehr gedeckt, staubig</span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#5a5c46"></i>#5a5c46</span>
+        <span class="chip"><i style="background:#cf9f52"></i>#cf9f52</span>
+        <span class="chip"><i style="background:#f5f2ea"></i>#f5f2ea</span>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="d-nav">
+        <span class="d-logo">One for One</span>
+        <div class="d-links"><span>Vor Ort</span><span>Projekte</span><span>Die Kinder</span><span class="d-btn" style="color:#2b2c20">Spenden</span></div>
+      </div>
+      <div class="d-hero">
+        <div class="ph"></div>
+        <div class="shade" style="background:linear-gradient(90deg,rgba(45,47,34,.9),rgba(45,47,34,.36) 60%,transparent)"></div>
+        <span class="ph-label">Platzhalter Foto</span>
+        <div class="txt">
+          <div class="eb">Korogocho &amp; Mathare · Nairobi</div>
+          <h3>Manchmal braucht es nur <span style="color:#e3b96f">kleine Dinge</span>, um die Welt eines Kindes zu verändern.</h3>
+          <div class="cta"><span class="d-btn" style="color:#2b2c20">Jetzt spenden</span><span class="ghost">Projekte ansehen</span></div>
+        </div>
+      </div>
+      <div class="d-stats">
+        <div><b>237</b>Kinder in der Schule</div>
+        <div><b>2</b>Büchereien</div>
+        <div><b style="color:#e3b96f">1 : 1</b>Jeder Euro kommt an</div>
+      </div>
+      <div class="d-body">
+        <div>
+          <div class="d-11">1 <span>→</span> 1</div>
+          <div class="d-cap">So verteilt sich jeder gespendete Euro.</div>
+          <div class="d-bar">
+            <i style="width:82%;background:#5a5c46"></i><i style="width:10%;background:#83856d"></i><i style="width:5%;background:#aeaf9a"></i><i style="width:3%;background:#d6d6c8"></i>
+          </div>
+          <div class="d-legend">
+            <span><em style="background:#5a5c46"></em>Schule</span>
+            <span><em style="background:#83856d"></em>Büchereien</span>
+            <span><em style="background:#aeaf9a"></em>Porridge</span>
+            <span><em style="background:#d6d6c8"></em>Verwaltung</span>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="eb">Projekte</div>
+          <h4>Die Büchereien</h4>
+          <p>Zwei Orte zum Lesen, Lernen und Ankommen – in Korogocho und Mathare.</p>
+          <span class="more">Mehr erfahren →</span>
+        </div>
+      </div>
+      <div class="d-foot"><span>© 2026 One for One e.V.</span><span>Impressum · Datenschutz</span></div>
+    </div>
+    <p class="note">Nur relevant, falls „kein Grün“ nicht auch Olive meint. Der Ocker-Button braucht dunkle Schrift, sonst reicht der Kontrast nicht – dadurch wirkt der CTA weicher als in allen anderen Varianten.</p>
+  </section>
+
+  <!-- ============ 6 PETROL ============ -->
+  <section class="variant" id="v6" style="--p:#0e5f66;--cta:#d47334;--eyebrow:#a8ccd0">
+    <div class="vhead">
+      <div class="vnum" style="background:#0e5f66">6</div>
+      <div class="vtitle">
+        <h2>Petrol</h2>
+        <span>Zur Diskussion · euer bisheriges Petrol, aber ohne das dritte Gelb</span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#0e5f66"></i>#0e5f66</span>
+        <span class="chip"><i style="background:#d47334"></i>#d47334</span>
+        <span class="chip"><i style="background:#f5f2ea"></i>#f5f2ea</span>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="d-nav">
+        <span class="d-logo">One for One</span>
+        <div class="d-links"><span>Vor Ort</span><span>Projekte</span><span>Die Kinder</span><span class="d-btn">Spenden</span></div>
+      </div>
+      <div class="d-hero">
+        <div class="ph"></div>
+        <div class="shade" style="background:linear-gradient(90deg,rgba(14,95,102,.9),rgba(14,95,102,.36) 60%,transparent)"></div>
+        <span class="ph-label">Platzhalter Foto</span>
+        <div class="txt">
+          <div class="eb">Korogocho &amp; Mathare · Nairobi</div>
+          <h3>Manchmal braucht es nur <span style="color:#f0954f">kleine Dinge</span>, um die Welt eines Kindes zu verändern.</h3>
+          <div class="cta"><span class="d-btn">Jetzt spenden</span><span class="ghost">Projekte ansehen</span></div>
+        </div>
+      </div>
+      <div class="d-stats">
+        <div><b>237</b>Kinder in der Schule</div>
+        <div><b>2</b>Büchereien</div>
+        <div><b style="color:#f0954f">1 : 1</b>Jeder Euro kommt an</div>
+      </div>
+      <div class="d-body">
+        <div>
+          <div class="d-11">1 <span>→</span> 1</div>
+          <div class="d-cap">So verteilt sich jeder gespendete Euro.</div>
+          <div class="d-bar">
+            <i style="width:82%;background:#0e5f66"></i><i style="width:10%;background:#4c8a8f"></i><i style="width:5%;background:#8ab3b7"></i><i style="width:3%;background:#c4dadc"></i>
+          </div>
+          <div class="d-legend">
+            <span><em style="background:#0e5f66"></em>Schule</span>
+            <span><em style="background:#4c8a8f"></em>Büchereien</span>
+            <span><em style="background:#8ab3b7"></em>Porridge</span>
+            <span><em style="background:#c4dadc"></em>Verwaltung</span>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="eb">Projekte</div>
+          <h4>Die Büchereien</h4>
+          <p>Zwei Orte zum Lesen, Lernen und Ankommen – in Korogocho und Mathare.</p>
+          <span class="more">Mehr erfahren →</span>
+        </div>
+      </div>
+      <div class="d-foot"><span>© 2026 One for One e.V.</span><span>Impressum · Datenschutz</span></div>
+    </div>
+    <p class="note">Das ist die bestehende Seite minus das Gelb – also die Frage, ob das Problem wirklich das Petrol war oder die dritte Farbe. Petrol und Orange stehen komplementär zueinander: der Button knallt, ohne dass eine vierte Farbe nötig wird.</p>
+  </section>
+
+  <!-- ============ 7 WALD ============ -->
+  <section class="variant" id="v7" style="--p:#23402f;--cta:#c56b4a;--eyebrow:#bcccc0">
+    <div class="vhead">
+      <div class="vnum" style="background:#23402f">7</div>
+      <div class="vtitle">
+        <h2>Wald</h2>
+        <span>Zur Diskussion · sehr dunkles Grün + Terrakotta, fast so ruhig wie Anthrazit</span>
+      </div>
+      <div class="chips">
+        <span class="chip"><i style="background:#23402f"></i>#23402f</span>
+        <span class="chip"><i style="background:#c56b4a"></i>#c56b4a</span>
+        <span class="chip"><i style="background:#f5f2ea"></i>#f5f2ea</span>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="d-nav">
+        <span class="d-logo">One for One</span>
+        <div class="d-links"><span>Vor Ort</span><span>Projekte</span><span>Die Kinder</span><span class="d-btn">Spenden</span></div>
+      </div>
+      <div class="d-hero">
+        <div class="ph"></div>
+        <div class="shade" style="background:linear-gradient(90deg,rgba(35,64,47,.9),rgba(35,64,47,.36) 60%,transparent)"></div>
+        <span class="ph-label">Platzhalter Foto</span>
+        <div class="txt">
+          <div class="eb">Korogocho &amp; Mathare · Nairobi</div>
+          <h3>Manchmal braucht es nur <span style="color:#e58f68">kleine Dinge</span>, um die Welt eines Kindes zu verändern.</h3>
+          <div class="cta"><span class="d-btn">Jetzt spenden</span><span class="ghost">Projekte ansehen</span></div>
+        </div>
+      </div>
+      <div class="d-stats">
+        <div><b>237</b>Kinder in der Schule</div>
+        <div><b>2</b>Büchereien</div>
+        <div><b style="color:#e58f68">1 : 1</b>Jeder Euro kommt an</div>
+      </div>
+      <div class="d-body">
+        <div>
+          <div class="d-11">1 <span>→</span> 1</div>
+          <div class="d-cap">So verteilt sich jeder gespendete Euro.</div>
+          <div class="d-bar">
+            <i style="width:82%;background:#23402f"></i><i style="width:10%;background:#5b7a66"></i><i style="width:5%;background:#95ab9d"></i><i style="width:3%;background:#ccd8d0"></i>
+          </div>
+          <div class="d-legend">
+            <span><em style="background:#23402f"></em>Schule</span>
+            <span><em style="background:#5b7a66"></em>Büchereien</span>
+            <span><em style="background:#95ab9d"></em>Porridge</span>
+            <span><em style="background:#ccd8d0"></em>Verwaltung</span>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="eb">Projekte</div>
+          <h4>Die Büchereien</h4>
+          <p>Zwei Orte zum Lesen, Lernen und Ankommen – in Korogocho und Mathare.</p>
+          <span class="more">Mehr erfahren →</span>
+        </div>
+      </div>
+      <div class="d-foot"><span>© 2026 One for One e.V.</span><span>Impressum · Datenschutz</span></div>
+    </div>
+    <p class="note">So dunkel, dass es sich fast wie Nr. 1 verhält – es tritt hinter die Fotos zurück und liest sich erst auf den zweiten Blick als Grün. Bewusst nicht das Logo-Grün <code>#136a2f</code>, das ist zu satt und wandert im Header Richtung Signalfarbe.</p>
+  </section>
+
+  <p class="outro">
+    <strong>Zum Vergleich:</strong> Fotos sind Platzhalter (neutrales Grau), damit die Farbe und nicht das Motiv beurteilt wird. Zahlen und Texte sind aus der bestehenden Website übernommen – falls sich Werte geändert haben, bitte melden.<br><br>
+    Sag mir eine Nummer, dann baue ich sie in die echte Website ein – zusammen mit den Pop-up-Kacheln auf der Startseite.
+  </p>
+
+</div>
+</body>
+</html>

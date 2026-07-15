@@ -14,7 +14,7 @@ Statische Multipage-Website (GitHub Pages tauglich). Farbwelt "Savanne" (Olivgra
 
 ## Noch offen / prüfen
 - Schulessen: Spendentext sagt 1,50 EUR/Woche, Kostentabelle "ab 1 EUR/Woche" - bitte klaeren
-- Mathare-Karte: per Ortssuche eingebunden, Pin pruefen (Kurzlink nicht aufloesbar)
 - Echte Fotos statt "Foto folgt" (Team, Korogocho, Mathare, Kinder-Akkordeon, Hausaufgaben-Kachel)
 - Datenschutzerklaerung juristisch pruefen lassen
 - Englische Version (geplant als /en/-Ordner mit Sprachumschalter)
+- Videos Team-Seite (MP4 selbst gehostet empfohlen)

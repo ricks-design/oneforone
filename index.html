@@ -13,7 +13,8 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html"><img src="bilder/logo.png" alt="One for One Logo"><span>One for One</span></a>
-    <div class="nav-links"><a href="index.html" class="active">Home</a><a href="leben-in-kenia.html">Vor Ort</a><a href="projekte.html">Projekte</a><a href="kinder.html">Die Kinder</a><a href="community-center.html">Community Center</a><a href="team.html">Team</a><a class="btn-donate" href="spenden.html">Spenden</a></div>
+    <div class="nav-links"><a href="index.html" class="active">Home</a><a href="leben-in-kenia.html">Vor Ort</a><a href="projekte.html">Projekte</a><a href="kinder.html">Die Kinder</a><a href="community-center.html">Community Center</a><a href="team.html">Team</a></div>
+    <a class="btn-donate nav-cta" href="spenden.html">Spenden</a>
     <button class="burger" id="burger" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -43,11 +44,11 @@
     <div class="stat"><div class="num"><span class="accent">1 : 1</span></div><div class="lbl">Jeder Euro geht direkt an die Kinder</div></div>
   </div>
   <div class="wrap growth">
-    <div style="font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#cfcdb8">Geförderte Kinder pro Jahr</div>
+    <div class="growth-label">Geförderte Kinder pro Jahr</div>
     <div class="growth-bars">
-      <div class="gbar"><div class="fill" data-h="40px"><span class="val">53</span></div><div class="yr" style="color:rgba(245,242,234,.7)">2024</div></div>
-      <div class="gbar"><div class="fill" data-h="128px"><span class="val">168</span></div><div class="yr" style="color:rgba(245,242,234,.7)">2025</div></div>
-      <div class="gbar"><div class="fill" data-h="180px"><span class="val">237</span></div><div class="yr" style="color:rgba(245,242,234,.7)">2026</div></div>
+      <div class="gbar"><div class="fill" data-h="40px"><span class="val">53</span></div><div class="yr">2024</div></div>
+      <div class="gbar"><div class="fill" data-h="128px"><span class="val">168</span></div><div class="yr">2025</div></div>
+      <div class="gbar"><div class="fill" data-h="180px"><span class="val">237</span></div><div class="yr">2026</div></div>
     </div>
   </div>
 </div>
@@ -85,18 +86,18 @@
       <button class="tile" data-modal="schulbildung"><div class="thumb"><img src="bilder/kachel-schule.jpg" alt="Lernen"></div><div class="t-body"><h3>Schulbildung</h3><p>Schulgebühren, Uniformen, Bücher – wir räumen die Hürden aus dem Weg.</p><span class="more">Mehr erfahren →</span></div></button>
       <button class="tile" data-modal="porridge"><div class="thumb"><img src="bilder/kachel-porridge.jpg" alt="Porridge-Ausgabe"></div><div class="t-body"><h3>Porridge-Programm</h3><p>Jeden Samstag eine warme Mahlzeit für 150–250 Kinder.</p><span class="more">Mehr erfahren →</span></div></button>
       <button class="tile" data-modal="center"><div class="thumb"><img src="bilder/kachel-center.jpg" alt="Skizze Community Center"></div><div class="t-body"><h3>Community Center</h3><p>400 m² für die Zukunft: Bibliothek, Unterricht, Nähraum, Küche.</p><span class="more">Mehr erfahren →</span></div></button>
-      <button class="tile" data-modal="naehprojekt"><div class="thumb"><img src="bilder/kachel-naehen.jpg" alt="Nähprojekt"></div><div class="t-body"><h3>Nähprojekt</h3><p>Fähigkeiten, die bleiben – und ein Einkommen für Familien.</p><span class="more">Mehr erfahren →</span></div></button>
+      <button class="tile" data-modal="naehprojekt"><div class="thumb"><img src="bilder/kachel-naehen.jpg" alt="Nähprojekt"></div><div class="t-body"><h3>Nähprojekt</h3><p>Maureen und Linet nähen im Raum neben der Bücherei in Korogocho.</p><span class="more">Mehr erfahren →</span></div></button>
       <button class="tile" data-modal="hausaufgaben"><div class="thumb placeholder">✏️</div><div class="t-body"><h3>Hausaufgabenbetreuung</h3><p>Unterstützung beim Lernen – von Menschen aus der Nachbarschaft.</p><span class="more">Mehr erfahren →</span></div></button>
     </div>
   </div></section>
 
-<section class="calc" id="wirkung"><div class="wrap">
+<section class="calc"><div class="wrap">
     <div class="eyebrow">Wirkungsrechner</div>
     <h2>Was deine Spende konkret bewegt</h2>
     <div class="calc-box">
       <div>
         <div class="calc-amount"><span id="amount">25</span>&nbsp;€</div>
-        <input type="range" id="slider" min="5" max="200" step="5" value="25" aria-label="Spendenbetrag">
+        <input type="range" id="slider" class="impact-slider" min="5" max="200" step="5" value="25" aria-label="Spendenbetrag">
         <div class="calc-presets"><button class="preset" data-v="10">10 €</button><button class="preset active" data-v="25">25 €</button><button class="preset" data-v="65">65 €</button><button class="preset" data-v="100">100 €</button></div>
       </div>
       <div>
@@ -116,7 +117,17 @@
       <div class="story"><p class="q">Caroline zieht vier Kinder allein groß – mit Samosas und Wäschewaschen. Ihre älteste Tochter hat gerade die weiterführende Schule abgeschlossen.</p><div class="who">Caroline Atieno</div><div class="role">Frauenpower in Korogocho</div></div>
       <div class="story"><p class="q">Vickstone hat im Examen so gut abgeschnitten, dass er ein Regierungsstipendium erhielt – unser erster Stipendiat besucht nun ein sehr gutes Internat in Nairobi.</p><div class="who">Vickstone</div><div class="role">Erster One-for-One-Stipendiat</div></div>
     </div>
-    <div style="margin-top:32px"><a class="btn-solid" href="kinder.html">Mehr Geschichten</a></div>
+    <div style="margin-top:32px"><a class="btn-solid" href="kinder.html">Alle Geschichten lesen</a></div>
+  </div></section>
+
+<section class="eventband"><div class="wrap eventband-inner">
+    <div class="ev-date"><b>26.</b><span>Juli</span></div>
+    <div class="ev-txt">
+      <div class="eyebrow">Save the Date</div>
+      <h2>Sommerfest &amp; Benefizkonzert in Traunstein</h2>
+      <p>Am Sonntag, 26. Juli, ab 14 Uhr feiern wir in Traunstein – mit stimmungsvoller Musik, gutem Essen und einer Tombola. Hauptgewinn: eine Übernachtung in einem Viersternehotel in Südtirol. Auch Teddy und Allan aus Nairobi sind zu Gast. Alle Erlöse gehen an One for One.</p>
+    </div>
+    <a class="btn-paten" href="https://www.instagram.com/one4one_ev/" target="_blank" rel="noopener">Details auf Instagram</a>
   </div></section>
 
 <section style="background:var(--white);border-top:1px solid var(--sand)"><div class="wrap">
@@ -125,14 +136,14 @@
       <div><img src="bilder/kachel-center.jpg" alt="Skizze des geplanten Community Centers" style="border-radius:var(--radius);border:1px solid var(--sand)"></div>
       <div>
         <h2>Auf 400 m² entsteht ein Ort für die ganze Community</h2>
-        <p class="lead">Dank einer Großspende konnten wir mitten in Korogocho ein Grundstück erwerben. Hier soll ein Zentrum für Kinder und Jugendliche entstehen – zum Lernen, Spielen, Arbeiten und Zusammenkommen.</p>
+        <p class="lead">Das Grundstück mitten in Korogocho ist gekauft, die Abrissarbeiten haben begonnen. Hier entsteht ein Zentrum für Kinder und Jugendliche – zum Lernen, Spielen, Arbeiten und Zusammenkommen.</p>
         <div style="margin-top:26px"><a class="btn-solid" href="community-center.html">Zum Bau-Tagebuch</a></div>
       </div>
     </div>
   </div></section>
 
 <section class="gallery-sec" style="background:var(--ink)"><div class="wrap">
-    <div class="eyebrow" style="color:#ecdcb8">Einblicke</div>
+    <div class="eyebrow" style="color:#cfcdb8">Einblicke</div>
     <h2 style="color:#fff">Momente aus Korogocho &amp; Mathare</h2>
     <div class="mosaic" id="mosaic">
       <figure class="big" data-cap="Vor der One for One Library – Treffpunkt des Viertels."><img src="bilder/galerie-bibliothek.jpg" alt="Bibliothek"><figcaption>One for One Library</figcaption></figure>
@@ -141,6 +152,18 @@
       <figure data-cap="Im Nähprojekt entstehen Fähigkeiten, die bleiben."><img src="bilder/galerie-naehen.jpg" alt="Nähprojekt"><figcaption>Nähprojekt</figcaption></figure>
       <figure class="wide" data-cap="Korogocho, Nairobi – hier sind wir zuhause."><img src="bilder/galerie-strasse.jpg" alt="Straße"><figcaption>Korogocho</figcaption></figure>
       <figure class="wide" data-cap="Kind sein dürfen – mitten im Alltag."><img src="bilder/galerie-spiel.jpg" alt="Spielen"><figcaption>Einfach Kind sein</figcaption></figure>
+    </div>
+  </div></section>
+
+<section id="faq"><div class="wrap">
+    <div class="eyebrow">Häufige Fragen</div>
+    <h2>Gut zu wissen</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Kommt meine Spende wirklich vollständig an?</button><div class="faq-a"><div>Ja. One for One arbeitet komplett ehrenamtlich – keine Gehälter, keine Verwaltungskosten. Deine Spende geht per Onlineüberweisung direkt an unser Team in Kenia. Lediglich für die Überweisung fallen minimale Bankgebühren an (ca. 0,5&thinsp;% des Gesamtspendenvolumens).</div></div></div>
+      <div class="faq-item"><button class="faq-q">Woher wisst ihr, dass das Geld korrekt verwendet wird?</button><div class="faq-a"><div>Die Schulgebühren werden von unserem Team vor Ort pro Term direkt an die Schulen gezahlt – das Geld läuft nicht über die Familien. Mit Teddy und Joseph stehen wir in engem, praktisch täglichem Austausch, und Vereinsmitglieder besuchen die Projekte regelmäßig persönlich. Über Newsletter und Instagram berichten wir transparent, was mit den Spenden passiert.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Bekomme ich eine Spendenbescheinigung?</button><div class="faq-a"><div>Als eingetragener gemeinnütziger Verein stellen wir dir auf Wunsch eine Zuwendungsbestätigung aus. Gib bei der Überweisung deine Adresse an oder melde dich per E-Mail.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Wie funktioniert eine Patenschaft?</button><div class="faq-a"><div>Mit einer regelmäßigen Spende begleitest du gezielt ein Kind – idealerweise durch die gesamte Schullaufbahn. Schreib uns an info@one-for.one, dann besprechen wir alle Details und finden eine passende Patenschaft. Aktuell werden bereits 62 Kinder durch direkte Patenschaften gefördert.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Wie bleibe ich auf dem Laufenden?</button><div class="faq-a"><div>Über Instagram (@one4one_ev) und unseren WhatsApp-Kanal teilen wir regelmäßig Updates aus Korogocho und Mathare – dazu ein bis zwei ausführliche Newsletter im Jahr.</div></div></div>
     </div>
   </div></section>
 
@@ -162,7 +185,7 @@
     </div>
     <div>
       <h4>Spendenkonto</h4>
-      <div class="f-iban">One for One e.V.<br>VR-Bank Altenburger Land / Skatbank<br>IBAN: DE59 8306 5408 0005 4428 18<br>BIC: GENODEF1SLR</div>
+      <div class="f-iban">One for One e.V.<br>VR-Bank Altenburger Land / Skatbank<br><span class="nowrap">IBAN: DE59 8306 5408 0005 4428 18</span><br>BIC: GENODEF1SLR</div>
     </div>
   </div>
   <div class="f-bottom">

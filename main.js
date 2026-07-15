@@ -39,10 +39,14 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   bars.forEach(b=>io.observe(b));
 })();
 
-/* FAQ */
+/* FAQ + Kinder-Akkordeon (gleiches Muster) */
 document.querySelectorAll('.faq-item').forEach(it=>{
   const q=it.querySelector('.faq-q'),a=it.querySelector('.faq-a');
   q.addEventListener('click',()=>{const open=it.classList.toggle('open');a.style.maxHeight=open?a.scrollHeight+'px':null});
+});
+document.querySelectorAll('.sacc-item').forEach(it=>{
+  const q=it.querySelector('.sacc-head'),a=it.querySelector('.sacc-body');
+  q.addEventListener('click',()=>{const open=it.classList.toggle('open');a.style.maxHeight=open?a.scrollHeight+'px':null;q.setAttribute('aria-expanded',open)});
 });
 
 /* IBAN kopieren */
@@ -53,10 +57,8 @@ function copyIban(btn){
 }
 window.copyIban=copyIban;
 
-/* Wirkungsrechner */
+/* Wirkungsrechner – unterstützt mehrere Instanzen pro Seite */
 (function(){
-  const slider=document.getElementById('slider');if(!slider)return;
-  const amountEl=document.getElementById('amount'),resultEl=document.getElementById('result');
   function impact(v){const l=[];
     if(v<10){l.push(["🎒","<strong>Ein Term Schulgebühren</strong> für ein Kind (ab 8 €)"]);l.push(["📖","Examensgebühr + Schulbücher für ein Jahr"]);}
     else if(v<25){l.push(["🍲","<strong>"+Math.floor(v)+" Wochen Schulessen</strong> – Frühstück und Mittagessen (1 €/Woche)"]);l.push(["👞","Oder: ein Paar Schulschuhe + Rucksack"]);}
@@ -64,10 +66,15 @@ window.copyIban=copyIban;
     else if(v<100){l.push(["⭐","<strong>Ein komplettes Schuljahr</strong> für ein Kind – Gebühren, Essen und Material (ca. 65 €)"]);l.push(["🥣","Oder: Porridge-Zutaten für mehrere Samstage"]);}
     else{const f=Math.floor(v/65);l.push(["⭐","<strong>"+f+" "+(f===1?"komplettes Schuljahr":"komplette Schuljahre")+"</strong> – Gebühren, Essen und Material"]);l.push(["🪑","Oder: "+Math.floor(v/25)+" Schulbänke mit Stuhl fürs Klassenzimmer"]);}
     return l.map(x=>'<div class="line"><span class="ico">'+x[0]+'</span><span>'+x[1]+'</span></div>').join('');}
-  function upd(v){amountEl.textContent=v;resultEl.innerHTML=impact(+v);document.querySelectorAll('.preset').forEach(p=>p.classList.toggle('active',+p.dataset.v===+v));}
-  slider.addEventListener('input',e=>upd(e.target.value));
-  document.querySelectorAll('.preset').forEach(p=>p.addEventListener('click',()=>{slider.value=p.dataset.v;upd(p.dataset.v)}));
-  upd(25);
+  document.querySelectorAll('.impact-slider').forEach(slider=>{
+    const box=slider.closest('.calc-box');if(!box)return;
+    const amountEl=box.querySelector('[id^="amount"]'),resultEl=box.querySelector('[id^="result"]');
+    const presets=box.querySelectorAll('.preset');
+    function upd(v){amountEl.textContent=v;resultEl.innerHTML=impact(+v);presets.forEach(p=>p.classList.toggle('active',+p.dataset.v===+v));}
+    slider.addEventListener('input',e=>upd(e.target.value));
+    presets.forEach(p=>p.addEventListener('click',()=>{slider.value=p.dataset.v;upd(p.dataset.v)}));
+    upd(slider.value);
+  });
 })();
 
 /* Galerie Lightbox */
@@ -101,10 +108,10 @@ window.copyIban=copyIban;
       body:'<p>Mangelernährung ist in den Slums von Nairobi Alltag. Deshalb gibt es jeden Samstag in Ngomongo, Korogocho, eine Porridge-Ausgabe.</p><p>Was als Initiative des Teams vor Ort begann, versorgt heute 150 bis 250 Kinder pro Woche mit einer warmen Mahlzeit.</p><div class="m-fact">Zusätzlich hat das Team eine große Lebensmittelspende über Foodbank Kenya organisiert.</div>',
       href:'projekte.html#porridge',label:'Zum Porridge-Programm'},
     center:{img:'bilder/kachel-center.jpg',title:'Community Center',
-      body:'<p>Dank einer Großspende konnten wir mitten im Herzen von Korogocho ein rund 400 m² großes Grundstück erwerben. Hier soll ein Zentrum für Kinder und Jugendliche entstehen.</p><p>Geplant sind Bibliothek, Unterrichtsraum, Nähraum, Küche, Büro, Toiletten, Spielraum und ein Außenbereich.</p><div class="m-fact">Nächster Schritt: Der Entwurf wird von einem Architekturbüro ausgearbeitet.</div>',
+      body:'<p>Dank einer Großspende konnten wir mitten im Herzen von Korogocho ein rund 400 m² großes Grundstück erwerben. Die Abrissarbeiten haben begonnen, ein zweiter Architekten-Entwurf wird ausgearbeitet.</p><p>Geplant sind Bibliothek, Unterrichtsraum, Nähraum, Küche, Büro, Toiletten, Spielraum und ein Außenbereich.</p><div class="m-fact">Im Bau-Tagebuch begleitet ihr jeden Schritt – vom Grundstück bis zur Eröffnung.</div>',
       href:'community-center.html',label:'Zum Bau-Tagebuch'},
     naehprojekt:{img:'bilder/kachel-naehen.jpg',title:'Nähprojekt',
-      body:'<p>Bildung endet nicht im Klassenzimmer. Im Nähprojekt lernen Frauen und Jugendliche ein Handwerk, das Einkommen und Unabhängigkeit schafft.</p><p>Koordiniert wird es von Maureen, die auch das Porridge-Programm betreut.</p><div class="m-fact">Im künftigen Community Center bekommt das Nähprojekt einen eigenen Raum.</div>',
+      body:'<p>In einem Raum direkt neben der Bücherei in Korogocho nähen Maureen und Linet – das Nähen beigebracht hat den beiden Marion.</p><p>Heute arbeiten sie eigenständig und schaffen sich damit ein eigenes Einkommen.</p><div class="m-fact">Im künftigen Community Center bekommt das Nähprojekt einen eigenen, größeren Raum.</div>',
       href:'projekte.html#naehprojekt',label:'Mehr zum Nähprojekt'},
     hausaufgaben:{img:null,title:'Hausaufgabenbetreuung',
       body:'<p>Zuhause fehlt oft der Platz, das Licht oder die Ruhe zum Lernen. In unseren Büchereien finden die Kinder beides – und Menschen, die ihnen helfen.</p><p>Unsere Mentorinnen und Mentoren kommen selbst aus Korogocho und Mathare.</p><div class="m-fact">In den Schulferien bieten wir zusätzliche Nachhilfeprogramme an.</div>',

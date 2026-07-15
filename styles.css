@@ -73,11 +73,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(245,242,234,.9);backdrop-f
 .stat .num .accent{color:var(--amber)}
 .stat .lbl{font-size:15px;margin-top:10px;color:rgba(245,242,234,.66)}
 .growth{margin-top:8px}
+.growth-label{font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#cfcdb8}
 .growth-bars{display:flex;align-items:flex-end;gap:26px;height:180px;margin-top:36px;max-width:520px}
 .gbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
 .gbar .fill{width:100%;background:linear-gradient(180deg,#6d6f55,var(--green));border-radius:10px 10px 0 0;height:0;transition:height 1.1s cubic-bezier(.4,0,.2,1);display:flex;align-items:flex-start;justify-content:center}
 .gbar .val{font-family:'Syne';font-weight:800;font-size:22px;color:#fff;margin-top:10px}
-.gbar .yr{margin-top:12px;font-size:14px;color:rgba(24,26,23,.6);font-weight:600}
+.gbar .yr{margin-top:12px;font-size:14px;color:rgba(245,242,234,.7);font-weight:600}
 
 /* 1:1 + Geldfluss */
 .one2one{background:var(--white);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand)}
@@ -318,3 +319,57 @@ footer a:hover{color:#fff}
 .maps2 .mapbox{height:300px;margin-top:10px}
 .maplabel{font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(38,38,28,.55)}
 @media(max-width:920px){.maps2{grid-template-columns:1fr}}
+
+/* ---------- Nachtrag: neue Elemente ---------- */
+.nowrap{white-space:nowrap}
+.f-iban{font-size:14px}
+.tblhead{font-family:'Syne';font-weight:800;font-size:19px;margin-top:32px}
+
+/* Spenden-Button immer sichtbar */
+.nav-cta{margin-left:auto}
+.nav-links{margin-left:auto}
+.nav-links+.nav-cta{margin-left:0}
+
+/* Event-Band */
+.eventband{background:var(--white);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand)}
+.eventband-inner{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
+.ev-date{flex:0 0 auto;background:var(--green);color:#fff;border-radius:18px;padding:18px 22px;text-align:center;min-width:104px}
+.ev-date b{display:block;font-family:'Syne';font-weight:800;font-size:38px;line-height:1}
+.ev-date span{font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+.ev-txt{flex:1;min-width:260px}
+.ev-txt h2{margin-top:4px}
+.ev-txt p{margin-top:12px;max-width:44em;color:rgba(38,38,28,.78)}
+
+/* Kinder: Akkordeon */
+.sacc{max-width:860px}
+.sacc-item{background:var(--white);border:1px solid var(--sand);border-radius:16px;margin-bottom:14px;overflow:hidden}
+.sacc-head{width:100%;display:flex;align-items:center;gap:18px;padding:16px 20px;background:none;border:none;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.sacc-head:focus-visible{outline:3px solid var(--green);outline-offset:-3px}
+.sacc-thumb{flex:0 0 auto;width:72px;height:72px;border-radius:12px;background:var(--green-tint);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--green);font-weight:600;overflow:hidden}
+.sacc-thumb img{width:100%;height:100%;object-fit:cover}
+.sacc-title{flex:1}
+.sacc-title b{display:block;font-family:'Syne';font-weight:800;font-size:19px;letter-spacing:-.01em}
+.sacc-title small{font-size:14px;color:rgba(38,38,28,.6)}
+.sacc-x{flex:0 0 auto;font-size:26px;color:var(--green);font-weight:400;transition:transform .25s}
+.sacc-item.open .sacc-x{transform:rotate(45deg)}
+.sacc-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.sacc-body>div{padding:4px 24px 26px;font-size:16.5px;color:rgba(38,38,28,.82)}
+.sacc-body p{margin-top:12px;max-width:42em}
+
+/* ---------- Mobil: Hero-Umbau (Text unter dem Foto) ---------- */
+@media(max-width:920px){
+  .nav-inner{gap:14px}
+  .nav-cta{margin-left:auto;padding:9px 18px;font-size:14px}
+  .burger{margin-left:0}
+  .hero{min-height:0;flex-direction:column;display:flex}
+  .hero img.bg{position:static;width:100%;height:54vw;max-height:420px;object-fit:cover;object-position:60% 40%}
+  .hero::before{display:none}
+  .hero-content{align-self:auto;color:var(--ink);padding:26px 24px 40px;background:var(--paper)}
+  .hero h1{text-shadow:none;max-width:100%}
+  .hero h1 em{color:var(--champ-deep)}
+  .hero-sub{color:rgba(38,38,28,.75);text-shadow:none}
+  .hero-eyebrow{color:var(--green)}
+  .btn-hero.ghost{border-color:var(--ink);color:var(--ink);backdrop-filter:none}
+  .eventband-inner{flex-direction:column;align-items:flex-start}
+  .sacc-thumb{width:56px;height:56px}
+}

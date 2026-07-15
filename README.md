@@ -1,6 +1,6 @@
 # One for One – Website
 
-Statische Multipage-Website (GitHub Pages tauglich). Farbwelt: "Savanne" (Olivgrau + Ocker).
+Statische Multipage-Website (GitHub Pages tauglich). Farbwelt "Savanne" (Olivgrau + Ocker).
 
 ## Struktur
 - index.html, leben-in-kenia.html, projekte.html, kinder.html,
@@ -12,8 +12,9 @@ Statische Multipage-Website (GitHub Pages tauglich). Farbwelt: "Savanne" (Olivgr
 2. Settings -> Pages -> Branch `main`, Ordner `/root` -> Save.
 3. Fotos tauschen: Datei in `bilder/` gleichnamig überschreiben.
 
-## Noch offen
-- Echte Fotos statt "Foto folgt" (Team, Korogocho, Mathare)
-- Datenschutzerklärung juristisch prüfen lassen
-- Mathare-Karte: Position gegenprüfen (per Ortssuche eingebunden)
-- Facebook-URL (aktuell nur Instagram + WhatsApp)
+## Noch offen / prüfen
+- Schulessen: Spendentext sagt 1,50 EUR/Woche, Kostentabelle "ab 1 EUR/Woche" - bitte klaeren
+- Mathare-Karte: per Ortssuche eingebunden, Pin pruefen (Kurzlink nicht aufloesbar)
+- Echte Fotos statt "Foto folgt" (Team, Korogocho, Mathare, Kinder-Akkordeon, Hausaufgaben-Kachel)
+- Datenschutzerklaerung juristisch pruefen lassen
+- Englische Version (geplant als /en/-Ordner mit Sprachumschalter)

@@ -86,3 +86,44 @@ window.copyIban=copyIban;
   lb.addEventListener('click',e=>{if(e.target===lb)close()});
   document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')open(i+1);if(e.key==='ArrowLeft')open(i-1)});
 })();
+
+/* Startseiten-Kacheln: Pop-up mit Kurzübersicht + Link zur Unterseite */
+(function(){
+  const tiles=document.querySelectorAll('.tile[data-modal]');if(!tiles.length)return;
+  const MODALS={
+    bibliotheken:{img:'bilder/kachel-bibliothek.jpg',title:'Die Büchereien',
+      body:'<p>Im Februar 2025 haben wir in Korogocho auf rund 15 m² eine Bücherei eröffnet, am Ostermontag 2026 folgte eine zweite in Mathare. Beide stehen jedem Kind offen – unabhängig davon, ob es gerade zur Schule geht.</p><p>Neben Schulbüchern gibt es Märchen, einfache Romane und gespendete Spiele. Die Kinder machen hier Hausaufgaben, lernen gemeinsam oder spielen einfach.</p><div class="m-fact">Montag bis Samstag, 11–19 Uhr · Korogocho (Ngomongo) und Mathare North, Area 3</div>',
+      href:'projekte.html#bibliotheken',label:'Mehr über die Büchereien'},
+    schulbildung:{img:'bilder/kachel-schule.jpg',title:'Schulbildung',
+      body:'<p>Obwohl Schule in Kenia seit 2003 offiziell kostenlos ist, sieht die Realität anders aus: zu wenige öffentliche Schulen, dazu Gebühren für Uniform, Prüfungen und Material.</p><p>Gemeinsam mit Teddy und Joseph haben wir einen Evaluationsbogen entwickelt, aus dem sich eine faire Warteliste ergibt. Ist ein Kind aufgenommen, begleiten wir es möglichst durch die ganze Schullaufbahn.</p><div class="m-fact">Aktuell zahlen wir die Schulgebühren für 237 Kinder an rund 50 verschiedenen Schulen.</div>',
+      href:'projekte.html#schulbildung',label:'Mehr zur Schulbildung'},
+    porridge:{img:'bilder/kachel-porridge.jpg',title:'Porridge-Programm',
+      body:'<p>Mangelernährung ist in den Slums von Nairobi Alltag. Deshalb gibt es jeden Samstag in Ngomongo, Korogocho, eine Porridge-Ausgabe.</p><p>Was als Initiative des Teams vor Ort begann, versorgt heute 150 bis 250 Kinder pro Woche mit einer warmen Mahlzeit.</p><div class="m-fact">Zusätzlich hat das Team eine große Lebensmittelspende über Foodbank Kenya organisiert.</div>',
+      href:'projekte.html#porridge',label:'Zum Porridge-Programm'},
+    center:{img:'bilder/kachel-center.jpg',title:'Community Center',
+      body:'<p>Dank einer Großspende konnten wir mitten im Herzen von Korogocho ein rund 400 m² großes Grundstück erwerben. Hier soll ein Zentrum für Kinder und Jugendliche entstehen.</p><p>Geplant sind Bibliothek, Unterrichtsraum, Nähraum, Küche, Büro, Toiletten, Spielraum und ein Außenbereich.</p><div class="m-fact">Nächster Schritt: Der Entwurf wird von einem Architekturbüro ausgearbeitet.</div>',
+      href:'community-center.html',label:'Zum Bau-Tagebuch'},
+    naehprojekt:{img:'bilder/kachel-naehen.jpg',title:'Nähprojekt',
+      body:'<p>Bildung endet nicht im Klassenzimmer. Im Nähprojekt lernen Frauen und Jugendliche ein Handwerk, das Einkommen und Unabhängigkeit schafft.</p><p>Koordiniert wird es von Maureen, die auch das Porridge-Programm betreut.</p><div class="m-fact">Im künftigen Community Center bekommt das Nähprojekt einen eigenen Raum.</div>',
+      href:'projekte.html#naehprojekt',label:'Mehr zum Nähprojekt'},
+    hausaufgaben:{img:null,title:'Hausaufgabenbetreuung',
+      body:'<p>Zuhause fehlt oft der Platz, das Licht oder die Ruhe zum Lernen. In unseren Büchereien finden die Kinder beides – und Menschen, die ihnen helfen.</p><p>Unsere Mentorinnen und Mentoren kommen selbst aus Korogocho und Mathare.</p><div class="m-fact">In den Schulferien bieten wir zusätzliche Nachhilfeprogramme an.</div>',
+      href:'projekte.html#hausaufgaben',label:'Mehr erfahren'}
+  };
+  const bd=document.createElement('div');bd.className='modal-backdrop';
+  bd.innerHTML='<div class="modal" role="dialog" aria-modal="true"><button class="m-close" aria-label="Schließen">✕</button><div class="m-body"></div></div>';
+  document.body.appendChild(bd);
+  const box=bd.querySelector('.m-body');let last=null;
+  const close=()=>{bd.classList.remove('open');document.body.style.overflow='';if(last)last.focus()};
+  tiles.forEach(t=>t.addEventListener('click',()=>{
+    const m=MODALS[t.dataset.modal];if(!m)return;last=t;
+    box.innerHTML=(m.img?'<img class="m-img" src="'+m.img+'" alt="">':'')
+      +'<div class="m-inner"><h3>'+m.title+'</h3>'+m.body
+      +'<a class="m-link" href="'+m.href+'">'+m.label+' →</a></div>';
+    bd.classList.add('open');document.body.style.overflow='hidden';
+    bd.querySelector('.m-close').focus();
+  }));
+  bd.querySelector('.m-close').addEventListener('click',close);
+  bd.addEventListener('click',e=>{if(e.target===bd)close()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bd.classList.contains('open'))close()});
+})();

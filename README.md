@@ -1,22 +1,19 @@
 # One for One – Website
 
-Statische Multipage-Website (GitHub Pages tauglich).
+Statische Multipage-Website (GitHub Pages tauglich). Farbwelt: "Savanne" (Olivgrau + Ocker).
 
 ## Struktur
-- index.html … Startseite
-- leben-in-kenia.html, projekte.html, kinder.html, community-center.html, team.html, spenden.html
-- impressum.html, datenschutz.html
-- styles.css … gemeinsames Stylesheet
-- main.js … gemeinsames JavaScript
-- bilder/ … alle Bilder
+- index.html, leben-in-kenia.html, projekte.html, kinder.html,
+  community-center.html, team.html, spenden.html, impressum.html, datenschutz.html
+- styles.css, main.js, bilder/
 
 ## Veröffentlichen (GitHub Pages)
-1. Alle Dateien und den Ordner `bilder/` ins Repository laden (Wurzelverzeichnis).
-2. Settings → Pages → Branch `main`, Ordner `/root` → Save.
-3. Bilder ersetzen: Datei in `bilder/` mit gleichem Namen überschreiben.
+1. Alle Dateien + Ordner `bilder/` ins Repository (Wurzelverzeichnis).
+2. Settings -> Pages -> Branch `main`, Ordner `/root` -> Save.
+3. Fotos tauschen: Datei in `bilder/` gleichnamig überschreiben.
 
 ## Noch offen
-- Echte Fotos statt „Foto folgt"-Platzhalter (Team, Korogocho, Mathare)
+- Echte Fotos statt "Foto folgt" (Team, Korogocho, Mathare)
 - Datenschutzerklärung juristisch prüfen lassen
-- Grundstücksgröße bestätigen (Website: 400 m²)
-- Facebook-URL (aktuell nur Instagram/WhatsApp verlinkt)
+- Mathare-Karte: Position gegenprüfen (per Ortssuche eingebunden)
+- Facebook-URL (aktuell nur Instagram + WhatsApp)

@@ -1,6 +1,6 @@
-# One for One – Website
+# One for One – Website (Stand v7)
 
-Statische Multipage-Website (GitHub Pages tauglich). Farbwelt "Savanne" (Olivgrau + Ocker).
+Statische Multipage-Website, GitHub-Pages-tauglich. Farbwelt "Savanne" (Olivgrau + Ocker).
 
 ## Struktur
 - index.html, leben-in-kenia.html, projekte.html, kinder.html,
@@ -12,9 +12,13 @@ Statische Multipage-Website (GitHub Pages tauglich). Farbwelt "Savanne" (Olivgra
 2. Settings -> Pages -> Branch `main`, Ordner `/root` -> Save.
 3. Fotos tauschen: Datei in `bilder/` gleichnamig überschreiben.
 
+WICHTIG beim Update: Browser-Cache leeren (Strg+F5 / Cmd+Shift+R),
+sonst zeigt der Browser die alte Version. Unten im Footer steht die Version.
+
 ## Noch offen / prüfen
-- Schulessen: Spendentext sagt 1,50 EUR/Woche, Kostentabelle "ab 1 EUR/Woche" - bitte klaeren
-- Echte Fotos statt "Foto folgt" (Team, Korogocho, Mathare, Kinder-Akkordeon, Hausaufgaben-Kachel)
+- Team-Fotos: team-person-a.jpg = Teddy? team-person-b.jpg = Joseph? BITTE BESTAETIGEN
+- Foto 5M1A0465 (Frau mit zwei Kindern) noch nicht zugeordnet
+- Schulessen: 1 EUR oder 1,50 EUR pro Woche? (Texte widersprechen sich)
+- Kinder-Seite: Portraetfotos fuer die vier Geschichten fehlen
 - Datenschutzerklaerung juristisch pruefen lassen
-- Englische Version (geplant als /en/-Ordner mit Sprachumschalter)
-- Videos Team-Seite (MP4 selbst gehostet empfohlen)
+- Englische Version

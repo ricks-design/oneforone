@@ -150,7 +150,8 @@ input[type=range]{width:100%;margin-top:30px;accent-color:var(--amber);height:6p
 .vcard h3{font-size:19px;font-weight:700;margin-bottom:8px}
 .vcard p{font-size:15.5px;color:rgba(24,26,23,.75);line-height:1.55}
 .vcard .vnote{margin-top:12px;font-size:13px;color:rgba(24,26,23,.55);border-left:2px solid var(--sand);padding-left:12px}
-.ph{height:200px;background:var(--green-tint);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:13px;font-weight:600}
+.ph{height:200px;background:var(--green-tint);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:13px;font-weight:600;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
 .ph-portrait{height:300px}
 
 /* SCHULSYSTEM */
@@ -374,3 +375,16 @@ footer a:hover{color:#fff}
   .eventband-inner{flex-direction:column;align-items:flex-start}
   .sacc-thumb{width:56px;height:56px}
 }
+
+/* ---- Bildreihen (Projekte) ---- */
+.imgrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:30px 0 8px;max-width:none}
+.imgrow figure{margin:0}
+.imgrow img{width:100%;aspect-ratio:9/6.4;object-fit:cover;border-radius:12px;border:1px solid var(--sand)}
+.imgrow figcaption{font-size:13px;color:rgba(38,38,28,.6);margin-top:8px;line-height:1.45}
+
+/* ---- Fixes: Nav rechts, Balken zentriert, IBAN ---- */
+.nav-inner{justify-content:flex-start}
+.nav-cta{margin-left:auto;flex:0 0 auto}
+.burger{flex:0 0 42px;margin-left:0}
+.f-iban .nowrap{white-space:nowrap;word-break:keep-all;display:inline-block}
+@media(max-width:400px){ .f-iban{font-size:13px} .nav-logo span{display:none} }

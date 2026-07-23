@@ -1,4 +1,4 @@
-# One for One – Website (Stand v7)
+# One for One – Website (Stand v8)
 
 Statische Multipage-Website, GitHub-Pages-tauglich. Farbwelt "Savanne" (Olivgrau + Ocker).
 
@@ -12,13 +12,15 @@ Statische Multipage-Website, GitHub-Pages-tauglich. Farbwelt "Savanne" (Olivgrau
 2. Settings -> Pages -> Branch `main`, Ordner `/root` -> Save.
 3. Fotos tauschen: Datei in `bilder/` gleichnamig überschreiben.
 
-WICHTIG beim Update: Browser-Cache leeren (Strg+F5 / Cmd+Shift+R),
-sonst zeigt der Browser die alte Version. Unten im Footer steht die Version.
+WICHTIG beim Update: Browser-Cache leeren (Strg+F5 / Cmd+Shift+R).
+Version steht unten im Footer (Stand v8).
 
-## Noch offen / prüfen
-- Team-Fotos: team-person-a.jpg = Teddy? team-person-b.jpg = Joseph? BITTE BESTAETIGEN
-- Foto 5M1A0465 (Frau mit zwei Kindern) noch nicht zugeordnet
-- Schulessen: 1 EUR oder 1,50 EUR pro Woche? (Texte widersprechen sich)
-- Kinder-Seite: Portraetfotos fuer die vier Geschichten fehlen
+## Noch offen / vor dem Launch
+- ECHTE IBAN einsetzen (aktuell Platzhalter DE00...)
 - Datenschutzerklaerung juristisch pruefen lassen
+- Zahl-Check: Schulessen 1,50/Woche = ~78 EUR/Jahr im Text/Tabelle,
+  Kostendiagramm zeigt ~40 EUR/Jahr (allgemeiner Durchschnitt) - ggf. angleichen
+- Portraets fuer Familie Ouma, Sarah, Vickstone (aktuell Foto-Platzhalter)
 - Englische Version
+- Videos Team-Seite (optional)
+- Mehr Beispiele Wirkungsrechner (kommen von euch)

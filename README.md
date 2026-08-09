@@ -1,26 +1,29 @@
-# One for One – Website (Stand v8)
+# One for One – Website (Stand v9)
 
-Statische Multipage-Website, GitHub-Pages-tauglich. Farbwelt "Savanne" (Olivgrau + Ocker).
+Statische Multipage-Website, GitHub-Pages-tauglich. Farbwelt "Savanne".
 
 ## Struktur
-- index.html, leben-in-kenia.html, projekte.html, kinder.html,
-  community-center.html, team.html, spenden.html, impressum.html, datenschutz.html
+- index, leben-in-kenia, projekte, kinder, community-center, team, spenden, impressum, datenschutz (.html)
 - styles.css, main.js, bilder/
 
 ## Veröffentlichen (GitHub Pages)
-1. Alle Dateien + Ordner `bilder/` ins Repository (Wurzelverzeichnis).
-2. Settings -> Pages -> Branch `main`, Ordner `/root` -> Save.
+1. Alle Dateien + Ordner `bilder/` ins Repository (Wurzel).
+2. Settings -> Pages -> Branch main, Ordner /root -> Save.
 3. Fotos tauschen: Datei in `bilder/` gleichnamig überschreiben.
+Beim Update Browser-Cache leeren (Strg+F5 / Cmd+Shift+R). Version steht im Footer.
 
-WICHTIG beim Update: Browser-Cache leeren (Strg+F5 / Cmd+Shift+R).
-Version steht unten im Footer (Stand v8).
+## v9-Änderungen
+- Schriften/Überschriften/Header/Abstände global verkleinert
+- Sommerfest von Startseite entfernt (Rückblick-Notiz auf Community-Center-Seite)
+- Bildreihen sind jetzt anklickbar (Lightbox zum Durchklicken), Vor-Ort-Galerie
+- Back-to-top-Button auf allen Seiten
+- Projekt-Überblick: Layout-Fix (kein Text-Überlauf mehr)
+- Kinder-Seite: Kacheln oben, Klick -> Textabschnitt darunter
+- Satz "Zum Schutz der Kinder ..." entfernt
 
-## Noch offen / vor dem Launch
-- ECHTE IBAN einsetzen (aktuell Platzhalter DE00...)
-- Datenschutzerklaerung juristisch pruefen lassen
-- Zahl-Check: Schulessen 1,50/Woche = ~78 EUR/Jahr im Text/Tabelle,
-  Kostendiagramm zeigt ~40 EUR/Jahr (allgemeiner Durchschnitt) - ggf. angleichen
-- Portraets fuer Familie Ouma, Sarah, Vickstone (aktuell Foto-Platzhalter)
-- Englische Version
-- Videos Team-Seite (optional)
-- Mehr Beispiele Wirkungsrechner (kommen von euch)
+## Vor dem Launch
+- ECHTE IBAN einsetzen (Platzhalter DE00...)
+- Datenschutzerklaerung juristisch pruefen
+- Zahl-Abgleich Schulessen (1,50/Woche ~78 EUR/Jahr vs. Diagramm ~40 EUR/Jahr)
+- Portraets Familie Ouma, Sarah, Vickstone (Platzhalter)
+- Englische Version, ggf. Videos

@@ -68,7 +68,7 @@ Einstellungen eingesetzt werden: `{{ e.iban }}`, `{{ e.bic }}`, `{{ e.bank }}`,
 `{{ e.kontoinhaber }}`, `{{ e.paypal_link }}`. Die IBAN wird deshalb nur an einer Stelle gepflegt
 (*Einstellungen*) und erscheint automatisch im Footer aller Seiten und auf der Spendenseite.
 
-Weiterhin im Code (`static/main.js`): die Beträge und Texte des **Wirkungsrechners**.
+Die Stufen des **Wirkungsrechners** (Startseite, Spendenseite) stehen unter *Einstellungen → Wirkungsrechner*: je Stufe ein Betragsbereich, ein Haupt- und optional ein Alternativ-Beispiel. Der Slider läuft in 1-€-Schritten von 5 bis 200 €; Schrittweite und Schnellwahl-Buttons stehen im HTML-Block des jeweiligen Rechner-Abschnitts.
 
 ## Lokal bauen
 
@@ -86,6 +86,7 @@ ergänzen. Gehört der Block nicht in einen Abschnitt, Namen in `EIGENSTAENDIG` 
 
 - ECHTE IBAN einsetzen (*Einstellungen*, derzeit Platzhalter DE00…)
 - Datenschutzerklärung juristisch prüfen
-- Zahl-Abgleich Schulessen (1,50 €/Woche ≈ 78 €/Jahr vs. Diagramm ≈ 40 €/Jahr)
+- Zahl-Abgleich Schulessen (1,50 €/Woche ≈ 78 €/Jahr vs. Diagramm ≈ 40 €/Jahr) – danach Kostentabelle, Kostendiagramm und Rechner-Stufe 50–77 € angleichen
 - Porträts Familie Ouma, Sarah, Vickstone (Platzhalter)
+- Jane (Mathare): Foto liegt bereit, Geschichte fehlt
 - Englische Version, ggf. Videos

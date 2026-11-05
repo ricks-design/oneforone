@@ -55,12 +55,12 @@ window.copyIban=copyIban;
 
 /* Wirkungsrechner */
 (function(){
-  function impact(v){const l=[];
-    if(v<10){l.push(["🎒","<strong>Ein Term Schulgebühren</strong> für ein Kind (ab 8 €)"]);l.push(["📖","Examensgebühr + Schulbücher für ein Jahr"]);}
-    else if(v<25){l.push(["🍲","<strong>"+Math.floor(v)+" Wochen Schulessen</strong> – Frühstück und Mittagessen (1,50 €/Woche)"]);l.push(["👞","Oder: ein Paar Schulschuhe + Rucksack"]);}
-    else if(v<65){const k=Math.floor(v/25);l.push(["🏫","<strong>Ein Jahr Schulgebühren</strong> für "+(k===1?"ein Kind":k+" Kinder")+" (ab 25 €/Jahr)"]);l.push(["👕",v>=35?"Oder: eine <strong>komplette Schuluniform</strong> mit Schuhen und Rucksack":"Fast eine komplette Schuluniform (35 €)"]);}
-    else if(v<100){l.push(["⭐","<strong>Ein komplettes Schuljahr</strong> für ein Kind – Gebühren, Essen und Material (ca. 65 €)"]);l.push(["🥣","Oder: Porridge-Zutaten für mehrere Samstage"]);}
-    else{const f=Math.floor(v/65);l.push(["⭐","<strong>"+f+" "+(f===1?"komplettes Schuljahr":"komplette Schuljahre")+"</strong> – Gebühren, Essen und Material"]);l.push(["🪑","Oder: "+Math.floor(v/25)+" Schulbänke mit Stuhl fürs Klassenzimmer"]);}
+  // Stufen aus content/einstellungen.yml (Feld „wirkungsrechner“)
+  let STUFEN=[];try{STUFEN=JSON.parse(document.getElementById('rechner-data').textContent)}catch(e){}
+  function impact(v){
+    const s=STUFEN.find(x=>v>=x.von&&v<=x.bis);if(!s)return'';
+    const l=[[s.icon||'',s.text||'']];
+    if(s.alternativ)l.push([s.alternativ_icon||'','Oder: '+s.alternativ]);
     return l.map(x=>'<div class="line"><span class="ico">'+x[0]+'</span><span>'+x[1]+'</span></div>').join('');}
   document.querySelectorAll('.impact-slider').forEach(slider=>{
     const box=slider.closest('.calc-box');if(!box)return;

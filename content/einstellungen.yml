@@ -31,3 +31,71 @@ bic: GENODEF1SLR
 paypal_link: https://www.paypal.com/donate?hosted_button_id=JUGWVZEM9XX8U
 copyright: © 2026 One for One e.V.
 version: Stand v9
+wirkungsrechner:
+  # Bereiche müssen lückenlos von 5 bis 200 reichen (Slider-Minimum/-Maximum).
+  - von: 5
+    bis: 9
+    icon: 🎒
+    text: <strong>Ein Term Schulgebühren</strong> für ein Kind (ab 8 €)
+    alternativ_icon: 📖
+    alternativ: Examensgebühr + Schulbücher fürs Jahr
+  - von: 10
+    bis: 10
+    icon: 🧵
+    text: <strong>Eine Monatsmiete</strong> für das Nähstudio in Korogocho
+    alternativ_icon: 🎒
+    alternativ: Schulranzen + Trainingsanzug
+  - von: 11
+    bis: 11
+    icon: 🥣
+    text: <strong>Zutaten für einen Samstag Porridge</strong> (ca. 250 Kinder)
+    alternativ_icon: 📖
+    alternativ: Beurteilungsbuch + Tagebuch + Aufnahmegebühr
+  - von: 12
+    bis: 14
+    icon: 👞
+    text: <strong>Schuhe + Rucksack</strong> für ein Kind
+  - von: 15
+    bis: 24
+    icon: 👕
+    text: <strong>Eine Schuluniform</strong> (ab 15 €)
+    alternativ_icon: 🍲
+    alternativ: Mehrere Wochen Schulessen (1,50 €/Woche)
+  - von: 25
+    bis: 30
+    icon: 🏫
+    text: <strong>Ein Jahr Schulgebühren</strong> für ein Kind · oder eine Schulbank mit Stuhl
+  - von: 31
+    bis: 31
+    icon: 📚
+    text: <strong>Eine Monatsmiete</strong> für die Bücherei in Korogocho
+    alternativ_icon: 👕
+    alternativ: Komplette Schuluniform (35 €, fast)
+  - von: 32
+    bis: 49
+    icon: 👕
+    text: <strong>Komplette Schuluniform</strong> mit Schuhen und Rucksack (35 €)
+  - von: 50
+    bis: 77
+    icon: 🍲
+    text: <strong>Ein Jahr Schulessen</strong> für ein Kind (1,50 €/Woche)
+  - von: 78
+    bis: 95
+    icon: ⭐
+    text: <strong>Ein komplettes Schuljahr</strong> für ein Kind (Gebühren, Essen, Material)
+  - von: 96
+    bis: 96
+    icon: 📚
+    text: <strong>Eine Monatsmiete</strong> für die Bücherei in Mathare
+    alternativ_icon: ⭐
+    alternativ: Ein komplettes Schuljahr für ein Kind
+  - von: 97
+    bis: 199
+    icon: ⭐
+    text: <strong>Mehrere Schuljahre</strong> · oder mehrere Schulbänke (ab 25 €/Stück)
+  - von: 200
+    bis: 200
+    icon: ✏️
+    text: <strong>Ein komplettes 2-wöchiges Ferien-Nachhilfeprogramm</strong> inkl. Frühstück
+    alternativ_icon: ⭐
+    alternativ: Drei komplette Schuljahre

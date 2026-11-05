@@ -245,3 +245,15 @@ content:
       - { name: paypal_link, label: PayPal-Spendenlink, type: string }
       - { name: copyright, label: Copyright-Zeile, type: string }
       - { name: version, label: Versionshinweis im Footer, type: string }
+      - name: wirkungsrechner
+        label: Wirkungsrechner (Stufen)
+        description: "Lückenlos von 5 bis 200 €. Für einen einzelnen Betrag „von“ und „bis“ gleich setzen."
+        type: object
+        list: true
+        fields:
+          - { name: von, label: Von (€), type: number }
+          - { name: bis, label: Bis (€), type: number }
+          - { name: icon, label: Symbol, type: string }
+          - { name: text, label: Haupt-Beispiel, type: string, description: "HTML erlaubt, z. B. <strong>…</strong>" }
+          - { name: alternativ_icon, label: Symbol Alternative, type: string }
+          - { name: alternativ, label: Alternativ-Beispiel (optional), type: string, description: "Wird mit „Oder:“ angezeigt" }

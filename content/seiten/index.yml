@@ -149,7 +149,7 @@ bloecke:
     <div class="calc-box">
     <div>
     <div class="calc-amount"><span id="amount">25</span> €</div>
-    <input aria-label="Spendenbetrag" class="impact-slider" id="slider" max="200" min="5" step="5" type="range" value="25"/>
+    <input aria-label="Spendenbetrag" class="impact-slider" id="slider" max="200" min="5" step="1" type="range" value="25"/>
     <div class="calc-presets"><button class="preset" data-v="10">10 €</button><button class="preset active" data-v="25">25 €</button><button class="preset" data-v="65">65 €</button><button class="preset" data-v="100">100 €</button></div>
     </div>
     <div>

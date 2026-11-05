@@ -38,7 +38,13 @@ Nach ca. 1–2 Minuten ist die Änderung online (Status im Reiter *Actions*).
 
 **Bilder:** in einem Bildfeld hochladen oder aus der Mediathek wählen. Handyfotos können in
 Originalgröße hochgeladen werden: Der Build verkleinert Bilder über 1600 px (längere Seite),
-dreht sie nach Kamera-Ausrichtung und entfernt GPS-Daten. Das Original bleibt in `bilder/`.
+dreht sie nach Kamera-Ausrichtung und entfernt GPS-Daten. iPhone-Fotos im HEIC-Format werden
+automatisch in JPEG umgewandelt. Das Original bleibt in `bilder/`; bei vielen oder sehr großen
+Fotos diese vorher verkleinern (längere Seite 1600–2000 px), damit das Repository klein bleibt.
+
+**Prüfung beim Build:** Verweist eine Seite auf ein Bild oder eine Unterseite, die es nicht gibt
+(z. B. gelöschtes Bild, Tippfehler im Link), bricht der Build ab und die bisherige Version bleibt
+online. Die fehlende Datei steht im Protokoll des fehlgeschlagenen Laufs (Reiter *Actions*).
 Bildnamen ohne Leerzeichen und Umlaute erleichtern die Pflege (das CMS benennt Uploads automatisch um).
 
 ### Block-Typen

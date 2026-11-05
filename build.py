@@ -4,6 +4,7 @@
 Aufruf:  python build.py            → baut nach dist/
          python build.py --serve    → baut und startet http://localhost:8000
 """
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -12,6 +13,9 @@ import yaml
 from jinja2 import ChainableUndefined, Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
 from PIL import Image, ImageOps
+from pillow_heif import register_heif_opener
+
+register_heif_opener()  # iPhone-Fotos (HEIC/HEIF) lesbar machen
 
 ROOT = Path(__file__).parent
 CONTENT = ROOT / "content"
@@ -21,7 +25,9 @@ BILDER = ROOT / "bilder"
 # Bilder, deren längere Seite darüber liegt, werden verkleinert
 MAX_KANTE = 1600
 JPEG_QUALITAET = 82
-BILD_ENDUNGEN = {".jpg", ".jpeg", ".png", ".webp"}
+BILD_ENDUNGEN = {".jpg", ".jpeg", ".png", ".webp", ".heic", ".heif"}
+# Formate, die Browser nicht zuverlässig anzeigen → werden immer in JPEG umgewandelt
+NACH_JPEG = {".heic", ".heif"}
 
 # Blöcke, die für sich stehen; alle anderen gehören zum vorangehenden „abschnitt“
 EIGENSTAENDIG = {"hero", "seitenkopf", "cta", "html_bereich"}
@@ -33,8 +39,13 @@ def lade_yaml(pfad):
 
 
 def bildpfad(p):
-    """CMS kann '/bilder/x.jpg' oder 'bilder/x.jpg' schreiben – relativ ausgeben."""
-    return (p or "").lstrip("/")
+    """CMS kann '/bilder/x.jpg' oder 'bilder/x.jpg' schreiben – relativ ausgeben.
+    HEIC/HEIF-Bilder werden beim Build zu JPEG, der Pfad zeigt dann auf die .jpg-Datei."""
+    p = (p or "").lstrip("/")
+    stamm, punkt, endung = p.rpartition(".")
+    if punkt and "." + endung.lower() in NACH_JPEG:
+        return stamm + ".jpg"
+    return p
 
 
 def nbsp(text):
@@ -110,21 +121,43 @@ def bilder_kopieren():
         if not quelle.is_file() or quelle.suffix.lower() not in BILD_ENDUNGEN:
             continue
         out = ziel / quelle.relative_to(BILDER)
+        umwandeln = quelle.suffix.lower() in NACH_JPEG
+        if umwandeln:
+            out = out.with_suffix(".jpg")
         out.parent.mkdir(parents=True, exist_ok=True)
         with Image.open(quelle) as im:
             zu_gross = max(im.size) > MAX_KANTE
             hat_gps = 0x8825 in im.getexif()  # GPS-Koordinaten im EXIF
-            if not (zu_gross or hat_gps):
+            if not (zu_gross or hat_gps or umwandeln):
                 shutil.copy2(quelle, out)
                 continue
             # Drehen nach EXIF, verkleinern, ohne Metadaten (u. a. GPS) speichern
             im = ImageOps.exif_transpose(im)
             im.thumbnail((MAX_KANTE, MAX_KANTE))
-            if quelle.suffix.lower() in {".jpg", ".jpeg"}:
+            if umwandeln or quelle.suffix.lower() in {".jpg", ".jpeg"}:
                 im.convert("RGB").save(out, "JPEG", quality=JPEG_QUALITAET, optimize=True, progressive=True)
             else:
                 im.save(out)
-            print(f"  Bild optimiert: {quelle.name} → {im.size[0]}×{im.size[1]}")
+            print(f"  Bild optimiert: {quelle.name} → {out.name} {im.size[0]}×{im.size[1]}")
+
+
+def verweise_pruefen():
+    """Bricht ab, wenn eine Seite auf ein fehlendes Bild oder eine fehlende Seite verweist."""
+    fehlend = []
+    muster = re.compile(r'(?:src|href)="([^"]+)"|"img":\s*"([^"]+)"')
+    for seite in sorted(DIST.glob("*.html")):
+        for treffer in muster.finditer(seite.read_text(encoding="utf-8")):
+            ziel = (treffer.group(1) or treffer.group(2)).split("#")[0].split("?")[0]
+            if not ziel or re.match(r"^[a-z]+:|^//", ziel):
+                continue  # externe Links, mailto:, tel:, reine Sprungmarken
+            if not (DIST / ziel).is_file():
+                fehlend.append(f"{seite.name}: {ziel}")
+    if fehlend:
+        print("\nFEHLER – Verweis auf nicht vorhandene Datei:")
+        for f in fehlend:
+            print("  " + f)
+        print("Bild hochladen bzw. Dateinamen/Link im CMS korrigieren.")
+        sys.exit(1)
 
 
 def main():
@@ -154,6 +187,7 @@ def main():
             shutil.copy2(f, DIST / f.name)
     bilder_kopieren()
     (DIST / ".nojekyll").touch()
+    verweise_pruefen()
     print("Fertig → dist/")
 
     if "--serve" in sys.argv:

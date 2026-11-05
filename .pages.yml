@@ -5,7 +5,7 @@
 media:
   input: bilder
   output: bilder
-  categories: [image]
+  extensions: [jpg, jpeg, png, webp, heic, heif]
   rename: safe
 
 components:

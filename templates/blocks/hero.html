@@ -1,0 +1,9 @@
+<header class="hero"{% if b.anker %} id="{{ b.anker }}"{% endif %}>
+  <img class="bg" src="{{ b.bild | bild }}" alt="{{ b.alt }}">
+  <div class="hero-content">
+    {% if b.eyebrow %}<div class="hero-eyebrow">{{ b.eyebrow }}</div>{% endif %}
+    <h1>{{ b.titel | safe }}</h1>
+    {% if b.text %}<p class="hero-sub">{{ b.text }}</p>{% endif %}
+    {% if b.buttons %}<div class="hero-cta">{% for k in b.buttons %}<a class="btn-hero {{ k.stil }}" href="{{ k.link }}">{{ k.text }}</a>{% endfor %}</div>{% endif %}
+  </div>
+</header>

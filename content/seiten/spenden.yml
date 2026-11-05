@@ -1,0 +1,128 @@
+seitentitel: Spenden | One for One
+beschreibung: Spende an One for One per PayPal oder Überweisung – oder übernimm eine Patenschaft. Jeder Euro kommt 1:1 an.
+bloecke:
+- type: seitenkopf
+  brotkrume: Spenden
+  titel: 'Jeder Euro kommt 1 : 1 an'
+  text: 'Wir versprechen euch: Jeder Euro kommt bei den Kindern vor Ort an. Bereits mit 1,50 Euro kann ein Kind beispielsweise eine ganze Woche in der Schule essen. Wir und die Kinder freuen uns wirklich über jeden Euro.'
+- type: abschnitt
+  element: section
+  wrap_klasse: wrap
+  eyebrow: Zwei Wege zu helfen
+- type: text
+  inhalt: <h2>Wie möchtest du unterstützen?</h2>
+- type: html
+  html: |-
+    <div class="optcards">
+    <a class="optcard" href="#spende">
+    <img alt="Kinder mit Porridge-Bechern" src="bilder/porridge-becher5.jpg"/>
+    <div class="oc-body"><h3>Allgemeine Spende</h3><p>Einmalig oder als Dauerauftrag – dein Beitrag fließt dorthin, wo er gerade am dringendsten gebraucht wird.</p><span class="oc-cta">Zur Spende</span></div>
+    </a>
+    <a class="optcard" href="#patenschaft">
+    <img alt="Kinder lesen einen Brief ihrer Patin" src="bilder/paten-lesen.jpg"/>
+    <div class="oc-body"><h3>Patenschaft</h3><p>Begleite ein Kind langfristig durch seine Schulzeit – mit Steckbriefen, Bildern und persönlichen Briefen.</p><span class="oc-cta">Patin/Pate werden</span></div>
+    </a>
+    </div>
+- type: abschnitt
+  element: section
+  anker: spende
+  klasse: donate
+  wrap_klasse: wrap
+- type: html
+  html: |-
+    <div class="donate-grid">
+    <div class="d-card"><h3>💳 Per PayPal</h3><p>Schnell und unkompliziert – einmalig oder als monatliche Unterstützung.</p>
+    <a class="btn-paypal" href="{{ e.paypal_link }}" rel="noopener" target="_blank">Mit PayPal spenden</a></div>
+    <div class="d-card"><h3>🏦 Per Überweisung</h3><p>Klassisch aufs Vereinskonto – ideal auch für Daueraufträge.</p>
+    <div class="kv"><span class="k">Empfänger</span><span class="v">{{ e.kontoinhaber }}</span><span class="k">Bank</span><span class="v">{{ e.bank }}</span><span class="k">BIC</span><span class="v">{{ e.bic }}</span></div>
+    <div class="copy-iban"><span id="iban">{{ e.iban }}</span><button onclick="copyIban(this)">IBAN kopieren</button></div>
+    <p class="fee-note">Platzhalter – echte IBAN wird vor dem Launch eingesetzt. Pro Überweisung an unser Team nach Kenia fallen minimale Bankgebühren an – gerechnet auf das Gesamtspendenvolumen ca. 0,5 %.</p>
+    </div>
+    </div>
+    <div class="hint">
+    <p><strong>Sachspenden</strong> können wir aus logistischen Gründen leider nicht annehmen. Für individuelle Anfragen sind wir aber jederzeit offen.</p>
+    <p><strong>Zweckgebundene Spenden</strong> (z. B. gezielt für die Bücherei oder das Community Center) sind möglich. Nimm dafür einfach <a href="mailto:info@one-for.one">Kontakt mit uns</a> auf – wir freuen uns über jede Idee.</p>
+    </div>
+- type: abschnitt
+  element: section
+  anker: patenschaft
+  klasse: patenband
+  wrap_klasse: wrap patenband-inner
+- type: html
+  html: |-
+    <div class="patenband-txt"><div class="eyebrow">Patenschaft</div><h2>Begleite ein Kind durch seine Schulzeit</h2><p>Wenn ihr Lust habt, euch langfristig finanziell zu engagieren, könnt ihr die Patenschaft für ein Kind übernehmen und es idealerweise durch die gesamte Schullaufbahn begleiten. Bilder, Steckbriefe und persönliche Briefe werden zwischen euch und dem Kind ausgetauscht – die Briefe nehmen wir bei unseren Besuchen vor Ort persönlich mit. In diesem Fall freuen wir uns über eine E-Mail, um über sämtliche Details zu sprechen und eine passende Patenschaft für euch zu finden. Aktuell werden bereits 62 Kinder durch direkte Patenschaften gefördert.</p>
+    <div class="paten-imgs"><img alt="Kinder lesen gemeinsam einen Brief" src="bilder/paten-lesen.jpg"/><img alt="Brief von One for One Germany an ein Patenkind" src="bilder/paten-brief.jpg"/></div>
+    </div>
+    <a class="btn-paten" href="mailto:info@one-for.one">info@one-for.one</a>
+- type: abschnitt
+  element: section
+  klasse: calc
+  wrap_klasse: wrap
+  eyebrow: Wirkungsrechner
+- type: text
+  inhalt: <h2>Was deine Spende konkret bewegt</h2>
+- type: html
+  html: |-
+    <div class="calc-box">
+    <div>
+    <div class="calc-amount"><span id="amount">25</span> €</div>
+    <input aria-label="Spendenbetrag" class="impact-slider" id="slider" max="200" min="5" step="5" type="range" value="25"/>
+    <div class="calc-presets"><button class="preset" data-v="10">10 €</button><button class="preset active" data-v="25">25 €</button><button class="preset" data-v="65">65 €</button><button class="preset" data-v="100">100 €</button></div>
+    </div>
+    <div>
+    <div class="calc-result" id="result"></div>
+    <a class="btn-light" href="spenden.html">Jetzt spenden</a>
+    <p class="fine">Beispielwerte auf Basis unserer realen Kosten vor Ort. Die Kosten variieren je nach Schule.</p>
+    </div>
+    </div>
+- type: abschnitt
+  element: section
+  wrap_klasse: wrap
+  eyebrow: Kostenübersicht
+- type: text
+  inhalt: <h2>Was einzelne Beträge bewirken</h2>
+- type: html
+  html: |-
+    <p class="lead">Eine kurze Kostenübersicht als Anhaltspunkt – so weißt du, was dein Beitrag konkret möglich macht.</p>
+    <h3 class="tblhead">Dauerhaft anfallende Kosten</h3>
+    <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
+    <tr><td>Schulgebühren</td><td>ab 25 € / Jahr</td></tr>
+    <tr><td>Essen in der Schule (Frühstück + Mittagessen)</td><td>ab 78 € / Jahr (1,50 € / Woche)</td></tr></table>
+    <h3 class="tblhead">Jährlich einmalig anfallende Kosten</h3>
+    <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
+    <tr><td>Examensgebühr</td><td>ab 5 €</td></tr>
+    <tr><td>Tagebuch (Diary)</td><td>ab 1 €</td></tr>
+    <tr><td>Beurteilungsbuch (Assessment book)</td><td>ab 1,50 €</td></tr>
+    <tr><td>Abschlussgebühr (Graduation)</td><td>ab 10 €</td></tr></table>
+    <h3 class="tblhead">Einmalig anfallende Kosten</h3>
+    <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
+    <tr><td>Schuluniform</td><td>ab 15 €</td></tr>
+    <tr><td>Schulranzen / Rucksack</td><td>ab 7 €</td></tr>
+    <tr><td>Schuhe (Teil der Schuluniform)</td><td>ab 13 €</td></tr>
+    <tr><td>Trainingsanzug der Schule</td><td>ab 10 €</td></tr>
+    <tr><td>Schulbank mit Stuhl</td><td>ab 25 €</td></tr>
+    <tr><td>Aufnahmegebühr</td><td>ab 2 €</td></tr>
+    <tr><td>Einstufungsgespräch</td><td>ab 3 €</td></tr></table>
+- type: abschnitt
+  element: section
+  stil: background:var(--white);border-top:1px solid var(--sand)
+  wrap_klasse: wrap
+  eyebrow: Häufige Fragen
+- type: text
+  inhalt: <h2>Gut zu wissen, bevor du spendest</h2>
+- type: faq
+  eintraege:
+  - frage: Kommt meine Spende wirklich vollständig an?
+    antwort: Ja. One for One arbeitet komplett ehrenamtlich – keine Gehälter, keine Verwaltungskosten. Deine Spende geht per Onlineüberweisung direkt an unser Team in Kenia. Lediglich für die Überweisung fallen minimale Bankgebühren an (ca. 0,5 % des Gesamtspendenvolumens).
+  - frage: Woher wisst ihr, dass das Geld korrekt verwendet wird?
+    antwort: Die Schulgebühren werden von unserem Team vor Ort pro Term direkt an die Schulen gezahlt – das Geld läuft nicht über die Familien. Mit unseren Mitarbeitenden vor Ort stehen wir in engem, täglichem Austausch, und Vereinsmitglieder besuchen die Projekte regelmäßig persönlich. Über Newsletter und <a href="https://www.instagram.com/one4one_ev/" rel="noopener" target="_blank">Instagram</a> berichten wir transparent, was mit den Spenden passiert.
+  - frage: Bekomme ich eine Spendenbescheinigung?
+    antwort: Als eingetragener gemeinnütziger Verein stellen wir dir auf Wunsch eine Zuwendungsbestätigung aus. Gib bei der Überweisung deine Adresse an oder melde dich per E-Mail.
+  - frage: Wie funktioniert eine Patenschaft?
+    antwort: Mit einer regelmäßigen Spende begleitest du gezielt ein Kind – idealerweise durch die gesamte Schullaufbahn. Schreib uns an info@one-for.one, dann besprechen wir alle Details und finden eine passende Patenschaft. Aktuell werden bereits 62 Kinder durch direkte Patenschaften gefördert.
+  - frage: Wie bleibe ich auf dem Laufenden?
+    antwort: Über <a href="https://www.instagram.com/one4one_ev/" rel="noopener" target="_blank">Instagram</a> (@one4one_ev) und unseren <a href="https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G" rel="noopener" target="_blank">WhatsApp-Kanal</a> teilen wir regelmäßig Updates aus Korogocho und Mathare – dazu ein bis zwei ausführliche Newsletter im Jahr.
+- type: cta
+  titel: 'Jeder Euro kommt 1 : 1 bei den Kindern an.'
+  button: Jetzt spenden
+  link: '#spende'

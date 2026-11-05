@@ -1,0 +1,3 @@
+<div class="tiles">
+{% for k in b.kacheln %}<button class="tile" data-modal="{{ k.schluessel }}"><div class="thumb"><img src="{{ k.bild | bild }}" alt="{{ k.alt }}"></div><div class="t-body"><h3>{{ k.titel }}</h3><p>{{ k.text }}</p><span class="more">Mehr erfahren →</span></div></button>
+{% endfor %}</div>

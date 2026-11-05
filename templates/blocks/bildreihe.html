@@ -1,0 +1,1 @@
+<div class="imgrow lbgroup">{% for i in b.bilder %}<figure><img src="{{ i.bild | bild }}" alt="{{ i.alt }}" loading="lazy">{% if i.unterschrift %}<figcaption>{{ i.unterschrift }}</figcaption>{% endif %}</figure>{% endfor %}</div>

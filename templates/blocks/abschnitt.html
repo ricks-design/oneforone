@@ -1,0 +1,4 @@
+<{{ b.element or 'section' }}{% if b.anker %} id="{{ b.anker }}"{% endif %}{% if b.klasse %} class="{{ b.klasse }}"{% endif %}{% if b.stil %} style="{{ b.stil }}"{% endif %}><div class="{{ b.wrap_klasse or 'wrap' }}">
+  {% if b.eyebrow %}<div class="eyebrow">{{ b.eyebrow }}</div>
+  {% endif %}{{ kinder }}
+</div></{{ b.element or 'section' }}>

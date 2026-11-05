@@ -1,0 +1,260 @@
+seitentitel: One for One e.V. – Bildung für Kinder in Nairobi
+beschreibung: One for One e.V. ermöglicht 237 Kindern in Korogocho und Mathare (Nairobi) den Schulbesuch – mit Schulgebühren, Büchereien, Porridge und einem Community Center.
+bloecke:
+- type: hero
+  anker: top
+  bild: bilder/header-maedchen.jpg
+  alt: Ein lachendes Mädchen in der Bibliothek von One for One
+  eyebrow: Korogocho & Mathare · Nairobi, Kenia
+  titel: Manchmal braucht es nur <em>kleine Dinge</em>, um die Welt eines Kindes zu verändern.
+  text: Wir ermöglichen 237 Kindern in den Slums von Nairobi den Schulbesuch – mit Schulgebühren, Büchern, einer warmen Mahlzeit und Menschen, die an sie glauben.
+  buttons:
+  - text: Jetzt spenden
+    link: spenden.html
+    stil: primary
+  - text: Unsere Projekte
+    link: projekte.html
+    stil: ghost
+- type: html_bereich
+  html: |-
+    <div class="stats">
+    <div class="stats-inner">
+    <div class="stat"><div class="num"><span class="counter" data-target="237">0</span></div><div class="lbl">Kinder gehen zur Schule</div></div>
+    <div class="stat"><div class="num"><span class="counter" data-target="2">0</span></div><div class="lbl">Büchereien in Korogocho &amp; Mathare</div></div>
+    <div class="stat"><div class="num">150–250</div><div class="lbl">Portionen Porridge, jeden Samstag</div></div>
+    <div class="stat"><div class="num"><span class="accent">1 : 1</span></div><div class="lbl">Jeder Euro geht direkt an die Kinder</div></div>
+    </div>
+    <div class="wrap growth">
+    <div class="growth-label">Geförderte Kinder pro Jahr</div>
+    <div class="growth-bars">
+    <div class="gbar"><span class="val">53</span><div class="fill" data-h="40px"></div><div class="yr">2024</div></div>
+    <div class="gbar"><span class="val">168</span><div class="fill" data-h="128px"></div><div class="yr">2025</div></div>
+    <div class="gbar"><span class="val">237</span><div class="fill" data-h="180px"></div><div class="yr">2026</div></div>
+    </div>
+    </div>
+    </div>
+- type: abschnitt
+  element: section
+  klasse: one2one
+  wrap_klasse: wrap
+  eyebrow: Transparenz
+- type: html
+  html: |-
+    <div class="one2one-grid">
+    <div><div class="big11">1 <span class="arrow">→</span> 1</div></div>
+    <div><p class="body"><strong>Jeder gespendete Euro kommt an.</strong> Wir arbeiten komplett ehrenamtlich – ohne Verwaltungsapparat, ohne Bürokosten. Deine Spende geht per Onlineüberweisung direkt an unser Team in Kenia und wird dort vor Ort eingesetzt: für Schulgebühren, die Büchereien, Porridge und die Menschen, die alles am Laufen halten.</p></div>
+    </div>
+    <div class="flowcard">
+    <div class="flow-top">
+    <h3>Was passiert mit deiner Spende?</h3>
+    <div class="flow-strip"><b>Deine Spende</b><span class="fsep">→</span><b>Direkt nach Kenia</b><span class="fsep">→</span><b>Einsatz vor Ort</b></div>
+    </div>
+    <div aria-label="82 % Schulgebühren, 10 % Bücherei, 5 % Freiwillige, 3 % Porridge" class="stackbar" role="img">
+    <i class="s1" style="width:82%"></i><i class="s2" style="width:10%"></i><i class="s3" style="width:5%"></i><i class="s4" style="width:3%"></i>
+    </div>
+    <div class="legend">
+    <span class="lg"><i class="d1"></i>Schulgebühren <b>82 %</b></span>
+    <span class="lg"><i class="d2"></i>Bücherei <b>10 %</b></span>
+    <span class="lg"><i class="d3"></i>Freiwillige vor Ort <b>5 %</b></span>
+    <span class="lg"><i class="d4"></i>Porridge-Zutaten <b>3 %</b></span>
+    </div>
+    <p class="flow-note">Pro Überweisung an unser Team nach Kenia fallen minimale Bankgebühren an – gerechnet auf das Gesamtspendenvolumen ca. 0,5 %.</p>
+    </div>
+- type: abschnitt
+  element: section
+  anker: projekte
+  wrap_klasse: wrap
+  eyebrow: Unsere Projekte
+- type: text
+  inhalt: <h2>Was wir gemeinsam mit den Menschen vor Ort aufbauen</h2>
+- type: html
+  html: <p class="lead">Klick dich rein – hinter jedem Projekt steckt ein Stück Alltag in Korogocho und Mathare.</p>
+- type: projektkacheln
+  kacheln:
+  - schluessel: bibliotheken
+    titel: Die Büchereien
+    text: Zwei Orte zum Lesen, Lernen und Ankommen – in Korogocho und Mathare.
+    bild: bilder/bib-ko-aussen.jpg
+    alt: Die One for One Library
+    popup:
+      bild: bilder/bib-ko-aussen.jpg
+      titel: Die Büchereien
+      text: <p>Im Februar 2025 haben wir in Korogocho auf rund 15 m² eine Bücherei eröffnet, am Ostermontag 2026 folgte eine zweite in Mathare. Beide stehen jedem Kind offen – unabhängig davon, ob es gerade zur Schule geht.</p><p>Neben Schulbüchern gibt es Märchen, einfache Romane und gespendete Spiele. Die Kinder machen hier Hausaufgaben, lernen gemeinsam oder spielen einfach.</p><div class="m-fact">Montag bis Samstag, 11–19 Uhr · Korogocho (Ngomongo) und Mathare North, Area 3</div>
+      link: projekte.html#bibliotheken
+      linktext: Mehr über die Büchereien
+  - schluessel: schulbildung
+    titel: Schulbildung
+    text: Schulgebühren, Uniformen, Bücher – wir räumen die Hürden aus dem Weg.
+    bild: bilder/schule-maedchen.jpg
+    alt: Lernen
+    popup:
+      bild: bilder/schule-maedchen.jpg
+      titel: Schulbildung
+      text: '<p>Obwohl Schule in Kenia seit 2003 offiziell kostenlos ist, sieht die Realität anders aus: zu wenige öffentliche Schulen, dazu Gebühren für Uniform, Prüfungen und Material.</p><p>Gemeinsam mit Teddy und Joseph haben wir einen Evaluationsbogen entwickelt, aus dem sich eine faire Warteliste ergibt. Ist ein Kind aufgenommen, begleiten wir es möglichst durch die ganze Schullaufbahn.</p><div class="m-fact">Aktuell zahlen wir die Schulgebühren für 237 Kinder an rund 50 verschiedenen Schulen.</div>'
+      link: projekte.html#schulbildung
+      linktext: Mehr zur Schulbildung
+  - schluessel: porridge
+    titel: Porridge-Programm
+    text: Jeden Samstag eine warme Mahlzeit für 150–250 Kinder.
+    bild: bilder/porridge-becher5.jpg
+    alt: Porridge-Ausgabe
+    popup:
+      bild: bilder/porridge-becher5.jpg
+      titel: Porridge-Programm
+      text: <p>Mangelernährung ist in den Slums von Nairobi Alltag. Deshalb gibt es jeden Samstag in Ngomongo, Korogocho, eine Porridge-Ausgabe.</p><p>Was als Initiative des Teams vor Ort begann, versorgt heute 150 bis 250 Kinder pro Woche mit einer warmen Mahlzeit.</p><div class="m-fact">Zusätzlich hat das Team eine große Lebensmittelspende über Foodbank Kenya organisiert.</div>
+      link: projekte.html#porridge
+      linktext: Zum Porridge-Programm
+  - schluessel: center
+    titel: Community Center
+    text: '400 m² für die Zukunft: Bibliothek, Unterricht, Nähraum, Küche.'
+    bild: bilder/cc-skizze2.jpg
+    alt: Skizze Community Center
+    popup:
+      bild: bilder/cc-skizze2.jpg
+      titel: Community Center
+      text: <p>Dank einer Großspende konnten wir mitten im Herzen von Korogocho ein rund 400 m² großes Grundstück erwerben. Die Abrissarbeiten haben begonnen, ein zweiter Architekten-Entwurf wird ausgearbeitet.</p><p>Geplant sind Bibliothek, Unterrichtsraum, Nähraum, Küche, Büro, Toiletten, Spielraum und ein Außenbereich.</p><div class="m-fact">Im Bau-Tagebuch begleitet ihr jeden Schritt – vom Grundstück bis zur Eröffnung.</div>
+      link: community-center.html
+      linktext: Zum Bau-Tagebuch
+  - schluessel: naehprojekt
+    titel: Nähprojekt
+    text: Maureen und Linet nähen im Raum neben der Bücherei in Korogocho.
+    bild: bilder/naehen-maureen-tasche.jpg
+    alt: Nähprojekt
+    popup:
+      bild: bilder/naehen-maureen-tasche.jpg
+      titel: Nähprojekt
+      text: <p>In einem Raum direkt neben der Bücherei in Korogocho nähen Maureen und Linet – das Nähen beigebracht hat den beiden Marion.</p><p>Heute arbeiten sie eigenständig und schaffen sich damit ein eigenes Einkommen.</p><div class="m-fact">Im künftigen Community Center bekommt das Nähprojekt einen eigenen, größeren Raum.</div>
+      link: projekte.html#naehprojekt
+      linktext: Mehr zum Nähprojekt
+  - schluessel: hausaufgaben
+    titel: Hausaufgabenbetreuung
+    text: Unterstützung beim Lernen – von Menschen aus der Nachbarschaft.
+    bild: bilder/nachhilfe-lernen.jpg
+    alt: Hausaufgabenbetreuung
+    popup:
+      bild: bilder/nachhilfe-lernen.jpg
+      titel: Hausaufgabenbetreuung
+      text: <p>Zuhause fehlt oft der Platz, das Licht oder die Ruhe zum Lernen. In unseren Büchereien finden die Kinder beides – und Menschen, die ihnen helfen.</p><p>Unsere Mentorinnen und Mentoren kommen selbst aus Korogocho und Mathare.</p><div class="m-fact">In den Schulferien bieten wir zusätzliche Nachhilfeprogramme an.</div>
+      link: projekte.html#hausaufgaben
+      linktext: Mehr erfahren
+- type: abschnitt
+  element: section
+  klasse: calc
+  wrap_klasse: wrap
+  eyebrow: Wirkungsrechner
+- type: text
+  inhalt: <h2>Was deine Spende konkret bewegt</h2>
+- type: html
+  html: |-
+    <div class="calc-box">
+    <div>
+    <div class="calc-amount"><span id="amount">25</span> €</div>
+    <input aria-label="Spendenbetrag" class="impact-slider" id="slider" max="200" min="5" step="5" type="range" value="25"/>
+    <div class="calc-presets"><button class="preset" data-v="10">10 €</button><button class="preset active" data-v="25">25 €</button><button class="preset" data-v="65">65 €</button><button class="preset" data-v="100">100 €</button></div>
+    </div>
+    <div>
+    <div class="calc-result" id="result"></div>
+    <a class="btn-light" href="spenden.html">Jetzt spenden</a>
+    <p class="fine">Beispielwerte auf Basis unserer realen Kosten vor Ort. Die Kosten variieren je nach Schule.</p>
+    </div>
+    </div>
+- type: abschnitt
+  element: section
+  anker: kinder
+  wrap_klasse: wrap
+  eyebrow: Die Kinder & ihre Familien
+- type: text
+  inhalt: <h2>Geschichten, die uns antreiben</h2>
+- type: html
+  html: |-
+    <p class="lead">Bei unseren Besuchen in Kenia dürfen wir tief in das Leben vieler Familien eintauchen.</p>
+    <div class="story-grid">
+    <div class="story"><p class="q">Raphael und seine Frau haben alle fünf Enkelkinder bei sich aufgenommen – ohne zu zögern. Sein Haus hat er mit eigenen Händen gebaut.</p><div class="who">Familie Ouma</div><div class="role">Schulgebühren für alle fünf Kinder</div></div>
+    <div class="story"><p class="q">Caroline zieht vier Kinder allein groß – mit dem geringen Lohn aus dem Verkauf von Samosas und Wäschewaschen. Ihre älteste Tochter hat gerade die weiterführende Schule abgeschlossen.</p><div class="who">Caroline Atieno</div><div class="role">Frauenpower in Korogocho</div></div>
+    <div class="story"><p class="q">Vickstone hat im Examen so gut abgeschnitten, dass er ein Regierungsstipendium erhielt – unser erster Stipendiat besucht nun ein sehr gutes Internat in Nairobi.</p><div class="who">Vickstone</div><div class="role">Erster One-for-One-Stipendiat</div></div>
+    </div>
+    <div style="margin-top:32px"><a class="btn-solid" href="kinder.html">Alle Geschichten lesen</a></div>
+- type: abschnitt
+  element: section
+  klasse: gallery-sec
+  stil: background:var(--ink)
+  wrap_klasse: wrap
+- type: html
+  html: |-
+    <div class="eyebrow" style="color:#cfcdb8">Einblicke</div>
+    <h2 style="color:#fff">Momente aus Korogocho &amp; Mathare</h2>
+- type: galerie
+  anker: mosaic
+  bilder:
+  - bild: bilder/galerie-bibliothek.jpg
+    alt: Bibliothek
+    unterschrift: One for One Library
+    lightbox: Vor der One for One Library in Korogocho.
+    format: big
+  - bild: bilder/porridge-einfuellen.jpg
+    alt: Porridge
+    unterschrift: Porridge-Samstag
+    lightbox: 'Jeden Samstag: frischer Porridge für 150–250 Kinder.'
+    format: tall
+  - bild: bilder/galerie-maedchen.jpg
+    alt: Mädchen
+    unterschrift: In der Bibliothek
+    lightbox: Ein Lächeln, für das sich jeder Weg lohnt.
+    format: normal
+  - bild: bilder/naehen-maureen-maschine.jpg
+    alt: Nähprojekt
+    unterschrift: Nähprojekt
+    lightbox: Im Nähprojekt entstehen Fähigkeiten, die bleiben.
+    format: normal
+  - bild: bilder/galerie-cleaning1.jpg
+    alt: Cleaning Day
+    unterschrift: Gemeinsam anpacken
+    lightbox: Die Kinder halten ihr Viertel gemeinsam sauber.
+    format: wide
+  - bild: bilder/galerie-strasse.jpg
+    alt: Straße
+    unterschrift: Korogocho
+    lightbox: Korogocho, Nairobi – hier sind wir zuhause.
+    format: wide
+  - bild: bilder/nachhilfe-geometrie.jpg
+    alt: Nachhilfe
+    unterschrift: Ferien-Nachhilfe
+    lightbox: Nachhilfe in den Ferien – hier Mathematik.
+    format: normal
+  - bild: bilder/galerie-schule.jpg
+    alt: Unterricht
+    unterschrift: Im Unterricht
+    lightbox: Konzentriert im Unterricht.
+    format: normal
+  - bild: bilder/bib-ma-gruppe.jpg
+    alt: Mathare Library
+    unterschrift: Mathare
+    lightbox: Die Community Library in Mathare.
+    format: normal
+- type: abschnitt
+  element: section
+  anker: faq
+  wrap_klasse: wrap
+  eyebrow: Häufige Fragen
+- type: text
+  inhalt: <h2>Gut zu wissen</h2>
+- type: faq
+  eintraege:
+  - frage: Kommt meine Spende wirklich vollständig an?
+    antwort: Ja. One for One arbeitet komplett ehrenamtlich – keine Gehälter, keine Verwaltungskosten. Deine Spende geht per Onlineüberweisung direkt an unser Team in Kenia. Lediglich für die Überweisung fallen minimale Bankgebühren an (ca. 0,5 % des Gesamtspendenvolumens).
+  - frage: Woher wisst ihr, dass das Geld korrekt verwendet wird?
+    antwort: Die Schulgebühren werden von unserem Team vor Ort pro Term direkt an die Schulen gezahlt – das Geld läuft nicht über die Familien. Mit unseren Mitarbeitenden vor Ort stehen wir in engem, täglichem Austausch, und Vereinsmitglieder besuchen die Projekte regelmäßig persönlich. Über Newsletter und <a href="https://www.instagram.com/one4one_ev/" rel="noopener" target="_blank">Instagram</a> berichten wir transparent, was mit den Spenden passiert.
+  - frage: Bekomme ich eine Spendenbescheinigung?
+    antwort: Als eingetragener gemeinnütziger Verein stellen wir dir auf Wunsch eine Zuwendungsbestätigung aus. Gib bei der Überweisung deine Adresse an oder melde dich per E-Mail.
+  - frage: Wie funktioniert eine Patenschaft?
+    antwort: Mit einer regelmäßigen Spende begleitest du gezielt ein Kind – idealerweise durch die gesamte Schullaufbahn. Schreib uns an info@one-for.one, dann besprechen wir alle Details und finden eine passende Patenschaft. Aktuell werden bereits 62 Kinder durch direkte Patenschaften gefördert.
+  - frage: Wie bleibe ich auf dem Laufenden?
+    antwort: Über <a href="https://www.instagram.com/one4one_ev/" rel="noopener" target="_blank">Instagram</a> (@one4one_ev) und unseren <a href="https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G" rel="noopener" target="_blank">WhatsApp-Kanal</a> teilen wir regelmäßig Updates aus Korogocho und Mathare – dazu ein bis zwei ausführliche Newsletter im Jahr.
+- type: abschnitt
+  element: section
+  klasse: patenband
+  wrap_klasse: wrap patenband-inner
+- type: html
+  html: |-
+    <div><div class="eyebrow">Mitmachen</div><h2>Werde Teil von One for One</h2><p>Ob einmalige Spende, Dauerauftrag oder Patenschaft für ein Kind – jeder Beitrag kommt 1 : 1 an.</p></div>
+    <a class="btn-paten" href="spenden.html">Jetzt spenden</a>

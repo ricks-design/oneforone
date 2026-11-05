@@ -1,0 +1,25 @@
+seitentitel: Impressum | One for One
+beschreibung: Impressum und Angaben gemäß § 5 DDG von One for One e.V.
+bloecke:
+- type: seitenkopf
+  brotkrume: Impressum
+  titel: Impressum
+  text: Angaben gemäß § 5 DDG.
+- type: abschnitt
+  element: section
+  wrap_klasse: wrap prose
+- type: text
+  inhalt: |-
+    <h3>Angaben gemäß § 5 DDG</h3>
+    <p>One for One e.V.<br/>Salinenstraße 23a<br/>83278 Traunstein</p>
+    <p><strong>E-Mail:</strong> info@one-for.one</p>
+    <h3>Vertretungsberechtigter Vorstand</h3>
+    <p>Marion Daxer (1. Vorsitzende)<br/>Dr. Niklas Amann (2. Vorsitzender)<br/>Dr. Katharina Dötzer (Schatzmeisterin)<br/>Dr. Rick Paschold (Protokollführer)</p>
+    <h3>Registereintrag</h3>
+    <p>Registergericht: Amtsgericht Traunstein<br/>Registernummer: VR 202678</p>
+    <h3>Inhaltlich verantwortlich</h3>
+    <p>Verantwortlich im Sinne des § 18 Abs. 2 MStV:<br/>Dr. Rick Paschold (Anschrift wie oben)</p>
+    <h3>Haftung für Inhalte &amp; Links</h3>
+    <p>Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten verantwortlich. Für Inhalte externer Links sind ausschließlich deren Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine rechtswidrigen Inhalte erkennbar.</p>
+- type: html
+  html: '<p style="margin-top:26px;font-size:14px;color:rgba(38,38,28,.55)">Hinweis: Bitte durch eine juristisch geprüfte Fassung bestätigen lassen.</p>'

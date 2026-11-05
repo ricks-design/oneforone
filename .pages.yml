@@ -1,0 +1,247 @@
+# Konfiguration für Pages CMS (https://app.pagescms.org)
+# Inhalte liegen in content/, Bilder in bilder/. Nach jedem Speichern baut die
+# GitHub Action die Website neu (Reiter „Actions“), nach ca. 1–2 Minuten ist sie online.
+
+media:
+  input: bilder
+  output: bilder
+  categories: [image]
+  rename: safe
+
+components:
+  # ---------- wiederverwendbare Felder ----------
+  bild:
+    type: object
+    fields:
+      - { name: bild, label: Bild, type: image }
+      - { name: alt, label: Alternativtext, type: string, description: "Kurze Bildbeschreibung für Screenreader und Suchmaschinen" }
+      - { name: unterschrift, label: Bildunterschrift, type: string }
+
+  bloecke:
+    label: Inhaltsblöcke
+    type: block
+    list:
+      collapsible:
+        collapsed: true
+    blockKey: type
+    blocks:
+      - name: hero
+        label: Titelbild groß (Startseite)
+        fields:
+          - { name: bild, label: Hintergrundbild, type: image }
+          - { name: alt, label: Alternativtext, type: string }
+          - { name: eyebrow, label: Zeile über dem Titel, type: string }
+          - { name: titel, label: Titel, type: string, description: "HTML erlaubt, z. B. <em>hervorgehoben</em>" }
+          - { name: text, label: Untertitel, type: text }
+          - name: buttons
+            label: Buttons
+            type: object
+            list: true
+            fields:
+              - { name: text, label: Text, type: string }
+              - { name: link, label: Link, type: string }
+              - name: stil
+                label: Stil
+                type: select
+                options:
+                  values:
+                    - { name: primary, label: Gefüllt }
+                    - { name: ghost, label: Umriss }
+          - { name: anker, label: Anker-ID, type: string, description: "Technisch: id-Attribut" }
+
+      - name: seitenkopf
+        label: Seitenkopf (Unterseiten)
+        fields:
+          - { name: brotkrume, label: Brotkrume, type: string, description: "Text hinter „Home ›“" }
+          - { name: titel, label: Titel, type: string }
+          - { name: text, label: Untertitel, type: text }
+
+      - name: abschnitt
+        label: "── Neuer Abschnitt ──"
+        fields:
+          - { name: eyebrow, label: Kleine Überschrift (Eyebrow), type: string }
+          - { name: anker, label: Anker-ID, type: string, description: "Für Sprunglinks, z. B. porridge → projekte.html#porridge" }
+          - { name: stil, label: Inline-Stil (CSS), type: string, description: "Technisch, z. B. background:var(--white)" }
+          - { name: klasse, label: CSS-Klasse des Abschnitts, type: string, description: "Technisch, z. B. kidstory, calc, patenband" }
+          - { name: wrap_klasse, label: CSS-Klasse des Inhalts, type: string, description: "wrap = normale Breite, wrap prose = Lesetext" }
+          - name: element
+            label: HTML-Element
+            type: select
+            options:
+              values: [section, div]
+
+      - name: text
+        label: Text
+        fields:
+          - { name: inhalt, label: Text, type: rich-text, options: { format: html } }
+
+      - name: bildreihe
+        label: Bildreihe (2–3 Bilder, Lightbox)
+        fields:
+          - name: bilder
+            label: Bilder
+            component: bild
+            list: true
+
+      - name: galerie
+        label: Bildmosaik
+        fields:
+          - name: bilder
+            label: Bilder
+            type: object
+            list: true
+            fields:
+              - { name: bild, label: Bild, type: image }
+              - { name: alt, label: Alternativtext, type: string }
+              - { name: unterschrift, label: Bildunterschrift, type: string }
+              - { name: lightbox, label: Text in der Großansicht, type: string }
+              - name: format
+                label: Kachelgröße
+                type: select
+                options:
+                  values:
+                    - { name: normal, label: Normal }
+                    - { name: big, label: Groß }
+                    - { name: tall, label: Hoch }
+                    - { name: wide, label: Breit }
+          - { name: anker, label: Anker-ID, type: string }
+
+      - name: faq
+        label: Fragen & Antworten
+        fields:
+          - name: eintraege
+            label: Einträge
+            type: object
+            list: true
+            fields:
+              - { name: frage, label: Frage, type: string }
+              - { name: antwort, label: Antwort, type: rich-text, options: { format: html } }
+
+      - name: zeitleiste
+        label: Zeitleiste
+        fields:
+          - name: eintraege
+            label: Einträge
+            type: object
+            list: true
+            fields:
+              - { name: datum, label: Datum / Status, type: string, description: "z. B. „Mai 2026 · Erledigt“" }
+              - { name: titel, label: Titel, type: string }
+              - { name: text, label: Text, type: text }
+              - { name: zukunft, label: Noch geplant (heller dargestellt), type: boolean }
+
+      - name: personen
+        label: Personen- / Bildkarten
+        fields:
+          - name: karten
+            label: Karten
+            type: object
+            list: true
+            fields:
+              - { name: bild, label: Bild, type: image }
+              - { name: alt, label: Alternativtext, type: string }
+              - { name: titel, label: Titel, type: string }
+              - { name: text, label: Text, type: rich-text, options: { format: html } }
+              - name: bildklasse
+                label: Bildformat
+                type: select
+                options:
+                  values:
+                    - { name: "ph ph-portrait", label: Hochformat }
+                    - { name: ph, label: Querformat }
+          - name: raster
+            label: Raster
+            type: select
+            options:
+              values:
+                - { name: teamgrid, label: Team (3 Spalten) }
+                - { name: vg, label: Karten }
+          - { name: stil, label: Inline-Stil (CSS), type: string }
+
+      - name: projektkacheln
+        label: Projekt-Kacheln mit Pop-up
+        fields:
+          - name: kacheln
+            label: Kacheln
+            type: object
+            list: true
+            fields:
+              - { name: schluessel, label: Interner Name, type: string, description: "Eindeutig, ohne Leerzeichen, z. B. porridge" }
+              - { name: titel, label: Titel, type: string }
+              - { name: text, label: Kurztext, type: text }
+              - { name: bild, label: Bild, type: image }
+              - { name: alt, label: Alternativtext, type: string }
+              - name: popup
+                label: Pop-up
+                type: object
+                fields:
+                  - { name: bild, label: Bild, type: image }
+                  - { name: titel, label: Titel, type: string }
+                  - { name: text, label: Text, type: rich-text, options: { format: html } }
+                  - { name: link, label: Link, type: string }
+                  - { name: linktext, label: Linktext, type: string }
+
+      - name: cta
+        label: Aufruf-Band (Button)
+        fields:
+          - { name: titel, label: Text, type: string }
+          - { name: button, label: Button-Text, type: string }
+          - { name: link, label: Link, type: string }
+
+      - name: html
+        label: HTML im Abschnitt
+        fields:
+          - { name: html, label: HTML, type: code, options: { format: html }, description: "Platzhalter: {{ e.iban }}, {{ e.bic }}, {{ e.paypal_link }}" }
+
+      - name: html_bereich
+        label: HTML-Bereich (eigenständig)
+        fields:
+          - { name: html, label: HTML, type: code, options: { format: html }, description: "Kompletter Bereich inkl. <section>. Platzhalter: {{ e.iban }}, {{ e.paypal_link }}" }
+
+content:
+  - { name: index, label: "Seite: Home", type: file, path: content/seiten/index.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: leben-in-kenia, label: "Seite: Vor Ort", type: file, path: content/seiten/leben-in-kenia.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: projekte, label: "Seite: Projekte", type: file, path: content/seiten/projekte.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: kinder, label: "Seite: Die Kinder", type: file, path: content/seiten/kinder.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: community-center, label: "Seite: Community Center", type: file, path: content/seiten/community-center.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: team, label: "Seite: Team", type: file, path: content/seiten/team.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: spenden, label: "Seite: Spenden", type: file, path: content/seiten/spenden.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: impressum, label: "Seite: Impressum", type: file, path: content/seiten/impressum.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: datenschutz, label: "Seite: Datenschutz", type: file, path: content/seiten/datenschutz.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+
+  - name: einstellungen
+    label: Einstellungen (Navigation, Footer, Konto)
+    type: file
+    path: content/einstellungen.yml
+    format: yaml
+    fields:
+      - { name: logo, label: Logo, type: image }
+      - name: navigation
+        label: Navigation
+        type: object
+        list: true
+        fields:
+          - { name: titel, label: Text, type: string }
+          - { name: link, label: Datei, type: string, description: "z. B. projekte.html" }
+      - name: spenden_button
+        label: Spenden-Button
+        type: object
+        fields:
+          - { name: text, label: Text (Desktop), type: string }
+          - { name: text_mobil, label: Text (Mobil-Menü), type: string }
+          - { name: link, label: Link, type: string }
+      - { name: footer_text, label: Footer-Text, type: text }
+      - name: links
+        label: Footer-Links („Folge uns“)
+        type: object
+        list: true
+        fields:
+          - { name: text, label: Text, type: string }
+          - { name: link, label: URL, type: string }
+      - { name: kontoinhaber, label: Kontoinhaber, type: string }
+      - { name: bank, label: Bank, type: string }
+      - { name: iban, label: IBAN, type: string, description: "Mit Leerzeichen in Vierergruppen; erscheint im Footer aller Seiten und auf der Spendenseite" }
+      - { name: bic, label: BIC, type: string }
+      - { name: paypal_link, label: PayPal-Spendenlink, type: string }
+      - { name: copyright, label: Copyright-Zeile, type: string }
+      - { name: version, label: Versionshinweis im Footer, type: string }

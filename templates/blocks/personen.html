@@ -1,0 +1,3 @@
+<div class="{{ b.raster or 'teamgrid' }}"{% if b.stil %} style="{{ b.stil }}"{% endif %}>
+{% for k in b.karten %}<article class="vcard"><div class="{{ k.bildklasse or 'ph' }}"><img src="{{ k.bild | bild }}" alt="{{ k.alt }}"></div><div class="vb"><h3>{{ k.titel }}</h3>{{ k.text | safe }}</div></article>
+{% endfor %}</div>

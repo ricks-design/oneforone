@@ -109,26 +109,7 @@ window.copyIban=copyIban;
 /* Startseiten-Kacheln: Pop-up mit Kurzübersicht + Link zur Unterseite */
 (function(){
   const tiles=document.querySelectorAll('.tile[data-modal]');if(!tiles.length)return;
-  const MODALS={
-    bibliotheken:{img:'bilder/bib-ko-aussen.jpg',title:'Die Büchereien',
-      body:'<p>Im Februar 2025 haben wir in Korogocho auf rund 15 m² eine Bücherei eröffnet, am Ostermontag 2026 folgte eine zweite in Mathare. Beide stehen jedem Kind offen – unabhängig davon, ob es gerade zur Schule geht.</p><p>Neben Schulbüchern gibt es Märchen, einfache Romane und gespendete Spiele. Die Kinder machen hier Hausaufgaben, lernen gemeinsam oder spielen einfach.</p><div class="m-fact">Montag bis Samstag, 11–19 Uhr · Korogocho (Ngomongo) und Mathare North, Area 3</div>',
-      href:'projekte.html#bibliotheken',label:'Mehr über die Büchereien'},
-    schulbildung:{img:'bilder/schule-maedchen.jpg',title:'Schulbildung',
-      body:'<p>Obwohl Schule in Kenia seit 2003 offiziell kostenlos ist, sieht die Realität anders aus: zu wenige öffentliche Schulen, dazu Gebühren für Uniform, Prüfungen und Material.</p><p>Gemeinsam mit Teddy und Joseph haben wir einen Evaluationsbogen entwickelt, aus dem sich eine faire Warteliste ergibt. Ist ein Kind aufgenommen, begleiten wir es möglichst durch die ganze Schullaufbahn.</p><div class="m-fact">Aktuell zahlen wir die Schulgebühren für 237 Kinder an rund 50 verschiedenen Schulen.</div>',
-      href:'projekte.html#schulbildung',label:'Mehr zur Schulbildung'},
-    porridge:{img:'bilder/porridge-becher5.jpg',title:'Porridge-Programm',
-      body:'<p>Mangelernährung ist in den Slums von Nairobi Alltag. Deshalb gibt es jeden Samstag in Ngomongo, Korogocho, eine Porridge-Ausgabe.</p><p>Was als Initiative des Teams vor Ort begann, versorgt heute 150 bis 250 Kinder pro Woche mit einer warmen Mahlzeit.</p><div class="m-fact">Zusätzlich hat das Team eine große Lebensmittelspende über Foodbank Kenya organisiert.</div>',
-      href:'projekte.html#porridge',label:'Zum Porridge-Programm'},
-    center:{img:'bilder/cc-skizze2.jpg',title:'Community Center',
-      body:'<p>Dank einer Großspende konnten wir mitten im Herzen von Korogocho ein rund 400 m² großes Grundstück erwerben. Die Abrissarbeiten haben begonnen, ein zweiter Architekten-Entwurf wird ausgearbeitet.</p><p>Geplant sind Bibliothek, Unterrichtsraum, Nähraum, Küche, Büro, Toiletten, Spielraum und ein Außenbereich.</p><div class="m-fact">Im Bau-Tagebuch begleitet ihr jeden Schritt – vom Grundstück bis zur Eröffnung.</div>',
-      href:'community-center.html',label:'Zum Bau-Tagebuch'},
-    naehprojekt:{img:'bilder/naehen-maureen-tasche.jpg',title:'Nähprojekt',
-      body:'<p>In einem Raum direkt neben der Bücherei in Korogocho nähen Maureen und Linet – das Nähen beigebracht hat den beiden Marion.</p><p>Heute arbeiten sie eigenständig und schaffen sich damit ein eigenes Einkommen.</p><div class="m-fact">Im künftigen Community Center bekommt das Nähprojekt einen eigenen, größeren Raum.</div>',
-      href:'projekte.html#naehprojekt',label:'Mehr zum Nähprojekt'},
-    hausaufgaben:{img:'bilder/nachhilfe-lernen.jpg',title:'Hausaufgabenbetreuung',
-      body:'<p>Zuhause fehlt oft der Platz, das Licht oder die Ruhe zum Lernen. In unseren Büchereien finden die Kinder beides – und Menschen, die ihnen helfen.</p><p>Unsere Mentorinnen und Mentoren kommen selbst aus Korogocho und Mathare.</p><div class="m-fact">In den Schulferien bieten wir zusätzliche Nachhilfeprogramme an.</div>',
-      href:'projekte.html#hausaufgaben',label:'Mehr erfahren'}
-  };
+  const MODALS=(()=>{try{return JSON.parse(document.getElementById('modal-data').textContent)}catch(e){return{}}})(); // Inhalte aus content/seiten/index.yml (Block „projektkacheln“)
   const bd=document.createElement('div');bd.className='modal-backdrop';
   bd.innerHTML='<div class="modal" role="dialog" aria-modal="true"><button class="m-close" aria-label="Schließen">✕</button><div class="m-body"></div></div>';
   document.body.appendChild(bd);

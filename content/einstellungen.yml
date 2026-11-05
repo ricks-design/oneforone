@@ -1,0 +1,33 @@
+logo: bilder/logo.png
+navigation:
+  - titel: Home
+    link: index.html
+  - titel: Vor Ort
+    link: leben-in-kenia.html
+  - titel: Projekte
+    link: projekte.html
+  - titel: Die Kinder
+    link: kinder.html
+  - titel: Community Center
+    link: community-center.html
+  - titel: Team
+    link: team.html
+spenden_button:
+  text: Spenden
+  text_mobil: Jetzt spenden
+  link: spenden.html
+footer_text: One for One e.V. unterstützt Kinder in Korogocho und Mathare (Nairobi) – mit Bildung, Ernährung und einem Ort zum Wachsen. Gegründet 2024, komplett ehrenamtlich.
+links:
+  - text: Instagram · @one4one_ev
+    link: https://www.instagram.com/one4one_ev/
+  - text: WhatsApp-Kanal
+    link: https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G
+  - text: one-for.one
+    link: https://one-for.one/de/
+kontoinhaber: One for One e.V.
+bank: VR-Bank Altenburger Land / Skatbank
+iban: DE00 0000 0000 0000 0000 00
+bic: GENODEF1SLR
+paypal_link: https://www.paypal.com/donate?hosted_button_id=JUGWVZEM9XX8U
+copyright: © 2026 One for One e.V.
+version: Stand v9

@@ -1,0 +1,3 @@
+<div class="mosaic lbgroup"{% if b.anker %} id="{{ b.anker }}"{% endif %}>
+{% for i in b.bilder %}<figure{% if i.format and i.format != 'normal' %} class="{{ i.format }}"{% endif %}{% if i.lightbox %} data-cap="{{ i.lightbox }}"{% endif %}><img src="{{ i.bild | bild }}" alt="{{ i.alt }}" loading="lazy">{% if i.unterschrift %}<figcaption>{{ i.unterschrift }}</figcaption>{% endif %}</figure>
+{% endfor %}</div>

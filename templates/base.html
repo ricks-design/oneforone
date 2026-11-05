@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ seite.seitentitel }}</title>
+<meta name="description" content="{{ seite.beschreibung }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="{{ e.logo | bild }}" alt="One for One Logo"><span>One for One</span></a>
+    <div class="nav-links">{% for n in e.navigation %}<a href="{{ n.link }}"{% if n.link == datei %} class="active"{% endif %}>{{ n.titel }}</a>{% endfor %}</div>
+    <a class="btn-donate nav-cta" href="{{ e.spenden_button.link }}">{{ e.spenden_button.text }}</a>
+    <button class="burger" id="burger" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-head">
+    <a class="nav-logo" href="index.html"><img src="{{ e.logo | bild }}" alt="One for One Logo"><span>One for One</span></a>
+    <button class="mm-close" id="mmClose" aria-label="Schließen">✕</button>
+  </div>
+  {% for n in e.navigation %}<a class="mm-link" href="{{ n.link }}">{{ n.titel }}</a>{% endfor %}
+  <a class="btn-donate" href="{{ e.spenden_button.link }}">{{ e.spenden_button.text_mobil }}</a>
+</div>
+{{ inhalt }}
+<footer>
+  <div class="wrap f-grid">
+    <div class="f-brand">
+      <img src="{{ e.logo | bild }}" alt="One for One Logo">
+      <p>{{ e.footer_text }}</p>
+    </div>
+    <div>
+      <h4>Folge uns</h4>
+      {% for l in e.links %}<a href="{{ l.link }}" target="_blank" rel="noopener">{{ l.text }}</a>
+      {% endfor %}
+    </div>
+    <div>
+      <h4>Spendenkonto</h4>
+      <div class="f-iban">{{ e.kontoinhaber }}<br>{{ e.bank }}<br><span class="nowrap">IBAN:&nbsp;{{ e.iban | nbsp }}</span><br>BIC: {{ e.bic }}</div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>{{ e.copyright }} · <span style="opacity:.6">{{ e.version }}</span></span>
+    <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+  </div>
+</footer>
+<button id="toTop" aria-label="Nach oben">↑</button>
+{% if popups %}<script type="application/json" id="modal-data">{{ popups | tojson }}</script>
+{% endif %}<script src="main.js"></script>
+</body>
+</html>

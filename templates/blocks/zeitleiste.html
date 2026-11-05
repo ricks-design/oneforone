@@ -1,0 +1,3 @@
+<div class="timeline">
+{% for t in b.eintraege %}<div class="t-item{% if t.zukunft %} future{% endif %}"><div class="date">{{ t.datum }}</div><h4>{{ t.titel }}</h4><p>{{ t.text }}</p></div>
+{% endfor %}</div>

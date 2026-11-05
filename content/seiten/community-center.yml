@@ -1,0 +1,67 @@
+seitentitel: Community Center | One for One
+beschreibung: Auf 400 m² in Korogocho entsteht ein Zentrum für Kinder und Jugendliche. Grundstück gekauft, Abriss läuft – begleite den Bau.
+bloecke:
+- type: seitenkopf
+  brotkrume: Community Center
+  titel: Das Community Center entsteht
+  text: Vom Grundstück zum Herzstück von Korogocho – begleite jeden Schritt.
+- type: abschnitt
+  element: section
+  wrap_klasse: wrap prose
+  eyebrow: Good things are coming
+- type: text
+  inhalt: |-
+    <h2>Ein Ort für die ganze Community</h2>
+    <p>Dank einer Großspende konnten wir mitten im Herzen von Korogocho ein rund <strong>400 m² großes Grundstück</strong> erwerben. Hier soll ein Zentrum für Kinder und Jugendliche entstehen: ein Ort zum Kindsein, zum Lernen und Arbeiten für eine bessere Zukunft, ein Ort der Gemeinschaft und des Zusammenkommens. Geplant sind unter anderem eine Bibliothek, ein Unterrichtsraum, ein Nähraum, eine Küche, ein Büro, Toiletten, ein Spielraum und ein Außenbereich.</p>
+    <p>Unsere Träume sind groß und die Pläne werden konkreter: Ein zweiter Architekten-Entwurf wird derzeit ausgearbeitet, Marion steht bereits in Kontakt mit einem ortsansässigen Bauunternehmer, und die Prüfung für eine Förderung im Kleinprojektefonds läuft.</p>
+- type: bildreihe
+  bilder:
+  - bild: bilder/cc-skizze2.jpg
+    alt: Architektur-Skizze des Community Centers
+    unterschrift: 'Erste Entwürfe: ein Zentrum mit Treppe, Terrasse und Grünfläche.'
+  - bild: bilder/cc-skizze1.jpg
+    alt: Perspektivische Skizze mit begrüntem Dach
+    unterschrift: Perspektive mit begrüntem Dach.
+- type: html
+  html: <p class="pastnote">Beim Sommerfest &amp; Benefizkonzert im Café Festung in Traunstein am 26. Juli 2026 haben wir für dieses Projekt gesammelt.</p>
+- type: abschnitt
+  element: section
+  stil: background:var(--sand)
+  wrap_klasse: wrap
+  eyebrow: Bau-Tagebuch
+- type: text
+  inhalt: <h2>Der Weg zum Community Center</h2>
+- type: zeitleiste
+  eintraege:
+  - datum: Mai 2026 · Erledigt
+    titel: 400 m² Grundstück gekauft
+    text: Dank einer Großspende konnten wir mitten in Korogocho ein Grundstück erwerben – der Grundstein für alles Weitere.
+  - datum: Juni 2026 · Aktuell
+    titel: Abrissarbeiten
+    text: Die Abrissarbeiten auf dem Grundstück haben begonnen.
+  - datum: Juni/Juli 2026 · Aktuell
+    titel: Architektur-Entwürfe
+    text: Ein zweiter Architekten-Entwurf wird derzeit ausgearbeitet. Parallel laufen Gespräche mit einem ortsansässigen Bauunternehmer.
+  - datum: Als Nächstes
+    titel: Finanzierung
+    text: Die Prüfung für eine Förderung im Kleinprojektefonds läuft – darüber hinaus zählt jede Unterstützung.
+    zukunft: true
+  - datum: Das Ziel
+    titel: Baubeginn & Eröffnung
+    text: Sobald es losgeht, seht ihr hier Fotos und Updates direkt von der Baustelle.
+    zukunft: true
+- type: bildreihe
+  bilder:
+  - bild: bilder/cc-grundstueck.jpg
+    alt: Das eingezäunte Grundstück in Korogocho
+    unterschrift: Das gekaufte Grundstück, frisch eingezäunt.
+  - bild: bilder/cc-abriss.jpg
+    alt: Abrissarbeiten auf dem Grundstück
+    unterschrift: Die Abrissarbeiten haben begonnen.
+  - bild: bilder/cc-weit.jpg
+    alt: Blick über das Grundstück und die Nachbarschaft
+    unterschrift: Mitten im Herzen von Korogocho.
+- type: cta
+  titel: Bau mit uns das Community Center.
+  button: Jetzt spenden
+  link: spenden.html

@@ -1,0 +1,91 @@
+seitentitel: Leben in Kenia | One for One
+beschreibung: Gesellschaft, Slums und Schulsystem in Nairobi – der Kontext der Arbeit von One for One.
+bloecke:
+- type: seitenkopf
+  brotkrume: Vor Ort
+  titel: Leben in Kenia
+  text: Gesellschaft, Slums und Schulsystem – der Kontext, in dem wir arbeiten.
+- type: abschnitt
+  element: section
+  wrap_klasse: wrap prose
+  eyebrow: Armut & Alltag
+- type: text
+  inhalt: |-
+    <h2>Zwischen Wachstum und Existenzminimum</h2>
+    <p>Kenia zählt seit 2014 zu den Ländern mit niedrigem mittlerem Einkommen. Doch Korruption, die Coronapandemie, extreme Wetterlagen mit Dürren und Überschwemmungen sowie stetig steigende Lebensmittelpreise haben die Armut zuletzt wieder wachsen lassen.</p>
+    <p>2023 lebten laut Weltbank rund 35 % der Menschen in Kenia unter der Armutsgrenze – mit weniger als 2 Euro am Tag. Auf der Suche nach Arbeit ziehen immer mehr junge Menschen vom Land in die Städte. Weil dort kaum Arbeitsplätze warten, arbeiten rund 85 % im informellen Sektor als Tagelöhner, Fahrer oder Handwerker. In Nairobi leben etwa 60 % der 4,4 Millionen Einwohner in rund 200 Slums.</p>
+- type: abschnitt
+  element: section
+  stil: background:var(--white);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand)
+  wrap_klasse: wrap
+  eyebrow: Zwei Nachbarschaften
+- type: text
+  inhalt: <h2>Korogocho &amp; Mathare Valley</h2>
+- type: personen
+  raster: vg
+  stil: grid-template-columns:1fr 1fr
+  karten:
+  - bild: bilder/vorort-korogocho.jpg
+    alt: Straße in Korogocho
+    bildklasse: ph
+    titel: Korogocho
+    text: '<p>Der drittgrößte Slum Nairobis – übersetzt bedeutet der Name so viel wie „Durcheinander, Chaos, Abfall“. Er liegt unmittelbar am Fuß von Dandora, der einzigen Müllkippe der Stadt. Rund 150.000 Menschen wohnen hier, und viele von ihnen leben von der Müllkippe: Sie suchen im Müll nach Essbarem oder Wiederverwertbarem. Auch Kinder werden losgeschickt, um Müll zu sammeln und so zum Lebensunterhalt der Familie beizutragen.</p>'
+  - bild: bilder/vorort-mathare.jpg
+    alt: Kinder vor der Community Library in Mathare
+    bildklasse: ph
+    titel: Mathare Valley
+    text: <p>Der älteste und mit rund 500.000 Einwohnern zweitgrößte Slum Nairobis. Die Menschen leben hier unter widrigen Bedingungen in notdürftig errichteten Wellblechhütten auf engstem Raum – ohne fließendes Wasser oder Abwassersystem. Es gibt nur wenige befestigte Straßen und lediglich instabile Stromleitungen. Da häufig auch Kinder und Jugendliche zum Lebensunterhalt beitragen oder auf jüngere Geschwister aufpassen müssen, statt zur Schule zu gehen, ist die Analphabetenrate in Mathare extrem hoch.</p>
+- type: bildreihe
+  bilder:
+  - bild: bilder/vorort-dandora.jpg
+    alt: Die Müllkippe Dandora
+    unterschrift: Die Müllkippe Dandora am Fuß von Korogocho.
+  - bild: bilder/vorort-wall.jpg
+    alt: Wäscheleine mit Blick auf die Müllkippe
+    unterschrift: Zwischen Wohnhäusern und Müllkippe.
+  - bild: bilder/vorort-dach.jpg
+    alt: Blick über die Dächer von Korogocho
+    unterschrift: Blick über die Dächer von Korogocho.
+- type: abschnitt
+  element: section
+  wrap_klasse: wrap prose
+  eyebrow: Bildung
+- type: text
+  inhalt: |-
+    <h2>Kenias Schulsystem</h2>
+    <p>Seit 2003 ist der Besuch der Grundschule offiziell kostenlos. 2023 wurde zudem das Schulsystem erneuert – mit dem Ziel, die Bedürfnisse der stetig wachsenden Bevölkerung zu bedienen. Die Reform soll bis 2027 vollständig umgesetzt sein. Sie sieht eine zweijährige Vorschule vor, gefolgt von sechs Jahren Grundschule und den weiterführenden Schulen: der „Junior Secondary School“ und der „Senior Secondary School“ mit jeweils drei Jahren Unterricht. Im Anschluss besteht die Möglichkeit, für drei weitere Jahre an der Universität zu studieren.</p>
+- type: html
+  html: |-
+    <div class="ksys">
+    <div class="ky"><b>2</b><span>Preprimary</span></div><div class="karr">→</div>
+    <div class="ky"><b>6</b><span>Primary</span></div><div class="karr">→</div>
+    <div class="ky"><b>3</b><span>Junior Secondary</span></div><div class="karr">→</div>
+    <div class="ky"><b>3</b><span>Senior Secondary</span></div><div class="karr">→</div>
+    <div class="ky"><b>3</b><span>University</span></div>
+    </div>
+    <p class="ksys-note"><strong>Dauer in Jahren.</strong> Einschulung mit durchschnittlich 4 Jahren. Nach dem Examen der 9. Klasse folgt ein obligatorischer Schulwechsel – je nach Note und gewähltem Schwerpunkt.</p>
+- type: text
+  inhalt: |-
+    <p>Das neue System soll dazu führen, dass die landesweiten Abschlussprüfungen weniger stark gewichtet werden und die unterschiedlichen Talente der Schülerinnen und Schüler mehr Raum bekommen. Auf dem Papier klingt das richtig gut – die gelebte Praxis sieht leider anders aus: Im ganzen Land fehlen Lehrkräfte, das Lehrer-Schüler-Verhältnis hat sich auf etwa 1:100 verschlechtert. Gerade in den Slums wachsen Klassen teilweise auf 200 bis 300 Kinder an. Wer eine bessere Betreuung für seine Kinder möchte, bleibt gezwungen, Schulgeld für eine der vielen Privatschulen aufzubringen.</p>
+    <p>Und selbst an den öffentlichen Grundschulen entfallen lediglich die Schulgebühren. Es bleiben die Kosten für Essen, Schuluniform, Bücher, Hefte und Stifte – dazu Gebühren für die Aufnahme oder die Teilnahme an den jährlichen Abschlussprüfungen. Wer ohne die entsprechende Ausrüstung erscheint, wird wieder nach Hause geschickt. So schaffen es aktuell 3 von 10 Kindern nicht, bis zur Abschlussprüfung an der Grundschule zu bleiben.</p>
+    <p>Weiterführende Schulen sind kostenpflichtige Gesamtschulen – der Besuch kostet im Schnitt rund einen Euro am Tag. Für große Teile der Bevölkerung sind sie damit unzugänglich, auch wenn Privatschulen vereinzelt Stipendien vergeben. Nur 37,5 % der Jugendlichen in Kenia schaffen es auf eine weiterführende Schule; 13,7 % der Absolventen qualifizieren sich anschließend für die Universität.</p>
+- type: html
+  html: <div class="eyebrow" style="margin-top:64px">Was Schule kostet</div>
+- type: text
+  inhalt: <h2>Aufteilung der jährlichen Kosten für den Schulbesuch</h2>
+- type: html
+  html: |-
+    <div class="costwrap">
+    <div aria-label="Schulgebühren rund 60 Euro, Schulessen rund 40 Euro, Sonstiges rund 5 Euro pro Jahr" class="pie" role="img"></div>
+    <div class="costlist">
+    <div class="costrow"><i class="c1"></i><span class="cl">Schulgebühren</span><span class="cv">60 €/Jahr</span></div>
+    <div class="costrow"><i class="c2"></i><span class="cl">Schulessen</span><span class="cv">40 €/Jahr</span></div>
+    <div class="costrow"><i class="c3"></i><span class="cl">Sonstige Kosten</span><span class="cv">5 €/Jahr</span></div>
+    <div class="costrow" style="border-top:1px dashed var(--sand);padding-top:14px;margin-top:4px"><span class="cl">Schuluniform <small>Vollausstattung, wird über die gesamte Schulform getragen</small></span><span class="cv">35 € einmalig</span></div>
+    </div>
+    </div>
+    <p class="costnote">*Die Kosten variieren in Höhe und Verteilung je nach Schule.</p>
+- type: cta
+  titel: Hilf einem Kind, zur Schule zu gehen.
+  button: Jetzt spenden
+  link: spenden.html

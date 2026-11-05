@@ -1,0 +1,3 @@
+<div class="faq-list">
+{% for f in b.eintraege %}<div class="faq-item"><button class="faq-q">{{ f.frage }}</button><div class="faq-a"><div>{{ f.antwort | safe }}</div></div></div>
+{% endfor %}</div>

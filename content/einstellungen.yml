@@ -16,7 +16,9 @@ spenden_button:
   text: Spenden
   text_mobil: Jetzt spenden
   link: spenden.html
-footer_text: One for One e.V. unterstützt Kinder in Korogocho und Mathare (Nairobi) – mit Bildung, Ernährung und einem Ort zum Wachsen. Gegründet 2024, komplett ehrenamtlich.
+footer_text: One for One e.V. unterstützt Kinder in Korogocho und Mathare
+  (Nairobi) – mit Bildung, Ernährung und einem Ort zum Wachsen. Gegründet 2024,
+  komplett ehrenamtlich.
 links:
   - text: Instagram · @one4one_ev
     link: https://www.instagram.com/one4one_ev/
@@ -30,9 +32,8 @@ iban: DE00 0000 0000 0000 0000 00
 bic: GENODEF1SLR
 paypal_link: https://www.paypal.com/donate?hosted_button_id=JUGWVZEM9XX8U
 copyright: © 2026 One for One e.V.
-version: Stand v9
+version: Stand v10
 wirkungsrechner:
-  # Bereiche müssen lückenlos von 5 bis 200 reichen (Slider-Minimum/-Maximum).
   - von: 5
     bis: 9
     icon: 🎒
@@ -64,13 +65,14 @@ wirkungsrechner:
   - von: 25
     bis: 30
     icon: 🏫
-    text: <strong>Ein Jahr Schulgebühren</strong> für ein Kind · oder eine Schulbank mit Stuhl
+    text: <strong>Ein Jahr Schulgebühren</strong> für ein Kind · oder eine Schulbank
+      mit Stuhl
   - von: 31
     bis: 31
     icon: 📚
     text: <strong>Eine Monatsmiete</strong> für die Bücherei in Korogocho
     alternativ_icon: 👕
-    alternativ: Komplette Schuluniform (35 €, fast)
+    alternativ: Komplette Schuluniform
   - von: 32
     bis: 49
     icon: 👕
@@ -82,7 +84,8 @@ wirkungsrechner:
   - von: 78
     bis: 95
     icon: ⭐
-    text: <strong>Ein komplettes Schuljahr</strong> für ein Kind (Gebühren, Essen, Material)
+    text: <strong>Ein komplettes Schuljahr</strong> für ein Kind (Gebühren, Essen,
+      Material)
   - von: 96
     bis: 96
     icon: 📚
@@ -92,10 +95,12 @@ wirkungsrechner:
   - von: 97
     bis: 199
     icon: ⭐
-    text: <strong>Mehrere Schuljahre</strong> · oder mehrere Schulbänke (ab 25 €/Stück)
+    text: <strong>Mehrere Schuljahre</strong> · oder mehrere Schulbänke (ab 25
+      €/Stück)
   - von: 200
     bis: 200
     icon: ✏️
-    text: <strong>Ein komplettes 2-wöchiges Ferien-Nachhilfeprogramm</strong> inkl. Frühstück
+    text: <strong>Ein komplettes 2-wöchiges Ferien-Nachhilfeprogramm</strong> inkl.
+      Frühstück
     alternativ_icon: ⭐
     alternativ: Drei komplette Schuljahre

@@ -76,6 +76,23 @@ Einstellungen eingesetzt werden: `{{ e.iban }}`, `{{ e.bic }}`, `{{ e.bank }}`,
 
 Die Stufen des **Wirkungsrechners** (Startseite, Spendenseite) stehen unter *Einstellungen → Wirkungsrechner*: je Stufe ein Betragsbereich, ein Haupt- und optional ein Alternativ-Beispiel. Der Slider läuft in 1-€-Schritten von 5 bis 200 €; Schrittweite und Schnellwahl-Buttons stehen im HTML-Block des jeweiligen Rechner-Abschnitts.
 
+## Neuigkeiten
+
+Beiträge legt man im CMS unter **„Neuigkeiten (Beiträge)“** an: Titel, Datum, Kurztext, Titelbild,
+Text, weitere Bilder. Jeder Beitrag wird eine eigene Seite (`neuigkeiten-<datum>-<titel>.html`) und
+erscheint auf der Seite „Neuigkeiten“, sortiert nach Datum (neueste zuerst). Mit „Entwurf“ markierte
+Beiträge werden nicht veröffentlicht. Der Block **„Neuigkeiten-Liste“** zeigt Beiträge an beliebiger
+Stelle, z. B. mit Anzahl 3 die neuesten drei auf der Startseite. Der Menüpunkt wird unter
+*Einstellungen → Navigation* ergänzt (Datei `neuigkeiten.html`).
+
+## Datenschutz und Teilen
+
+- Schriften liegen in `static/fonts/` (SIL Open Font License); es werden keine Google-Server angefragt.
+- Google-Maps-Karten (Projekte-Seite) laden erst nach Klick: im HTML `data-src` statt `src` am `<iframe>`.
+- Favicon und Apple-Touch-Icon liegen in `static/`. Das Vorschaubild beim Teilen (Open Graph) ist
+  *Einstellungen → Standard-Vorschaubild*; pro Seite und pro Beitrag (Titelbild) überschreibbar.
+  Dafür muss *Einstellungen → Adresse der Website* stimmen (bei Domainwechsel anpassen).
+
 ## Lokal bauen
 
 ```bash

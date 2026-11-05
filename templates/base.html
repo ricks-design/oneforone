@@ -5,9 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ seite.seitentitel }}</title>
 <meta name="description" content="{{ seite.beschreibung }}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="{{ 'article' if seite.artikel else 'website' }}">
+<meta property="og:site_name" content="One for One e.V.">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="{{ seite.seitentitel }}">
+<meta property="og:description" content="{{ seite.beschreibung }}">
+<meta property="og:url" content="{{ e.website_url | basis_url }}{{ '' if datei == 'index.html' else datei }}">
+<meta property="og:image" content="{{ e.website_url | basis_url }}{{ (seite.teilen_bild or e.teilen_bild) | bild }}">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <nav>

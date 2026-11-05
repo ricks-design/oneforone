@@ -1,0 +1,10 @@
+<header class="subhero"><div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> › <a href="neuigkeiten.html">Neuigkeiten</a></div>
+    <h1>{{ n.titel }}</h1><p>{{ n.datum | datum_de }}</p></div></header>
+<section><div class="wrap prose">
+  {% if n.bild %}<div class="imgrow lbgroup news-titelbild"><figure><img src="{{ n.bild | bild }}" alt="{{ n.alt }}">{% if n.bildunterschrift %}<figcaption>{{ n.bildunterschrift }}</figcaption>{% endif %}</figure></div>{% endif %}
+  {{ n.inhalt | safe }}
+  {% for reihe in n.bilder | batch(3) %}<div class="imgrow lbgroup">{% for i in reihe %}<figure><img src="{{ i.bild | bild }}" alt="{{ i.alt }}" loading="lazy">{% if i.unterschrift %}<figcaption>{{ i.unterschrift }}</figcaption>{% endif %}</figure>{% endfor %}</div>
+  {% endfor %}
+  <p class="news-zurueck"><a href="neuigkeiten.html">← Alle Neuigkeiten</a></p>
+</div></section>

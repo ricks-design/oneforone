@@ -4,6 +4,7 @@
 Aufruf:  python build.py            → baut nach dist/
          python build.py --serve    → baut und startet http://localhost:8000
 """
+import datetime
 import re
 import shutil
 import sys
@@ -48,6 +49,51 @@ def bildpfad(p):
     return p
 
 
+MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August",
+          "September", "Oktober", "November", "Dezember"]
+
+
+def als_datum(wert):
+    if isinstance(wert, datetime.datetime):
+        return wert.date()
+    if isinstance(wert, datetime.date):
+        return wert
+    try:
+        return datetime.date.fromisoformat(str(wert)[:10])
+    except ValueError:
+        return None
+
+
+def datum_de(wert):
+    d = als_datum(wert)
+    return f"{d.day}. {MONATE[d.month - 1]} {d.year}" if d else ""
+
+
+def basis_url(url):
+    url = (url or "").strip()
+    return url if url.endswith("/") else url + "/"
+
+
+def lade_neuigkeiten():
+    """content/neuigkeiten/*.md: YAML-Kopf zwischen '---' + Text (HTML) darunter."""
+    posts = []
+    for pfad in sorted((CONTENT / "neuigkeiten").glob("*.md")):
+        roh = pfad.read_text(encoding="utf-8")
+        kopf, inhalt = {}, roh
+        teile = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", roh, re.S)
+        if teile:
+            kopf = yaml.safe_load(teile.group(1)) or {}
+            inhalt = teile.group(2)
+        if kopf.get("entwurf"):
+            continue
+        kopf["inhalt"] = inhalt.strip()
+        kopf["datum"] = als_datum(kopf.get("datum")) or datetime.date.min
+        kopf["datei"] = f"neuigkeiten-{pfad.stem}.html"
+        posts.append(kopf)
+    posts.sort(key=lambda p: p["datum"], reverse=True)
+    return posts
+
+
 def nbsp(text):
     return Markup((text or "").replace(" ", "&nbsp;"))
 
@@ -61,6 +107,8 @@ def baue_env(einstellungen):
     )
     env.filters["bild"] = bildpfad
     env.filters["nbsp"] = nbsp
+    env.filters["datum_de"] = datum_de
+    env.filters["basis_url"] = basis_url
     # HTML-Blöcke dürfen {{ e.iban }}, {{ e.paypal_link }} usw. verwenden
     env.filters["roh"] = lambda html: Markup(env.from_string(html or "").render(e=einstellungen))
     return env
@@ -168,6 +216,8 @@ def main():
     e = lade_yaml(CONTENT / "einstellungen.yml")
     env = baue_env(e)
     base = env.get_template("base.html")
+    neuigkeiten = lade_neuigkeiten()
+    env.globals["neuigkeiten"] = neuigkeiten
 
     for pfad in sorted((CONTENT / "seiten").glob("*.yml")):
         seite = lade_yaml(pfad)
@@ -182,9 +232,16 @@ def main():
         (DIST / datei).write_text(html, encoding="utf-8")
         print(f"Seite: {datei}")
 
-    for f in (ROOT / "static").iterdir():
-        if f.is_file():
-            shutil.copy2(f, DIST / f.name)
+    artikel = env.get_template("neuigkeit.html")
+    for n in neuigkeiten:
+        seite = {"seitentitel": f"{n.get('titel', '')} | One for One", "beschreibung": n.get("kurztext", ""),
+                 "teilen_bild": n.get("bild"), "artikel": True}
+        html = base.render(seite=seite, e=e, datei=n["datei"], popups={},
+                           inhalt=Markup(artikel.render(n=n, e=e)))
+        (DIST / n["datei"]).write_text(html, encoding="utf-8")
+        print(f"Neuigkeit: {n['datei']}")
+
+    shutil.copytree(ROOT / "static", DIST, dirs_exist_ok=True)
     bilder_kopieren()
     (DIST / ".nojekyll").touch()
     verweise_pruefen()

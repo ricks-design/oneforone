@@ -181,6 +181,12 @@ components:
                   - { name: link, label: Link, type: string }
                   - { name: linktext, label: Linktext, type: string }
 
+      - name: neuigkeiten
+        label: Neuigkeiten-Liste
+        fields:
+          - { name: anzahl, label: Anzahl, type: number, description: "Leer = alle. Z. B. 3 für die neuesten drei auf der Startseite" }
+          - { name: leer_text, label: Text, solange es keine Beiträge gibt, type: string }
+
       - name: cta
         label: Aufruf-Band (Button)
         fields:
@@ -199,15 +205,41 @@ components:
           - { name: html, label: HTML, type: code, options: { format: html }, description: "Kompletter Bereich inkl. <section>. Platzhalter: {{ e.iban }}, {{ e.paypal_link }}" }
 
 content:
-  - { name: index, label: "Seite: Home", type: file, path: content/seiten/index.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
-  - { name: leben-in-kenia, label: "Seite: Vor Ort", type: file, path: content/seiten/leben-in-kenia.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
-  - { name: projekte, label: "Seite: Projekte", type: file, path: content/seiten/projekte.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
-  - { name: kinder, label: "Seite: Die Kinder", type: file, path: content/seiten/kinder.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
-  - { name: community-center, label: "Seite: Community Center", type: file, path: content/seiten/community-center.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
-  - { name: team, label: "Seite: Team", type: file, path: content/seiten/team.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
-  - { name: spenden, label: "Seite: Spenden", type: file, path: content/seiten/spenden.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
-  - { name: impressum, label: "Seite: Impressum", type: file, path: content/seiten/impressum.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
-  - { name: datenschutz, label: "Seite: Datenschutz", type: file, path: content/seiten/datenschutz.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: bloecke, component: bloecke } ] }
+  - { name: index, label: "Seite: Home", type: file, path: content/seiten/index.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: leben-in-kenia, label: "Seite: Vor Ort", type: file, path: content/seiten/leben-in-kenia.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: projekte, label: "Seite: Projekte", type: file, path: content/seiten/projekte.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: kinder, label: "Seite: Die Kinder", type: file, path: content/seiten/kinder.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: community-center, label: "Seite: Community Center", type: file, path: content/seiten/community-center.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: team, label: "Seite: Team", type: file, path: content/seiten/team.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: spenden, label: "Seite: Spenden", type: file, path: content/seiten/spenden.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: neuigkeiten-seite, label: "Seite: Neuigkeiten", type: file, path: content/seiten/neuigkeiten.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: impressum, label: "Seite: Impressum", type: file, path: content/seiten/impressum.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+  - { name: datenschutz, label: "Seite: Datenschutz", type: file, path: content/seiten/datenschutz.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
+
+  - name: neuigkeiten
+    label: Neuigkeiten (Beiträge)
+    type: collection
+    path: content/neuigkeiten
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [titel, datum, entwurf]
+      primary: titel
+      sort: [datum, titel]
+      default: { sort: datum, order: desc }
+    fields:
+      - { name: titel, label: Titel, type: string, required: true }
+      - { name: datum, label: Datum, type: date, required: true }
+      - { name: entwurf, label: Entwurf (noch nicht veröffentlichen), type: boolean }
+      - { name: kurztext, label: Kurztext (Vorschau und Teilen), type: text }
+      - { name: bild, label: Titelbild, type: image, description: "Erscheint in der Übersicht und als Vorschaubild beim Teilen" }
+      - { name: alt, label: Alternativtext Titelbild, type: string }
+      - { name: bildunterschrift, label: Bildunterschrift Titelbild, type: string }
+      - { name: body, label: Text, type: rich-text, options: { format: html } }
+      - name: bilder
+        label: Weitere Bilder (je 3 in einer Reihe)
+        component: bild
+        list: true
 
   - name: einstellungen
     label: Einstellungen (Navigation, Footer, Konto)
@@ -243,6 +275,8 @@ content:
       - { name: iban, label: IBAN, type: string, description: "Mit Leerzeichen in Vierergruppen; erscheint im Footer aller Seiten und auf der Spendenseite" }
       - { name: bic, label: BIC, type: string }
       - { name: paypal_link, label: PayPal-Spendenlink, type: string }
+      - { name: website_url, label: Adresse der Website, type: string, description: "Vollständige Adresse mit / am Ende; wird für Vorschaubilder beim Teilen gebraucht. Bei Domainwechsel anpassen." }
+      - { name: teilen_bild, label: Standard-Vorschaubild beim Teilen, type: image, description: "Empfohlen 1200 × 630 px" }
       - { name: copyright, label: Copyright-Zeile, type: string }
       - { name: version, label: Versionshinweis im Footer, type: string }
       - name: wirkungsrechner

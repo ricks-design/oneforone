@@ -1,43 +1,63 @@
 seitentitel: Team | One for One
-beschreibung: Das ehrenamtliche Team in Deutschland und die Projektkoordinatoren Teddy und Joseph in Nairobi.
+beschreibung: Das ehrenamtliche Team in Deutschland und die Projektkoordinatoren
+  Teddy und Joseph in Nairobi.
 bloecke:
-- type: seitenkopf
-  notiz: Die Menschen hinter One for One
-  brotkrume: Team
-  titel: Die Menschen hinter One for One
-  text: Ein ehrenamtliches Team in Deutschland und unsere Kolleginnen und Kollegen vor Ort in Nairobi.
-- type: abschnitt
-  notiz: ▸ INHALT
-  element: section
-  wrap_klasse: wrap
-- type: bild_gross
-  notiz: Gruppenfoto Team in Kenia – Bild fehlt noch
-  ueberschrift: Unser Team in Kenia
-- type: portraits
-  notiz: Freiwillige – Bilder fehlen noch
-  ueberschrift: Unsere Freiwilligen
-  personen: []
-- type: personen
-  notiz: Team Deutschland, Teddy · Korogocho, Joseph ·…
-  raster: teamgrid
-  karten:
-  - bild: bilder/team-deutschland.jpg
-    alt: Das ehrenamtliche Team von One for One in Deutschland
-    bildklasse: ph ph-portrait
-    titel: Team Deutschland
-    text: <p>Eine kleine Gruppe guter Freundinnen und Freunde, die die Lust am Reisen, die Verbundenheit zum afrikanischen Kontinent und die Motivation verbindet, gemeinsam etwas zu bewegen. Gegründet 2024, komplett ehrenamtlich – auf Grundlage ehrenamtlicher Ärzteeinsätze in den Slums von Nairobi.</p>
-  - bild: bilder/team-teddy.jpg
-    alt: Teddy, Projektkoordinator in Korogocho
-    bildklasse: ph ph-portrait
-    titel: Teddy · Korogocho
-    text: <p>Teddy ist selbst in Korogocho aufgewachsen und durfte dank seines großen Fußballtalents trotz fehlender Schulgebühren sogar die weiterführende Schule beenden. Seinen Traum vom Profifußballer tauschte er vor einigen Jahren gegen das Ziel, Kindern und Jugendlichen aus Korogocho durch Fußball die Möglichkeit zu geben, ein besseres Leben zu führen. Dafür gründete er seine eigene wohltätige Fußballakademie (Teds Soccer Academy).</p><p>Da Teddy durch die Arbeit für seine Akademie nicht vollständig ausgelastet war, war er Feuer und Flamme, sich für und mit uns dafür zu engagieren, Kindern die Schulbildung zu ermöglichen.</p><p class="vnote">Die Fußballakademie ist ein eigenständiges Projekt von Teddy – Fußball ist kein Projekt von One for One.</p>
-  - bild: bilder/team-joseph.jpg
-    alt: Joseph, Projektkoordinator in Mathare
-    bildklasse: ph ph-portrait
-    titel: Joseph · Mathare
-    text: <p>Joseph arbeitet seit Jahren als Kinderschutzbeauftragter und hat täglich mit Familien am Existenzminimum zu tun. Schon lange träumte er davon, aktiv etwas zu verändern. Für One for One koordiniert er das Projekt in Mathare und die Auswahl der Kinder.</p>
-- type: cta
-  notiz: Unterstütze die Arbeit unseres Teams.
-  titel: Unterstütze die Arbeit unseres Teams.
-  button: Jetzt spenden
-  link: spenden.html
+  - type: seitenkopf
+    notiz: Die Menschen hinter One for One
+    brotkrume: Team
+    titel: Die Menschen hinter One for One
+    text: Ein ehrenamtliches Team in Deutschland und unsere Kolleginnen und Kollegen
+      vor Ort in Nairobi.
+  - type: abschnitt
+    notiz: ▸ INHALT
+    wrap_klasse: wrap
+    element: section
+  - type: bild_gross
+    notiz: Gruppenfoto Team in Kenia – Bild fehlt noch
+    ueberschrift: Unser Team in Kenia
+    bild: bilder/5m1a9246.jpeg
+  - type: portraits
+    notiz: Freiwillige – Bilder fehlen noch
+    ueberschrift: Unsere Freiwilligen
+  - type: personen
+    notiz: Team Deutschland, Teddy · Korogocho, Joseph ·…
+    karten:
+      - bild: bilder/team-deutschland.jpg
+        alt: Das ehrenamtliche Team von One for One in Deutschland
+        titel: Team Deutschland
+        text: <p>Eine kleine Gruppe guter Freundinnen und Freunde, die die Lust am
+          Reisen, die Verbundenheit zum afrikanischen Kontinent und die
+          Motivation verbindet, gemeinsam etwas zu bewegen. Gegründet 2024,
+          komplett ehrenamtlich – auf Grundlage ehrenamtlicher Ärzteeinsätze in
+          den Slums von Nairobi.</p>
+        bildklasse: ph ph-portrait
+      - bild: bilder/team-teddy.jpg
+        alt: Teddy, Projektkoordinator in Korogocho
+        titel: Teddy · Korogocho
+        text: <p>Teddy ist selbst in Korogocho aufgewachsen und durfte dank seines
+          großen Fußballtalents trotz fehlender Schulgebühren sogar die
+          weiterführende Schule beenden. Seinen Traum vom Profifußballer
+          tauschte er vor einigen Jahren gegen das Ziel, Kindern und
+          Jugendlichen aus Korogocho durch Fußball die Möglichkeit zu geben, ein
+          besseres Leben zu führen. Dafür gründete er seine eigene wohltätige
+          Fußballakademie (Teds Soccer Academy).</p><p>Da Teddy durch die Arbeit
+          für seine Akademie nicht vollständig ausgelastet war, war er Feuer und
+          Flamme, sich für und mit uns dafür zu engagieren, Kindern die
+          Schulbildung zu ermöglichen.</p><p>Die Fußballakademie ist ein
+          eigenständiges Projekt von Teddy – Fußball ist kein Projekt von One
+          for One.</p>
+        bildklasse: ph ph-portrait
+      - bild: bilder/team-joseph.jpg
+        alt: Joseph, Projektkoordinator in Mathare
+        titel: Joseph · Mathare
+        text: <p>Joseph arbeitet seit Jahren als Kinderschutzbeauftragter und hat
+          täglich mit Familien am Existenzminimum zu tun. Schon lange träumte er
+          davon, aktiv etwas zu verändern. Für One for One koordiniert er das
+          Projekt in Mathare und die Auswahl der Kinder.</p>
+        bildklasse: ph ph-portrait
+    raster: teamgrid
+  - type: cta
+    notiz: Unterstütze die Arbeit unseres Teams.
+    titel: Unterstütze die Arbeit unseres Teams.
+    button: Jetzt spenden
+    link: spenden.html

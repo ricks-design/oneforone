@@ -9,7 +9,7 @@ bloecke:
   element: section
   wrap_klasse: wrap prose
 - type: html
-  html: <div class="infobox" style="max-width:none"><h4>⚠️ Platzhalter – juristische Prüfung erforderlich</h4><p>Dieser Entwurf ersetzt keine Rechtsberatung. Da die Seite externe Dienste einbindet (Google Fonts, Google Maps, PayPal, Instagram/WhatsApp-Links), muss eine vollständige, geprüfte Datenschutzerklärung erstellt werden.</p></div>
+  html: <div class="infobox" style="max-width:none"><h4>⚠️ Platzhalter – juristische Prüfung erforderlich</h4><p>Dieser Entwurf ersetzt keine Rechtsberatung. Da die Seite externe Dienste einbindet (Google Maps nach Klick, PayPal, Instagram/WhatsApp-Links), muss eine vollständige, geprüfte Datenschutzerklärung erstellt werden.</p></div>
 - type: text
   inhalt: |-
     <h3>Verantwortlicher</h3>
@@ -17,6 +17,6 @@ bloecke:
     <h3>Hosting</h3>
     <p>Diese Website wird als statische Seite ausgeliefert. Dabei können technisch notwendige Zugriffsdaten (z. B. IP-Adresse, Zeitpunkt) verarbeitet werden.</p>
     <h3>Eingebundene Dienste</h3>
-    <ul><li><strong>Google Fonts &amp; Google Maps:</strong> Beim Laden werden Daten an Google übertragen. Empfehlung: Fonts lokal einbinden, Karten erst nach Klick laden.</li><li><strong>PayPal:</strong> Bei Nutzung des Spendenbuttons gelten die Datenschutzbestimmungen von PayPal.</li><li><strong>Instagram / WhatsApp:</strong> Es werden lediglich Links gesetzt; beim Anklicken gelten die Bestimmungen der jeweiligen Anbieter.</li></ul>
+    <ul><li><strong>Schriften:</strong> Die Schriften sind auf dieser Website selbst gespeichert; beim Laden werden keine Daten an Google Fonts übertragen.</li><li><strong>Google Maps:</strong> Karten werden erst geladen, wenn sie angeklickt werden. Erst dann werden Daten (u. a. die IP-Adresse) an Google übertragen.</li><li><strong>PayPal:</strong> Bei Nutzung des Spendenbuttons gelten die Datenschutzbestimmungen von PayPal.</li><li><strong>Instagram / WhatsApp:</strong> Es werden lediglich Links gesetzt; beim Anklicken gelten die Bestimmungen der jeweiligen Anbieter.</li></ul>
     <h3>Deine Rechte</h3>
     <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner personenbezogenen Daten sowie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.</p>

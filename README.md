@@ -38,7 +38,13 @@ Nach ca. 1–2 Minuten ist die Änderung online (Status im Reiter *Actions*).
 
 **Bilder:** in einem Bildfeld hochladen oder aus der Mediathek wählen. Handyfotos können in
 Originalgröße hochgeladen werden: Der Build verkleinert Bilder über 1600 px (längere Seite),
-dreht sie nach Kamera-Ausrichtung und entfernt GPS-Daten. Das Original bleibt in `bilder/`.
+dreht sie nach Kamera-Ausrichtung und entfernt GPS-Daten. iPhone-Fotos im HEIC-Format werden
+automatisch in JPEG umgewandelt. Das Original bleibt in `bilder/`; bei vielen oder sehr großen
+Fotos diese vorher verkleinern (längere Seite 1600–2000 px), damit das Repository klein bleibt.
+
+**Prüfung beim Build:** Verweist eine Seite auf ein Bild oder eine Unterseite, die es nicht gibt
+(z. B. gelöschtes Bild, Tippfehler im Link), bricht der Build ab und die bisherige Version bleibt
+online. Die fehlende Datei steht im Protokoll des fehlgeschlagenen Laufs (Reiter *Actions*).
 Bildnamen ohne Leerzeichen und Umlaute erleichtern die Pflege (das CMS benennt Uploads automatisch um).
 
 ### Block-Typen
@@ -69,6 +75,23 @@ Einstellungen eingesetzt werden: `{{ e.iban }}`, `{{ e.bic }}`, `{{ e.bank }}`,
 (*Einstellungen*) und erscheint automatisch im Footer aller Seiten und auf der Spendenseite.
 
 Die Stufen des **Wirkungsrechners** (Startseite, Spendenseite) stehen unter *Einstellungen → Wirkungsrechner*: je Stufe ein Betragsbereich, ein Haupt- und optional ein Alternativ-Beispiel. Der Slider läuft in 1-€-Schritten von 5 bis 200 €; Schrittweite und Schnellwahl-Buttons stehen im HTML-Block des jeweiligen Rechner-Abschnitts.
+
+## Neuigkeiten
+
+Beiträge legt man im CMS unter **„Neuigkeiten (Beiträge)“** an: Titel, Datum, Kurztext, Titelbild,
+Text, weitere Bilder. Jeder Beitrag wird eine eigene Seite (`neuigkeiten-<datum>-<titel>.html`) und
+erscheint auf der Seite „Neuigkeiten“, sortiert nach Datum (neueste zuerst). Mit „Entwurf“ markierte
+Beiträge werden nicht veröffentlicht. Der Block **„Neuigkeiten-Liste“** zeigt Beiträge an beliebiger
+Stelle, z. B. mit Anzahl 3 die neuesten drei auf der Startseite. Der Menüpunkt wird unter
+*Einstellungen → Navigation* ergänzt (Datei `neuigkeiten.html`).
+
+## Datenschutz und Teilen
+
+- Schriften liegen in `static/fonts/` (SIL Open Font License); es werden keine Google-Server angefragt.
+- Google-Maps-Karten (Projekte-Seite) laden erst nach Klick: im HTML `data-src` statt `src` am `<iframe>`.
+- Favicon und Apple-Touch-Icon liegen in `static/`. Das Vorschaubild beim Teilen (Open Graph) ist
+  *Einstellungen → Standard-Vorschaubild*; pro Seite und pro Beitrag (Titelbild) überschreibbar.
+  Dafür muss *Einstellungen → Adresse der Website* stimmen (bei Domainwechsel anpassen).
 
 ## Lokal bauen
 

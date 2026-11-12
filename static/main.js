@@ -127,3 +127,13 @@ window.copyIban=copyIban;
   bd.addEventListener('click',e=>{if(e.target===bd)close()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bd.classList.contains('open'))close()});
 })();
+
+/* Karten (Google Maps) erst nach Klick laden: <iframe data-src="…"> */
+(function(){
+  document.querySelectorAll('iframe[data-src]').forEach(f=>{
+    const box=document.createElement('button');box.type='button';box.className='map-consent';
+    box.innerHTML='<b>Karte anzeigen</b><span>Beim Laden werden Daten an Google übertragen.</span>';
+    f.style.display='none';f.parentNode.insertBefore(box,f);
+    box.addEventListener('click',()=>{f.src=f.dataset.src;f.style.display='';box.remove()});
+  });
+})();

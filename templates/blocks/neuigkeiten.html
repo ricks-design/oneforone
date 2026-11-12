@@ -1,0 +1,6 @@
+{% set liste = neuigkeiten[:b.anzahl] if b.anzahl else neuigkeiten %}
+{% if liste %}<div class="tiles">
+{% for n in liste %}<a class="tile" href="{{ n.datei }}">{% if n.bild %}<div class="thumb"><img src="{{ n.bild | bild }}" alt="{{ n.alt }}" loading="lazy"></div>{% endif %}<div class="t-body"><div class="news-date">{{ n.datum | datum_de }}</div><h3>{{ n.titel }}</h3>{% if n.kurztext %}<p>{{ n.kurztext }}</p>{% endif %}<span class="more">Weiterlesen →</span></div></a>
+{% endfor %}</div>
+{% if b.anzahl and neuigkeiten | length > b.anzahl %}<p class="news-alle"><a class="btn-solid" href="neuigkeiten.html">Alle Neuigkeiten</a></p>{% endif %}
+{% elif b.leer_text %}<p class="lead">{{ b.leer_text }}</p>{% endif %}

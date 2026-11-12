@@ -68,6 +68,8 @@ Blöcken kurz ausfüllen, z. B. die Überschrift.
 | Text | Inhalt | Überschriften, Absätze, Listen, Links |
 | Einleitungssatz | Inhalt | größerer Satz unter einer Überschrift |
 | Bildreihe | Inhalt | 2–3 Bilder nebeneinander, Klick öffnet Großansicht |
+| Einzelbild groß | Inhalt | ein Bild in voller Breite, unbeschnitten (z. B. Gruppenfoto); erscheint erst, wenn ein Bild gewählt ist |
+| Porträt-Galerie | Inhalt | kleine quadratische Fotos mit Namen (z. B. Freiwillige); erscheint erst, wenn Fotos eingetragen sind |
 | Bildmosaik | Inhalt | Galerie der Startseite mit Kachelgrößen |
 | Personen-/Bildkarten | Inhalt | Team, Slum-Porträts auf „Vor Ort“ |
 | Projekt-Kacheln mit Pop-up | Inhalt | Projektübersicht der Startseite inkl. Pop-up-Texte |
@@ -88,6 +90,13 @@ Einstellungen eingesetzt werden: `{{ e.iban }}`, `{{ e.bic }}`, `{{ e.bank }}`,
 Die Beispiele des **Wirkungsrechners** je Betrag stehen unter *Einstellungen → Wirkungsrechner*:
 je Stufe ein Betragsbereich, ein Haupt- und optional ein Alternativ-Beispiel.
 
+**Zentrale Kostenwerte:** Unter *Einstellungen → Zentrale Kostenwerte* stehen Beträge, die an
+mehreren Stellen vorkommen (Schulgebühren, Schulessen, Uniform …). In jedem Textfeld setzt
+`{{ k.schluessel }}` den Wert ein, z. B. `{{ k.schulessen_jahr }} € / Jahr`. Gerechnet wird mit
+`z`: `{{ (z.schulgebuehren_min + z.schulessen_jahr) | euro }}`. Kostendiagramm, Kostentabelle und
+Wirkungsrechner nutzen diese Werte; wer einen Betrag ändert, ändert ihn damit überall. Die
+Betragsgrenzen der Rechner-Stufen („von“/„bis“) passen sich nicht automatisch an.
+
 **Feldtypen beachten:** Textfelder erwarten in den YAML-Dateien Text (`"237"`), Zahlenfelder
 Zahlen (`237`). Wer Inhalte direkt in den Dateien ändert, sollte das einhalten, sonst meldet das
 CMS beim Speichern einen Fehler.
@@ -105,6 +114,11 @@ Stelle, z. B. mit Anzahl 3 die neuesten drei auf der Startseite. Der Menüpunkt 
 
 - Schriften liegen in `static/fonts/` (SIL Open Font License); es werden keine Google-Server angefragt.
 - Google-Maps-Karten (Projekte-Seite) laden erst nach Klick: im HTML `data-src` statt `src` am `<iframe>`.
+- QR-Code für die Überweisung (Spendenseite): wird beim Build automatisch aus IBAN, BIC und
+  Kontoinhaber erzeugt, sobald in den Einstellungen eine gültige IBAN steht. Beim Platzhalter
+  erscheint keiner.
+- Bilder werden zusätzlich als WebP ausgeliefert (rund 40 % kleiner); JPEG/PNG bleiben als
+  Rückfall und für das Vorschaubild beim Teilen erhalten.
 - Favicon und Apple-Touch-Icon liegen in `static/`. Das Vorschaubild beim Teilen (Open Graph) ist
   *Einstellungen → Standard-Vorschaubild*; pro Seite und pro Beitrag (Titelbild) überschreibbar.
   Dafür muss *Einstellungen → Adresse der Website* stimmen (bei Domainwechsel anpassen).
@@ -125,7 +139,6 @@ ergänzen. Gehört der Block nicht in einen Abschnitt, Namen in `EIGENSTAENDIG` 
 
 - ECHTE IBAN einsetzen (*Einstellungen*, derzeit Platzhalter DE00…)
 - Datenschutzerklärung juristisch prüfen
-- Zahl-Abgleich Schulessen (1,50 €/Woche ≈ 78 €/Jahr vs. Diagramm ≈ 40 €/Jahr) – danach Kostentabelle, Kostendiagramm und Rechner-Stufe 50–77 € angleichen
 - Porträts Familie Ouma, Sarah, Vickstone (Platzhalter)
 - Jane (Mathare): Foto liegt bereit, Geschichte fehlt
 - Englische Version, ggf. Videos

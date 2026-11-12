@@ -1,0 +1,4 @@
+{% if b.bild %}{% if b.ueberschrift %}<h2>{{ b.ueberschrift }}</h2>
+{% endif %}{% if b.text %}<p>{{ b.text }}</p>
+{% endif %}<div class="imgrow lbgroup bild-gross"><figure><img src="{{ b.bild | bild }}" alt="{{ b.alt }}" loading="lazy">{% if b.unterschrift %}<figcaption>{{ b.unterschrift }}</figcaption>{% endif %}</figure></div>
+{% endif %}

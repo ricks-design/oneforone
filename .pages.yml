@@ -189,6 +189,67 @@ components:
         - name: unterschrift
           label: Bildunterschrift
           type: string
+    - name: bild_gross
+      label: Einzelbild groß
+      description: Ein Bild in voller Breite, unbeschnitten – z. B. ein Gruppenfoto. Erscheint erst, wenn ein Bild gewählt ist.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: ueberschrift
+        label: Überschrift (optional)
+        type: string
+      - name: text
+        label: Text unter der Überschrift (optional)
+        type: text
+      - name: bild
+        label: Bild
+        type: image
+      - name: alt
+        label: Alternativtext
+        type: string
+        description: Kurze Bildbeschreibung für Screenreader und Suchmaschinen
+      - name: unterschrift
+        label: Bildunterschrift
+        type: string
+    - name: portraits
+      label: Porträt-Galerie
+      description: Kleine quadratische Fotos mit Namen, z. B. alle Freiwilligen. Erscheint erst, wenn Fotos eingetragen sind.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: ueberschrift
+        label: Überschrift (optional)
+        type: string
+      - name: text
+        label: Text unter der Überschrift (optional)
+        type: text
+      - name: personen
+        label: Personen
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{name}'
+        fields:
+        - name: bild
+          label: Foto
+          type: image
+          description: Wird quadratisch zugeschnitten; Gesicht möglichst mittig.
+        - name: name
+          label: Name
+          type: string
+        - name: zusatz
+          label: Zusatz (optional)
+          type: string
+          description: z. B. Aufgabe oder Zeitraum
+        - name: alt
+          label: Alternativtext (optional)
+          type: string
+          description: Leer = Name
     - name: galerie
       label: Bildmosaik
       fields:
@@ -500,6 +561,13 @@ components:
         - name: betrag
           label: Betrag pro Jahr (€)
           type: number
+        - name: kosten
+          label: Zentraler Wert (optional)
+          type: string
+          description: Schlüssel aus Einstellungen → Zentrale Kostenwerte, z. B. schulessen_jahr. Hat Vorrang vor dem Betrag.
+        - name: hinweis
+          label: Kleiner Zusatztext
+          type: string
         - name: farbe
           label: Farbe
           type: select
@@ -961,6 +1029,26 @@ content:
   - name: paypal_link
     label: PayPal-Spendenlink
     type: string
+  - name: kosten
+    label: Zentrale Kostenwerte
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{bezeichnung}: {betrag} €'
+    description: 'Einmal pflegen, überall verwenden: In Texten als {{ k.schluessel }} einsetzen (z. B. {{ k.schulessen_jahr }} € / Jahr). Genutzt in Kostendiagramm,
+      Kostentabelle und Wirkungsrechner.'
+    fields:
+    - name: bezeichnung
+      label: Bezeichnung
+      type: string
+    - name: betrag
+      label: Betrag (€)
+      type: number
+    - name: schluessel
+      label: Schlüssel
+      type: string
+      description: Kleinbuchstaben ohne Leerzeichen, z. B. schulessen_jahr. Nicht ändern, solange er in Texten verwendet wird.
   - name: wirkungsrechner
     label: 'Wirkungsrechner: Beispiele je Betrag'
     type: object
@@ -968,7 +1056,8 @@ content:
       collapsible:
         collapsed: true
         summary: '{von}–{bis} €'
-    description: Lückenlos von 5 bis 200 €. Für einen einzelnen Betrag „von“ und „bis“ gleich setzen.
+    description: Lückenlos von 5 bis 200 €. Für einen einzelnen Betrag „von“ und „bis“ gleich setzen. Platzhalter wie {{ k.schulessen_jahr }} holen den Wert aus den
+      zentralen Kostenwerten.
     fields:
     - name: von
       label: Von (€)

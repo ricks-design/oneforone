@@ -42,6 +42,8 @@ bloecke:
     <div class="d-card"><h3>🏦 Per Überweisung</h3><p>Klassisch aufs Vereinskonto – ideal auch für Daueraufträge.</p>
     <div class="kv"><span class="k">Empfänger</span><span class="v">{{ e.kontoinhaber }}</span><span class="k">Bank</span><span class="v">{{ e.bank }}</span><span class="k">BIC</span><span class="v">{{ e.bic }}</span></div>
     <div class="copy-iban"><span id="iban">{{ e.iban }}</span><button onclick="copyIban(this)">IBAN kopieren</button></div>
+    {% if e.girocode %}<div class="giro"><img alt="QR-Code für die Überweisung" height="128" src="{{ e.girocode }}" width="128"/><p>Mit der Banking-App scannen: Empfänger und IBAN werden übernommen, den Betrag wählst du selbst.</p></div>
+    {% endif %}<p class="quittung"><strong>Spendenquittung:</strong> Bitte gib im Verwendungszweck (Betreff) der Überweisung deine Anschrift an. Alternativ kannst du dich per E-Mail bei uns melden: <a href="mailto:info@one-for.one">info@one-for.one</a>.</p>
     <p class="fee-note">Platzhalter – echte IBAN wird vor dem Launch eingesetzt. Pro Überweisung an unser Team nach Kenia fallen minimale Bankgebühren an – gerechnet auf das Gesamtspendenvolumen ca. 0,5 %.</p>
     </div>
     </div>
@@ -100,9 +102,9 @@ bloecke:
   spalte_2: Kosten
   zeilen:
   - beschreibung: Schulgebühren
-    wert: ab 25 € / Jahr
+    wert: ab {{ k.schulgebuehren_min }} € / Jahr
   - beschreibung: Essen in der Schule (Frühstück + Mittagessen)
-    wert: ab 78 € / Jahr (1,50 € / Woche)
+    wert: '{{ k.schulessen_jahr }} € / Jahr'
 - type: tabelle
   notiz: Jährlich einmalig anfallende Kosten
   titel: Jährlich einmalig anfallende Kosten
@@ -132,7 +134,7 @@ bloecke:
   - beschreibung: Trainingsanzug der Schule
     wert: ab 10 €
   - beschreibung: Schulbank mit Stuhl
-    wert: ab 25 €
+    wert: ab {{ k.schulbank }} €
   - beschreibung: Aufnahmegebühr
     wert: ab 2 €
   - beschreibung: Einstufungsgespräch

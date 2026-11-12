@@ -95,17 +95,21 @@ bloecke:
   - name: Schulgebühren
     betrag: 60
     farbe: gruen
+    kosten: schulgebuehren_typisch
+    hinweis: typischer Wert, je nach Schule ab {{ k.schulgebuehren_min }} €
   - name: Schulessen
     betrag: 40
     farbe: ocker
+    kosten: schulessen_jahr
   - name: Sonstige Kosten
     betrag: 5
     farbe: grau
+    kosten: sonstige_jahr
   summe_text: Ein Schuljahr gesamt
   zusatz:
   - name: Schuluniform
     hinweis: Vollausstattung, wird über die gesamte Schulform getragen
-    betrag_text: 35 € einmalig
+    betrag_text: '{{ k.uniform_komplett }} € einmalig'
   fussnote: '*Die Kosten variieren in Höhe und Verteilung je nach Schule.'
 - type: cta
   notiz: Hilf einem Kind, zur Schule zu gehen.

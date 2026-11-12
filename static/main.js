@@ -71,6 +71,16 @@ window.copyIban=copyIban;
     presets.forEach(p=>p.addEventListener('click',()=>{slider.value=p.dataset.v;upd(p.dataset.v)}));
     upd(slider.value);
   });
+  // Feste Höhe: so hoch wie das längste Beispiel, damit das Feld beim Schieben nicht springt
+  function festeHoehe(){
+    document.querySelectorAll('.calc-result').forEach(r=>{
+      const jetzt=r.innerHTML;let h=0;r.style.minHeight='';
+      STUFEN.forEach(s=>{r.innerHTML=impact(s.von);h=Math.max(h,r.getBoundingClientRect().height)});
+      r.innerHTML=jetzt;r.style.minHeight=Math.ceil(h)+'px';
+    });
+  }
+  festeHoehe();addEventListener('resize',festeHoehe);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(festeHoehe);
 })();
 
 /* Generische Lightbox für alle .lbgroup (Galerie + Bildreihen) */

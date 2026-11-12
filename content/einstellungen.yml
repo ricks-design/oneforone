@@ -1,31 +1,29 @@
 logo: bilder/logo.png
 navigation:
-  - titel: Home
-    link: index.html
-  - titel: Vor Ort
-    link: leben-in-kenia.html
-  - titel: Projekte
-    link: projekte.html
-  - titel: Die Kinder
-    link: kinder.html
-  - titel: Community Center
-    link: community-center.html
-  - titel: Team
-    link: team.html
+- titel: Home
+  link: index.html
+- titel: Vor Ort
+  link: leben-in-kenia.html
+- titel: Projekte
+  link: projekte.html
+- titel: Die Kinder
+  link: kinder.html
+- titel: Community Center
+  link: community-center.html
+- titel: Team
+  link: team.html
 spenden_button:
   text: Spenden
   text_mobil: Jetzt spenden
   link: spenden.html
-footer_text: One for One e.V. unterstützt Kinder in Korogocho und Mathare
-  (Nairobi) – mit Bildung, Ernährung und einem Ort zum Wachsen. Gegründet 2024,
-  komplett ehrenamtlich.
+footer_text: One for One e.V. unterstützt Kinder in Korogocho und Mathare (Nairobi) – mit Bildung, Ernährung und einem Ort zum Wachsen. Gegründet 2024, komplett ehrenamtlich.
 links:
-  - text: Instagram · @one4one_ev
-    link: https://www.instagram.com/one4one_ev/
-  - text: WhatsApp-Kanal
-    link: https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G
-  - text: one-for.one
-    link: https://one-for.one/de/
+- text: Instagram · @one4one_ev
+  link: https://www.instagram.com/one4one_ev/
+- text: WhatsApp-Kanal
+  link: https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G
+- text: one-for.one
+  link: https://one-for.one/de/
 kontoinhaber: One for One e.V.
 bank: VR-Bank Altenburger Land / Skatbank
 iban: DE00 0000 0000 0000 0000 00
@@ -35,74 +33,93 @@ website_url: https://ricks-design.github.io/oneforone/
 teilen_bild: bilder/teilen-logo.jpg
 copyright: © 2026 One for One e.V.
 version: Stand v10
+kosten:
+- schluessel: schulgebuehren_min
+  bezeichnung: Schulgebühren pro Jahr (Minimum)
+  betrag: 25
+- schluessel: schulgebuehren_typisch
+  bezeichnung: Schulgebühren pro Jahr (typisch)
+  betrag: 60
+- schluessel: schulessen_jahr
+  bezeichnung: Schulessen pro Jahr
+  betrag: 40
+- schluessel: sonstige_jahr
+  bezeichnung: Sonstige Kosten pro Jahr
+  betrag: 5
+- schluessel: uniform_komplett
+  bezeichnung: Schuluniform Vollausstattung (einmalig)
+  betrag: 35
+- schluessel: schulbank
+  bezeichnung: Schulbank mit Stuhl
+  betrag: 25
 wirkungsrechner:
-  - von: 5
-    bis: 9
-    icon: 🎒
-    text: <strong>Ein Term Schulgebühren</strong> für ein Kind (ab 8 €)
-    alternativ_icon: 📖
-    alternativ: Examensgebühr + Schulbücher fürs Jahr
-  - von: 10
-    bis: 10
-    icon: 🧵
-    text: <strong>Eine Monatsmiete</strong> für das Nähstudio in Korogocho
-    alternativ_icon: 🎒
-    alternativ: Schulranzen + Trainingsanzug
-  - von: 11
-    bis: 11
-    icon: 🥣
-    text: <strong>Zutaten für einen Samstag Porridge</strong> (ca. 250 Kinder)
-    alternativ_icon: 📖
-    alternativ: Beurteilungsbuch + Tagebuch + Aufnahmegebühr
-  - von: 12
-    bis: 14
-    icon: 👞
-    text: <strong>Schuhe + Rucksack</strong> für ein Kind
-  - von: 15
-    bis: 24
-    icon: 👕
-    text: <strong>Eine Schuluniform</strong> (ab 15 €)
-    alternativ_icon: 🍲
-    alternativ: Mehrere Wochen Schulessen (1,50 €/Woche)
-  - von: 25
-    bis: 30
-    icon: 🏫
-    text: <strong>Ein Jahr Schulgebühren</strong> für ein Kind · oder eine Schulbank
-      mit Stuhl
-  - von: 31
-    bis: 31
-    icon: 📚
-    text: <strong>Eine Monatsmiete</strong> für die Bücherei in Korogocho
-    alternativ_icon: 👕
-    alternativ: Komplette Schuluniform
-  - von: 32
-    bis: 49
-    icon: 👕
-    text: <strong>Komplette Schuluniform</strong> mit Schuhen und Rucksack (35 €)
-  - von: 50
-    bis: 77
-    icon: 🍲
-    text: <strong>Ein Jahr Schulessen</strong> für ein Kind (1,50 €/Woche)
-  - von: 78
-    bis: 95
-    icon: ⭐
-    text: <strong>Ein komplettes Schuljahr</strong> für ein Kind (Gebühren, Essen,
-      Material)
-  - von: 96
-    bis: 96
-    icon: 📚
-    text: <strong>Eine Monatsmiete</strong> für die Bücherei in Mathare
-    alternativ_icon: ⭐
-    alternativ: Ein komplettes Schuljahr für ein Kind
-  - von: 97
-    bis: 199
-    icon: ⭐
-    text: <strong>Mehrere Schuljahre</strong> · oder mehrere Schulbänke (ab 25
-      €/Stück)
-  - von: 200
-    bis: 200
-    icon: ✏️
-    text: <strong>Ein komplettes 2-wöchiges Ferien-Nachhilfeprogramm</strong> inkl.
-      Frühstück
-    alternativ_icon: ⭐
-    alternativ: Drei komplette Schuljahre
+- von: 5
+  bis: 9
+  icon: 🎒
+  text: <strong>Ein Term Schulgebühren</strong> für ein Kind (ab 8 €)
+  alternativ_icon: 📖
+  alternativ: Examensgebühr + Schulbücher fürs Jahr
+- von: 10
+  bis: 10
+  icon: 🧵
+  text: <strong>Eine Monatsmiete</strong> für das Nähstudio in Korogocho
+  alternativ_icon: 🎒
+  alternativ: Schulranzen + Trainingsanzug
+- von: 11
+  bis: 11
+  icon: 🥣
+  text: <strong>Zutaten für einen Samstag Porridge</strong> (ca. 250 Kinder)
+  alternativ_icon: 📖
+  alternativ: Beurteilungsbuch + Tagebuch + Aufnahmegebühr
+- von: 12
+  bis: 14
+  icon: 👞
+  text: <strong>Schuhe + Rucksack</strong> für ein Kind
+- von: 15
+  bis: 24
+  icon: 👕
+  text: <strong>Eine Schuluniform</strong> (ab 15 €)
+  alternativ_icon: 🍲
+  alternativ: Mehrere Monate Schulessen ({{ k.schulessen_jahr }} €/Jahr)
+- von: 25
+  bis: 30
+  icon: 🏫
+  text: <strong>Ein Jahr Schulgebühren</strong> für ein Kind · oder eine Schulbank mit Stuhl
+- von: 31
+  bis: 31
+  icon: 📚
+  text: <strong>Eine Monatsmiete</strong> für die Bücherei in Korogocho
+  alternativ_icon: 👕
+  alternativ: Komplette Schuluniform
+- von: 32
+  bis: 39
+  icon: 👕
+  text: <strong>Komplette Schuluniform</strong> mit Schuhen und Rucksack ({{ k.uniform_komplett }} €)
+- von: 40
+  bis: 64
+  icon: 🍲
+  text: <strong>Ein Jahr Schulessen</strong> für ein Kind ({{ k.schulessen_jahr }} €)
+- von: 65
+  bis: 95
+  icon: ⭐
+  text: <strong>Ein Jahr Schulgebühren und Schulessen</strong> für ein Kind (ab {{ (z.schulgebuehren_min + z.schulessen_jahr) | euro }} €)
+- von: 96
+  bis: 96
+  icon: 📚
+  text: <strong>Eine Monatsmiete</strong> für die Bücherei in Mathare
+  alternativ_icon: ⭐
+  alternativ: Ein Jahr Schulgebühren und Schulessen für ein Kind
+- von: 97
+  bis: 104
+  icon: ⭐
+  text: <strong>Ein Jahr Schulgebühren und Schulessen</strong> für ein Kind (ab {{ (z.schulgebuehren_min + z.schulessen_jahr) | euro }} €)
+- von: 105
+  bis: 199
+  icon: ⭐
+  text: <strong>Ein komplettes Schuljahr</strong> für ein Kind (Gebühren, Essen, Material) · oder mehrere Schulbänke (ab {{ k.schulbank }} €/Stück)
+- von: 200
+  bis: 200
+  icon: ✏️
+  text: <strong>Ein komplettes 2-wöchiges Ferien-Nachhilfeprogramm</strong> inkl. Frühstück
+  alternativ_icon: ⭐
+  alternativ: Fast zwei komplette Schuljahre

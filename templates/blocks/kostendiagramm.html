@@ -2,7 +2,7 @@
 <div class="costwrap">
 <div class="pie" role="img" aria-label="{% for p in b.posten %}{{ p.name }} {{ p.betrag | euro }} Euro, {% endfor %}zusammen {{ summe | euro }} Euro pro Jahr" style="background:{{ b.posten | torte }}"><div class="pie-sum"><b>{{ summe | euro }} €</b><span>pro Jahr</span></div></div>
 <div class="costlist">
-{% for p in b.posten %}<div class="costrow"><i style="background:{{ p.farbe | farbwert(loop.index0) }}"></i><span class="cl">{{ p.name }}</span><span class="cv">{{ p.betrag | euro }} €/Jahr</span></div>
+{% for p in b.posten %}<div class="costrow"><i style="background:{{ p.farbe | farbwert(loop.index0) }}"></i><span class="cl">{{ p.name }}{% if p.hinweis %} <small>{{ p.hinweis }}</small>{% endif %}</span><span class="cv">{{ p.betrag | euro }} €/Jahr</span></div>
 {% endfor %}<div class="costrow cost-sum"><span class="cl">{{ b.summe_text or 'Ein Schuljahr gesamt' }}</span><span class="cv">{{ summe | euro }} €/Jahr</span></div>
 {% for z in b.zusatz %}<div class="costrow cost-extra"><span class="cl">{{ z.name }}{% if z.hinweis %} <small>{{ z.hinweis }}</small>{% endif %}</span><span class="cv">{{ z.betrag_text }}</span></div>
 {% endfor %}</div>

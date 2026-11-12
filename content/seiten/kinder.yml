@@ -2,17 +2,21 @@ seitentitel: Die Kinder | One for One
 beschreibung: Familiengeschichten aus Korogocho und Mathare – Familie Ouma, Velma, Sarah und Vickstone.
 bloecke:
 - type: seitenkopf
+  notiz: Die Kinder & ihre Familien
   brotkrume: Die Kinder
   titel: Die Kinder & ihre Familien
   text: Bei unseren Besuchen in Kenia dürfen wir tief in das Leben vieler Familien eintauchen. In dieser Reihe zeigen wir, wie unterschiedlich die Herausforderungen sind – und wie sehr eure Unterstützung hilft.
 - type: abschnitt
+  notiz: ▸ WEN WIR BEGLEITEN
   element: section
   stil: padding-bottom:0
   wrap_klasse: wrap
   eyebrow: Wen wir begleiten
 - type: text
+  notiz: Vier Geschichten aus Korogocho
   inhalt: <h2>Vier Geschichten aus Korogocho</h2>
 - type: html
+  notiz: Übersicht der vier Geschichten
   html: |-
     <p class="lead">Bei unseren Besuchen dürfen wir tief in das Leben vieler Familien eintauchen. Klick auf ein Kind, um seine Geschichte zu lesen.</p>
     <div class="kidcards">
@@ -22,36 +26,45 @@ bloecke:
     <a class="kidcard" href="#vickstone"><div class="kthumb">📷</div><div class="kbody"><b>Vickstone</b><span>Unser erster Stipendiat – heute an einem Internat.</span></div></a>
     </div>
 - type: abschnitt
+  notiz: ▸ DIE KINDER & IHRE FAMILIEN
   element: section
   anker: ouma
   klasse: kidstory
   wrap_klasse: wrap prose
   eyebrow: Die Kinder & ihre Familien
 - type: text
+  notiz: Familie Ouma
   inhalt: <h2>Familie Ouma</h2>
 - type: html
+  notiz: 'Untertitel: Schulgebühren für alle fünf Kinder'
   html: <div class="krole">Schulgebühren für alle fünf Kinder</div>
 - type: text
+  notiz: Dickens, Travis, Wesley, Morgan und Sharlin w…
   inhalt: |-
     <p>Dickens, Travis, Wesley, Morgan und Sharlin wachsen bei ihren Großeltern auf. Ihre Eltern können sich weder emotional noch finanziell um sie kümmern – und so haben Raphael Ouma und seine Frau ohne zu zögern alle fünf Kinder bei sich aufgenommen.</p>
     <p>Raphael arbeitet als Schreiner. Voller Stolz zeigt er uns sein Zuhause, das er mit eigenen Händen gebaut und eingerichtet hat. Zwischen selbstgemachten Möbeln erzählt er von den Herausforderungen des Alltags – und davon, wie wichtig es ihm ist, seinen Enkelkindern Halt und Sicherheit zu geben.</p>
     <p>Umso mehr freut es uns, Raphaels beeindruckendes Engagement zu unterstützen: Wir übernehmen die Schulgebühren für alle fünf Kinder und hoffen, den Alltag der Familie damit ein Stück leichter zu machen.</p>
 - type: abschnitt
+  notiz: ▸ DIE KINDER & IHRE FAMILIEN
   element: section
   anker: velma
   klasse: kidstory
   wrap_klasse: wrap prose
   eyebrow: Die Kinder & ihre Familien
 - type: text
+  notiz: Velma
   inhalt: <h2>Velma</h2>
 - type: html
+  notiz: 'Untertitel: Frauenpower in Korogocho'
   html: <div class="krole">Frauenpower in Korogocho</div>
 - type: text
+  notiz: Als Velmas Mutter Caroline Atieno 2012 ihr vi…
   inhalt: |-
     <p>Als Velmas Mutter Caroline Atieno 2012 ihr viertes Kind zur Welt bringt, trennt sie sich vom Vater ihrer Kinder – eine Entscheidung, die sie aus eigener Kraft getroffen hat, nachdem sie häusliche Gewalt erlebt hatte. Seitdem trägt sie die Verantwortung für die Familie allein und verdient ihren Lebensunterhalt, indem sie Samosas zubereitet und Wäsche in der Nachbarschaft wäscht.</p>
     <p>Wir bewundern Carolines Mut und ihre Stärke, jeden Tag für sich und ihre Kinder einzustehen. Sie ist eine von vielen beeindruckenden alleinerziehenden Frauen in den Slums von Nairobi, die ihren Alltag mit Würde, Entschlossenheit und enormer Kraft meistern.</p>
     <p>Ihr Selbstbewusstsein und ihre Unabhängigkeit spiegeln sich schon jetzt in ihren beiden Töchtern wider: Die älteste hat gerade die weiterführende Schule abgeschlossen und möchte mit einer Ausbildung im Gastronomiebereich bald dazu beitragen, ihre Mutter finanziell zu entlasten.</p>
 - type: bildreihe
+  notiz: '2 Bilder: Velma (rechts) mit ihrer Schwester…'
   bilder:
   - bild: bilder/velma-familie.jpg
     alt: Velma mit ihrer Schwester und Mutter Caroline
@@ -60,35 +73,44 @@ bloecke:
     alt: Blick in das Zuhause der Familie
     unterschrift: Ein Blick in das Zuhause der Familie.
 - type: abschnitt
+  notiz: ▸ DIE KINDER & IHRE FAMILIEN
   element: section
   anker: sarah
   klasse: kidstory
   wrap_klasse: wrap prose
   eyebrow: Die Kinder & ihre Familien
 - type: text
+  notiz: Sarah
   inhalt: <h2>Sarah</h2>
 - type: html
+  notiz: 'Untertitel: Schulgebühren für alle Geschwister'
   html: <div class="krole">Schulgebühren für alle Geschwister</div>
 - type: text
+  notiz: Die kleine Sarah haben wir in unserer Büchere…
   inhalt: |-
     <p>Die kleine Sarah haben wir in unserer Bücherei kennengelernt. Teddy hat ihre Familie besucht, um herauszufinden, wie die Situation zu Hause ist: Sarah trägt jeden Tag die gleiche zerrissene Kleidung und ist auffallend dünn.</p>
     <p>In ihrem circa acht Quadratmeter großen Zimmer lebt sie mit sechs ihrer acht Geschwister und beiden Eltern. Ihr Vater erzählt von seinen Sorgen und der täglichen Herausforderung, als Tagelöhner genug Geld aufzutreiben, um seinen Kindern wenigstens eine Mahlzeit zu ermöglichen. Während er spricht, ringt er immer wieder mit den Tränen.</p>
     <p>Dank eurer Unterstützung können wir die Schulgebühren für Sarah und ihre Geschwister übernehmen. Für die Familie bedeutet das etwas weniger tägliche Sorge – und für die Kinder die Chance, unbeschwerter zu lernen und zu wachsen.</p>
 - type: abschnitt
+  notiz: ▸ DIE KINDER & IHRE FAMILIEN
   element: section
   anker: vickstone
   klasse: kidstory
   wrap_klasse: wrap prose
   eyebrow: Die Kinder & ihre Familien
 - type: text
+  notiz: Vickstone
   inhalt: <h2>Vickstone</h2>
 - type: html
+  notiz: 'Untertitel: Erster One-for-One-Stipendiat'
   html: <div class="krole">Erster One-for-One-Stipendiat</div>
 - type: text
+  notiz: 2026 wurde in Kenia erstmals das reformierte…
   inhalt: |-
     <p>2026 wurde in Kenia erstmals das reformierte Schulsystem umgesetzt: In den letzten drei Schuljahren werden die Jugendlichen interessenspezifisch gefördert und je nach Examensnote und Präferenz einer Schule zugeteilt. Von unseren Kindern waren sechs von einem Schulwechsel betroffen – die Zuteilung kam teils erst in der Woche vor Schulstart, oft an weit entfernte Schulen. Durch viele Telefonate und großes Engagement von Teddy und Joseph hat am Ende alles gut funktioniert.</p>
     <p>Einen Jungen dürfen wir dabei besonders feiern: Vickstone hat im Examen so gut abgeschnitten, dass er ein Stipendium der Regierung erhalten hat und nun ein sehr gutes Internat in Nairobi besucht – unser erster Stipendiat. Zum Schuljahr 2027 werden 27 weitere Kinder die Schule wechseln.</p>
 - type: cta
+  notiz: Begleite ein Kind durch seine Schulzeit.
   titel: Begleite ein Kind durch seine Schulzeit.
   button: Patenschaft & Spenden
   link: spenden.html

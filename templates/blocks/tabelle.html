@@ -1,0 +1,4 @@
+{% if b.titel %}<h3 class="tblhead">{{ b.titel }}</h3>
+{% endif %}<table class="tbl"><tr><th>{{ b.spalte_1 or 'Beschreibung' }}</th><th>{{ b.spalte_2 or 'Kosten' }}</th></tr>
+{% for z in b.zeilen %}<tr><td>{{ z.beschreibung }}</td><td>{{ z.wert }}</td></tr>
+{% endfor %}</table>

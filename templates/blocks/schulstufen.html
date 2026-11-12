@@ -1,0 +1,4 @@
+<div class="ksys" role="img" aria-label="{% for s in b.stufen %}{{ s.name }}: {{ s.jahre }} Jahre{% if not loop.last %}, {% endif %}{% endfor %}">
+{% for s in b.stufen %}<div class="ky" style="--j:{{ s.jahre }}"><b>{{ s.jahre }}</b><span>{{ s.name }}</span></div>
+{% endfor %}</div>
+{% if b.hinweis %}<p class="ksys-note">{{ b.hinweis | safe }}</p>{% endif %}

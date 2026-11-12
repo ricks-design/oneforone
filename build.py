@@ -31,7 +31,7 @@ BILD_ENDUNGEN = {".jpg", ".jpeg", ".png", ".webp", ".heic", ".heif"}
 NACH_JPEG = {".heic", ".heif"}
 
 # Blöcke, die für sich stehen; alle anderen gehören zum vorangehenden „abschnitt“
-EIGENSTAENDIG = {"hero", "seitenkopf", "cta", "html_bereich"}
+EIGENSTAENDIG = {"hero", "seitenkopf", "cta", "html_bereich", "kennzahlen"}
 
 
 def lade_yaml(pfad):
@@ -94,6 +94,36 @@ def lade_neuigkeiten():
     return posts
 
 
+# Farben für Diagramme (Feld „farbe“ im CMS)
+FARBEN = {"gruen": "var(--green)", "ocker": "var(--amber)", "grau": "#adae9c", "hell": "#d3d3c6"}
+FARBFOLGE = ["gruen", "ocker", "grau", "hell"]
+
+
+def farbwert(name, index=0):
+    return FARBEN.get(name) or FARBEN[FARBFOLGE[index % len(FARBFOLGE)]]
+
+
+def euro(betrag):
+    """60 → '60', 1.5 → '1,50'."""
+    try:
+        zahl = float(betrag)
+    except (TypeError, ValueError):
+        return str(betrag or "")
+    return str(int(zahl)) if zahl == int(zahl) else f"{zahl:.2f}".replace(".", ",")
+
+
+def torte(posten):
+    """Kreisdiagramm als CSS-Verlauf, Anteile aus den Beträgen berechnet."""
+    posten = [p for p in posten or [] if p.get("betrag")]
+    summe = sum(float(p["betrag"]) for p in posten) or 1
+    teile, start = [], 0.0
+    for i, p in enumerate(posten):
+        ende = 100.0 if i == len(posten) - 1 else start + float(p["betrag"]) / summe * 100
+        teile.append(f"{farbwert(p.get('farbe'), i)} {start:.2f}% {ende:.2f}%")
+        start = ende
+    return f"conic-gradient({', '.join(teile)})"
+
+
 def nbsp(text):
     return Markup((text or "").replace(" ", "&nbsp;"))
 
@@ -108,6 +138,9 @@ def baue_env(einstellungen):
     env.filters["bild"] = bildpfad
     env.filters["nbsp"] = nbsp
     env.filters["datum_de"] = datum_de
+    env.filters["euro"] = euro
+    env.filters["torte"] = torte
+    env.filters["farbwert"] = farbwert
     env.filters["basis_url"] = basis_url
     # HTML-Blöcke dürfen {{ e.iban }}, {{ e.paypal_link }} usw. verwenden
     env.filters["roh"] = lambda html: Markup(env.from_string(html or "").render(e=einstellungen))

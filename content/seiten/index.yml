@@ -2,6 +2,7 @@ seitentitel: One for One e.V. – Bildung für Kinder in Nairobi
 beschreibung: One for One e.V. ermöglicht 237 Kindern in Korogocho und Mathare (Nairobi) den Schulbesuch – mit Schulgebühren, Büchereien, Porridge und einem Community Center.
 bloecke:
 - type: hero
+  notiz: Manchmal braucht es nur kleine Dinge, um die W…
   anker: top
   bild: bilder/header-maedchen.jpg
   alt: Ein lachendes Mädchen in der Bibliothek von One for One
@@ -15,30 +16,36 @@ bloecke:
   - text: Unsere Projekte
     link: projekte.html
     stil: ghost
-- type: html_bereich
-  html: |-
-    <div class="stats">
-    <div class="stats-inner">
-    <div class="stat"><div class="num"><span class="counter" data-target="237">0</span></div><div class="lbl">Kinder gehen zur Schule</div></div>
-    <div class="stat"><div class="num"><span class="counter" data-target="2">0</span></div><div class="lbl">Büchereien in Korogocho &amp; Mathare</div></div>
-    <div class="stat"><div class="num">150–250</div><div class="lbl">Portionen Porridge, jeden Samstag</div></div>
-    <div class="stat"><div class="num"><span class="accent">1 : 1</span></div><div class="lbl">Jeder Euro geht direkt an die Kinder</div></div>
-    </div>
-    <div class="wrap growth">
-    <div class="growth-label">Geförderte Kinder pro Jahr</div>
-    <div class="growth-bars">
-    <div class="gbar"><span class="val">53</span><div class="fill" data-h="40px"></div><div class="yr">2024</div></div>
-    <div class="gbar"><span class="val">168</span><div class="fill" data-h="128px"></div><div class="yr">2025</div></div>
-    <div class="gbar"><span class="val">237</span><div class="fill" data-h="180px"></div><div class="yr">2026</div></div>
-    </div>
-    </div>
-    </div>
+- type: kennzahlen
+  notiz: Zahlen und Balken „Kinder pro Jahr“
+  zahlen:
+  - wert: '237'
+    text: Kinder gehen zur Schule
+    zaehlen: true
+  - wert: '2'
+    text: Büchereien in Korogocho & Mathare
+    zaehlen: true
+  - wert: 150–250
+    text: Portionen Porridge, jeden Samstag
+  - wert: 1 : 1
+    text: Jeder Euro geht direkt an die Kinder
+    akzent: true
+  balken_titel: Geförderte Kinder pro Jahr
+  balken:
+  - jahr: '2024'
+    wert: 53
+  - jahr: '2025'
+    wert: 168
+  - jahr: '2026'
+    wert: 237
 - type: abschnitt
+  notiz: ▸ TRANSPARENZ
   element: section
   klasse: one2one
   wrap_klasse: wrap
   eyebrow: Transparenz
 - type: html
+  notiz: 1 → 1 und Spendenverteilung
   html: |-
     <div class="one2one-grid">
     <div><div class="big11">1 <span class="arrow">→</span> 1</div></div>
@@ -61,15 +68,19 @@ bloecke:
     <p class="flow-note">Pro Überweisung an unser Team nach Kenia fallen minimale Bankgebühren an – gerechnet auf das Gesamtspendenvolumen ca. 0,5 %.</p>
     </div>
 - type: abschnitt
+  notiz: ▸ UNSERE PROJEKTE
   element: section
   anker: projekte
   wrap_klasse: wrap
   eyebrow: Unsere Projekte
 - type: text
+  notiz: Was wir gemeinsam mit den Menschen vor Ort au…
   inhalt: <h2>Was wir gemeinsam mit den Menschen vor Ort aufbauen</h2>
-- type: html
-  html: <p class="lead">Klick dich rein – hinter jedem Projekt steckt ein Stück Alltag in Korogocho und Mathare.</p>
+- type: einleitung
+  notiz: Klick dich rein – hinter jedem Projekt steckt…
+  text: Klick dich rein – hinter jedem Projekt steckt ein Stück Alltag in Korogocho und Mathare.
 - type: projektkacheln
+  notiz: 6 Projekte
   kacheln:
   - schluessel: bibliotheken
     titel: Die Büchereien
@@ -138,34 +149,36 @@ bloecke:
       link: projekte.html#hausaufgaben
       linktext: Mehr erfahren
 - type: abschnitt
+  notiz: ▸ WIRKUNGSRECHNER
   element: section
   klasse: calc
   wrap_klasse: wrap
   eyebrow: Wirkungsrechner
 - type: text
+  notiz: Was deine Spende konkret bewegt
   inhalt: <h2>Was deine Spende konkret bewegt</h2>
-- type: html
-  html: |-
-    <div class="calc-box">
-    <div>
-    <div class="calc-amount"><span id="amount">25</span> €</div>
-    <input aria-label="Spendenbetrag" class="impact-slider" id="slider" max="200" min="5" step="1" type="range" value="25"/>
-    <div class="calc-presets"><button class="preset" data-v="10">10 €</button><button class="preset active" data-v="25">25 €</button><button class="preset" data-v="65">65 €</button><button class="preset" data-v="100">100 €</button></div>
-    </div>
-    <div>
-    <div class="calc-result" id="result"></div>
-    <a class="btn-light" href="spenden.html">Jetzt spenden</a>
-    <p class="fine">Beispielwerte auf Basis unserer realen Kosten vor Ort. Die Kosten variieren je nach Schule.</p>
-    </div>
-    </div>
+- type: wirkungsrechner
+  notiz: Schieberegler mit Beispielen
+  startwert: 25
+  schnellwahl:
+  - 10
+  - 25
+  - 65
+  - 100
+  button_text: Jetzt spenden
+  button_link: spenden.html
+  hinweis: Beispielwerte auf Basis unserer realen Kosten vor Ort. Die Kosten variieren je nach Schule.
 - type: abschnitt
+  notiz: ▸ DIE KINDER & IHRE FAMILIEN
   element: section
   anker: kinder
   wrap_klasse: wrap
   eyebrow: Die Kinder & ihre Familien
 - type: text
+  notiz: Geschichten, die uns antreiben
   inhalt: <h2>Geschichten, die uns antreiben</h2>
 - type: html
+  notiz: Drei Geschichten (Zitate)
   html: |-
     <p class="lead">Bei unseren Besuchen in Kenia dürfen wir tief in das Leben vieler Familien eintauchen.</p>
     <div class="story-grid">
@@ -175,15 +188,18 @@ bloecke:
     </div>
     <div style="margin-top:32px"><a class="btn-solid" href="kinder.html">Alle Geschichten lesen</a></div>
 - type: abschnitt
+  notiz: ▸ EINBLICKE (GALERIE)
   element: section
   klasse: gallery-sec
   stil: background:var(--ink)
   wrap_klasse: wrap
 - type: html
+  notiz: Momente aus Korogocho & Mathare
   html: |-
     <div class="eyebrow" style="color:#cfcdb8">Einblicke</div>
     <h2 style="color:#fff">Momente aus Korogocho &amp; Mathare</h2>
 - type: galerie
+  notiz: 9 Bilder
   anker: mosaic
   bilder:
   - bild: bilder/galerie-bibliothek.jpg
@@ -230,15 +246,18 @@ bloecke:
     alt: Mathare Library
     unterschrift: Mathare
     lightbox: Die Community Library in Mathare.
-    format: normal
+    format: wide
 - type: abschnitt
+  notiz: ▸ HÄUFIGE FRAGEN
   element: section
   anker: faq
   wrap_klasse: wrap
   eyebrow: Häufige Fragen
 - type: text
+  notiz: Gut zu wissen
   inhalt: <h2>Gut zu wissen</h2>
 - type: faq
+  notiz: 5 Fragen
   eintraege:
   - frage: Kommt meine Spende wirklich vollständig an?
     antwort: Ja. One for One arbeitet komplett ehrenamtlich – keine Gehälter, keine Verwaltungskosten. Deine Spende geht per Onlineüberweisung direkt an unser Team in Kenia. Lediglich für die Überweisung fallen minimale Bankgebühren an (ca. 0,5 % des Gesamtspendenvolumens).
@@ -251,10 +270,12 @@ bloecke:
   - frage: Wie bleibe ich auf dem Laufenden?
     antwort: Über <a href="https://www.instagram.com/one4one_ev/" rel="noopener" target="_blank">Instagram</a> (@one4one_ev) und unseren <a href="https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G" rel="noopener" target="_blank">WhatsApp-Kanal</a> teilen wir regelmäßig Updates aus Korogocho und Mathare – dazu ein bis zwei ausführliche Newsletter im Jahr.
 - type: abschnitt
+  notiz: ▸ MITMACHEN
   element: section
   klasse: patenband
   wrap_klasse: wrap patenband-inner
 - type: html
+  notiz: Werde Teil von One for One
   html: |-
-    <div><div class="eyebrow">Mitmachen</div><h2>Werde Teil von One for One</h2><p>Ob einmalige Spende, Dauerauftrag oder Patenschaft für ein Kind – jeder Beitrag kommt 1 : 1 an.</p></div>
+    <div><div class="eyebrow">Mitmachen</div><h2>Werde Teil von One for One</h2><p>Ob einmalige Spende, Dauerauftrag oder Patenschaft für ein Kind – jeder Beitrag kommt 1 : 1 an.</p></div>
     <a class="btn-paten" href="spenden.html">Jetzt spenden</a>

@@ -2,15 +2,19 @@ seitentitel: Datenschutz | One for One
 beschreibung: Datenschutzerklärung von One for One e.V. (Entwurf).
 bloecke:
 - type: seitenkopf
+  notiz: Datenschutz­erklärung
   brotkrume: Datenschutz
   titel: Datenschutz­erklärung
   text: Wie wir mit personenbezogenen Daten umgehen.
 - type: abschnitt
+  notiz: ▸ INHALT
   element: section
   wrap_klasse: wrap prose
 - type: html
+  notiz: 'Infobox: ⚠️ Platzhalter – juristische Prüfung…'
   html: <div class="infobox" style="max-width:none"><h4>⚠️ Platzhalter – juristische Prüfung erforderlich</h4><p>Dieser Entwurf ersetzt keine Rechtsberatung. Da die Seite externe Dienste einbindet (Google Maps nach Klick, PayPal, Instagram/WhatsApp-Links), muss eine vollständige, geprüfte Datenschutzerklärung erstellt werden.</p></div>
 - type: text
+  notiz: Verantwortlicher
   inhalt: |-
     <h3>Verantwortlicher</h3>
     <p>One for One e.V., Salinenstraße 23a, 83278 Traunstein · info@one-for.one</p>

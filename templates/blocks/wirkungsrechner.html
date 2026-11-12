@@ -1,0 +1,13 @@
+{% set start = b.startwert or 25 %}
+<div class="calc-box">
+<div>
+<div class="calc-amount"><span id="amount">{{ start }}</span> €</div>
+<input aria-label="Spendenbetrag" class="impact-slider" id="slider" max="200" min="5" step="1" type="range" value="{{ start }}"/>
+<div class="calc-presets">{% for v in b.schnellwahl %}<button class="preset{% if v == start %} active{% endif %}" data-v="{{ v }}">{{ v }} €</button>{% endfor %}</div>
+</div>
+<div>
+<div class="calc-result" id="result"></div>
+<a class="btn-light" href="{{ b.button_link or 'spenden.html' }}">{{ b.button_text or 'Jetzt spenden' }}</a>
+{% if b.hinweis %}<p class="fine">{{ b.hinweis }}</p>{% endif %}
+</div>
+</div>

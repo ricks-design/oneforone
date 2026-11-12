@@ -8,7 +8,7 @@ jeder Änderung auf `main` die fertigen HTML-Seiten und veröffentlicht sie auf 
 
 | Ordner / Datei | Inhalt | Wer ändert es |
 |---|---|---|
-| `content/seiten/*.yml` | eine Datei pro Seite: Titel, Beschreibung, Liste der Inhaltsblöcke | Pages CMS |
+| `content/seiten/*.yml` | eine Datei pro Seite: Titel, Beschreibung, Liste der Inhaltsblöcke (`404.yml` = Fehlerseite) | Pages CMS |
 | `content/einstellungen.yml` | Navigation, Footer, Links, Kontodaten (IBAN, BIC, PayPal) | Pages CMS |
 | `bilder/` | alle Bilder (Uploads aus dem CMS landen hier) | Pages CMS |
 | `templates/base.html` | Kopf, Navigation, Footer | Code |
@@ -49,32 +49,48 @@ Bildnamen ohne Leerzeichen und Umlaute erleichtern die Pflege (das CMS benennt U
 
 ### Block-Typen
 
-Eine Seite ist eine flache Liste von Blöcken. Ein Block **„── Neuer Abschnitt ──“** öffnet einen
+Eine Seite ist eine flache Liste von Blöcken. Ein Block **„▸ Neuer Abschnitt“** öffnet einen
 neuen Seitenabschnitt (`<section>`); alle folgenden Inhaltsblöcke landen darin, bis der nächste
 Abschnitt oder ein eigenständiger Block kommt.
+
+Jeder Block hat das Feld **„Interne Bezeichnung“**. Sie erscheint nur in der Blockliste des CMS
+(links der Text, rechts der Block-Typ) und macht die Seite dort als Gliederung lesbar. Bei neuen
+Blöcken kurz ausfüllen, z. B. die Überschrift.
 
 | Block | Art | Verwendung |
 |---|---|---|
 | Titelbild groß | eigenständig | Kopf der Startseite |
 | Seitenkopf | eigenständig | Kopf der Unterseiten |
-| Aufruf-Band | eigenständig | grünes Band mit Button am Seitenende |
-| HTML-Bereich | eigenständig | kompletter Sonderbereich als HTML (z. B. Kennzahlen der Startseite) |
-| ── Neuer Abschnitt ── | Rahmen | Eyebrow, Anker-ID, Hintergrund/Klasse |
+| Kennzahlen mit Balken | eigenständig | Zahlenbereich der Startseite; Balkenhöhen werden aus den Werten berechnet |
+| Aufruf-Band | eigenständig | farbiges Band mit Button am Seitenende |
+| HTML-Bereich | eigenständig | kompletter Sonderbereich als HTML |
+| ▸ Neuer Abschnitt | Rahmen | Eyebrow, Anker-ID, Breite, Hintergrund |
 | Text | Inhalt | Überschriften, Absätze, Listen, Links |
-| Bildreihe | Inhalt | 2–3 Bilder nebeneinander, Klick öffnet Lightbox |
+| Einleitungssatz | Inhalt | größerer Satz unter einer Überschrift |
+| Bildreihe | Inhalt | 2–3 Bilder nebeneinander, Klick öffnet Großansicht |
 | Bildmosaik | Inhalt | Galerie der Startseite mit Kachelgrößen |
-| Fragen & Antworten | Inhalt | aufklappbare FAQ |
-| Zeitleiste | Inhalt | Bau-Tagebuch Community Center |
 | Personen-/Bildkarten | Inhalt | Team, Slum-Porträts auf „Vor Ort“ |
 | Projekt-Kacheln mit Pop-up | Inhalt | Projektübersicht der Startseite inkl. Pop-up-Texte |
-| HTML im Abschnitt | Inhalt | Sonderelemente mit eigenem Markup (Infoboxen, Diagramme, Tabellen, Spendenkarten …) |
+| Fragen & Antworten | Inhalt | aufklappbare FAQ |
+| Zeitleiste | Inhalt | Bau-Tagebuch Community Center |
+| Neuigkeiten-Liste | Inhalt | Beiträge, z. B. die neuesten drei |
+| Schulstufen-Grafik | Inhalt | Balken, Länge nach Dauer in Jahren |
+| Kostendiagramm | Inhalt | Kreisdiagramm; Anteile und Summe werden aus den Beträgen berechnet |
+| Tabelle | Inhalt | zweispaltig, z. B. Kostenübersicht |
+| Wirkungsrechner | Inhalt | Schieberegler; Startbetrag und Schnellwahl-Buttons |
+| HTML im Abschnitt | Inhalt | Sonderelemente mit eigenem Markup (Infobox, Spendenkarten, Karten …) |
 
 **HTML-Blöcke** enthalten das bisherige Markup unverändert. In ihnen können Werte aus den
 Einstellungen eingesetzt werden: `{{ e.iban }}`, `{{ e.bic }}`, `{{ e.bank }}`,
 `{{ e.kontoinhaber }}`, `{{ e.paypal_link }}`. Die IBAN wird deshalb nur an einer Stelle gepflegt
 (*Einstellungen*) und erscheint automatisch im Footer aller Seiten und auf der Spendenseite.
 
-Die Stufen des **Wirkungsrechners** (Startseite, Spendenseite) stehen unter *Einstellungen → Wirkungsrechner*: je Stufe ein Betragsbereich, ein Haupt- und optional ein Alternativ-Beispiel. Der Slider läuft in 1-€-Schritten von 5 bis 200 €; Schrittweite und Schnellwahl-Buttons stehen im HTML-Block des jeweiligen Rechner-Abschnitts.
+Die Beispiele des **Wirkungsrechners** je Betrag stehen unter *Einstellungen → Wirkungsrechner*:
+je Stufe ein Betragsbereich, ein Haupt- und optional ein Alternativ-Beispiel.
+
+**Feldtypen beachten:** Textfelder erwarten in den YAML-Dateien Text (`"237"`), Zahlenfelder
+Zahlen (`237`). Wer Inhalte direkt in den Dateien ändert, sollte das einhalten, sonst meldet das
+CMS beim Speichern einen Fehler.
 
 ## Neuigkeiten
 

@@ -1,0 +1,15 @@
+seitentitel: Seite nicht gefunden | One for One
+beschreibung: Diese Seite gibt es nicht oder nicht mehr.
+bloecke:
+- type: seitenkopf
+  notiz: Seite nicht gefunden
+  brotkrume: Seite nicht gefunden
+  titel: Seite nicht gefunden
+  text: Diese Seite gibt es nicht oder nicht mehr.
+- type: abschnitt
+  notiz: ▸ INHALT
+  element: section
+  wrap_klasse: wrap prose
+- type: text
+  notiz: Links zur Startseite und zu den Projekten
+  inhalt: <p><a href="index.html">Zur Startseite</a> · <a href="projekte.html">Zu den Projekten</a> · <a href="spenden.html">Spenden</a></p>

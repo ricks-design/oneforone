@@ -2,16 +2,20 @@ seitentitel: Spenden | One for One
 beschreibung: Spende an One for One per PayPal oder Überweisung – oder übernimm eine Patenschaft. Jeder Euro kommt 1:1 an.
 bloecke:
 - type: seitenkopf
+  notiz: Jeder Euro kommt 1 : 1 an
   brotkrume: Spenden
-  titel: 'Jeder Euro kommt 1 : 1 an'
+  titel: Jeder Euro kommt 1 : 1 an
   text: 'Wir versprechen euch: Jeder Euro kommt bei den Kindern vor Ort an. Bereits mit 1,50 Euro kann ein Kind beispielsweise eine ganze Woche in der Schule essen. Wir und die Kinder freuen uns wirklich über jeden Euro.'
 - type: abschnitt
+  notiz: ▸ ZWEI WEGE ZU HELFEN
   element: section
   wrap_klasse: wrap
   eyebrow: Zwei Wege zu helfen
 - type: text
+  notiz: Wie möchtest du unterstützen?
   inhalt: <h2>Wie möchtest du unterstützen?</h2>
 - type: html
+  notiz: Zwei Wege zu helfen (Bildkarten)
   html: |-
     <div class="optcards">
     <a class="optcard" href="#spende">
@@ -24,11 +28,13 @@ bloecke:
     </a>
     </div>
 - type: abschnitt
+  notiz: ▸ SPENDE
   element: section
   anker: spende
   klasse: donate
   wrap_klasse: wrap
 - type: html
+  notiz: PayPal und Überweisung
   html: |-
     <div class="donate-grid">
     <div class="d-card"><h3>💳 Per PayPal</h3><p>Schnell und unkompliziert – einmalig oder als monatliche Unterstützung.</p>
@@ -44,73 +50,104 @@ bloecke:
     <p><strong>Zweckgebundene Spenden</strong> (z. B. gezielt für die Bücherei oder das Community Center) sind möglich. Nimm dafür einfach <a href="mailto:info@one-for.one">Kontakt mit uns</a> auf – wir freuen uns über jede Idee.</p>
     </div>
 - type: abschnitt
+  notiz: ▸ PATENSCHAFT
   element: section
   anker: patenschaft
   klasse: patenband
   wrap_klasse: wrap patenband-inner
 - type: html
+  notiz: 'Patenschaft: Text'
   html: |-
     <div class="patenband-txt"><div class="eyebrow">Patenschaft</div><h2>Begleite ein Kind durch seine Schulzeit</h2><p>Wenn ihr Lust habt, euch langfristig finanziell zu engagieren, könnt ihr die Patenschaft für ein Kind übernehmen und es idealerweise durch die gesamte Schullaufbahn begleiten. Bilder, Steckbriefe und persönliche Briefe werden zwischen euch und dem Kind ausgetauscht – die Briefe nehmen wir bei unseren Besuchen vor Ort persönlich mit. In diesem Fall freuen wir uns über eine E-Mail, um über sämtliche Details zu sprechen und eine passende Patenschaft für euch zu finden. Aktuell werden bereits 62 Kinder durch direkte Patenschaften gefördert.</p>
     <div class="paten-imgs"><img alt="Kinder lesen gemeinsam einen Brief" src="bilder/paten-lesen.jpg"/><img alt="Brief von One for One Germany an ein Patenkind" src="bilder/paten-brief.jpg"/></div>
     </div>
     <a class="btn-paten" href="mailto:info@one-for.one">info@one-for.one</a>
 - type: abschnitt
+  notiz: ▸ WIRKUNGSRECHNER
   element: section
   klasse: calc
   wrap_klasse: wrap
   eyebrow: Wirkungsrechner
 - type: text
+  notiz: Was deine Spende konkret bewegt
   inhalt: <h2>Was deine Spende konkret bewegt</h2>
-- type: html
-  html: |-
-    <div class="calc-box">
-    <div>
-    <div class="calc-amount"><span id="amount">25</span> €</div>
-    <input aria-label="Spendenbetrag" class="impact-slider" id="slider" max="200" min="5" step="1" type="range" value="25"/>
-    <div class="calc-presets"><button class="preset" data-v="10">10 €</button><button class="preset active" data-v="25">25 €</button><button class="preset" data-v="65">65 €</button><button class="preset" data-v="100">100 €</button></div>
-    </div>
-    <div>
-    <div class="calc-result" id="result"></div>
-    <a class="btn-light" href="spenden.html">Jetzt spenden</a>
-    <p class="fine">Beispielwerte auf Basis unserer realen Kosten vor Ort. Die Kosten variieren je nach Schule.</p>
-    </div>
-    </div>
+- type: wirkungsrechner
+  notiz: Schieberegler mit Beispielen
+  startwert: 25
+  schnellwahl:
+  - 10
+  - 25
+  - 65
+  - 100
+  button_text: Jetzt spenden
+  button_link: spenden.html
+  hinweis: Beispielwerte auf Basis unserer realen Kosten vor Ort. Die Kosten variieren je nach Schule.
 - type: abschnitt
+  notiz: ▸ KOSTENÜBERSICHT
   element: section
   wrap_klasse: wrap
   eyebrow: Kostenübersicht
 - type: text
+  notiz: Was einzelne Beträge bewirken
   inhalt: <h2>Was einzelne Beträge bewirken</h2>
-- type: html
-  html: |-
-    <p class="lead">Eine kurze Kostenübersicht als Anhaltspunkt – so weißt du, was dein Beitrag konkret möglich macht.</p>
-    <h3 class="tblhead">Dauerhaft anfallende Kosten</h3>
-    <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
-    <tr><td>Schulgebühren</td><td>ab 25 € / Jahr</td></tr>
-    <tr><td>Essen in der Schule (Frühstück + Mittagessen)</td><td>ab 78 € / Jahr (1,50 € / Woche)</td></tr></table>
-    <h3 class="tblhead">Jährlich einmalig anfallende Kosten</h3>
-    <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
-    <tr><td>Examensgebühr</td><td>ab 5 €</td></tr>
-    <tr><td>Tagebuch (Diary)</td><td>ab 1 €</td></tr>
-    <tr><td>Beurteilungsbuch (Assessment book)</td><td>ab 1,50 €</td></tr>
-    <tr><td>Abschlussgebühr (Graduation)</td><td>ab 10 €</td></tr></table>
-    <h3 class="tblhead">Einmalig anfallende Kosten</h3>
-    <table class="tbl"><tr><th>Beschreibung</th><th>Kosten</th></tr>
-    <tr><td>Schuluniform</td><td>ab 15 €</td></tr>
-    <tr><td>Schulranzen / Rucksack</td><td>ab 7 €</td></tr>
-    <tr><td>Schuhe (Teil der Schuluniform)</td><td>ab 13 €</td></tr>
-    <tr><td>Trainingsanzug der Schule</td><td>ab 10 €</td></tr>
-    <tr><td>Schulbank mit Stuhl</td><td>ab 25 €</td></tr>
-    <tr><td>Aufnahmegebühr</td><td>ab 2 €</td></tr>
-    <tr><td>Einstufungsgespräch</td><td>ab 3 €</td></tr></table>
+- type: einleitung
+  notiz: Eine kurze Kostenübersicht als Anhaltspunkt –…
+  text: Eine kurze Kostenübersicht als Anhaltspunkt – so weißt du, was dein Beitrag konkret möglich macht.
+- type: tabelle
+  notiz: Dauerhaft anfallende Kosten
+  titel: Dauerhaft anfallende Kosten
+  spalte_1: Beschreibung
+  spalte_2: Kosten
+  zeilen:
+  - beschreibung: Schulgebühren
+    wert: ab 25 € / Jahr
+  - beschreibung: Essen in der Schule (Frühstück + Mittagessen)
+    wert: ab 78 € / Jahr (1,50 € / Woche)
+- type: tabelle
+  notiz: Jährlich einmalig anfallende Kosten
+  titel: Jährlich einmalig anfallende Kosten
+  spalte_1: Beschreibung
+  spalte_2: Kosten
+  zeilen:
+  - beschreibung: Examensgebühr
+    wert: ab 5 €
+  - beschreibung: Tagebuch (Diary)
+    wert: ab 1 €
+  - beschreibung: Beurteilungsbuch (Assessment book)
+    wert: ab 1,50 €
+  - beschreibung: Abschlussgebühr (Graduation)
+    wert: ab 10 €
+- type: tabelle
+  notiz: Einmalig anfallende Kosten
+  titel: Einmalig anfallende Kosten
+  spalte_1: Beschreibung
+  spalte_2: Kosten
+  zeilen:
+  - beschreibung: Schuluniform
+    wert: ab 15 €
+  - beschreibung: Schulranzen / Rucksack
+    wert: ab 7 €
+  - beschreibung: Schuhe (Teil der Schuluniform)
+    wert: ab 13 €
+  - beschreibung: Trainingsanzug der Schule
+    wert: ab 10 €
+  - beschreibung: Schulbank mit Stuhl
+    wert: ab 25 €
+  - beschreibung: Aufnahmegebühr
+    wert: ab 2 €
+  - beschreibung: Einstufungsgespräch
+    wert: ab 3 €
 - type: abschnitt
+  notiz: ▸ HÄUFIGE FRAGEN
   element: section
   stil: background:var(--white);border-top:1px solid var(--sand)
   wrap_klasse: wrap
   eyebrow: Häufige Fragen
 - type: text
+  notiz: Gut zu wissen, bevor du spendest
   inhalt: <h2>Gut zu wissen, bevor du spendest</h2>
 - type: faq
+  notiz: 5 Fragen
   eintraege:
   - frage: Kommt meine Spende wirklich vollständig an?
     antwort: Ja. One for One arbeitet komplett ehrenamtlich – keine Gehälter, keine Verwaltungskosten. Deine Spende geht per Onlineüberweisung direkt an unser Team in Kenia. Lediglich für die Überweisung fallen minimale Bankgebühren an (ca. 0,5 % des Gesamtspendenvolumens).
@@ -123,6 +160,7 @@ bloecke:
   - frage: Wie bleibe ich auf dem Laufenden?
     antwort: Über <a href="https://www.instagram.com/one4one_ev/" rel="noopener" target="_blank">Instagram</a> (@one4one_ev) und unseren <a href="https://whatsapp.com/channel/0029VbCTFaIA89Mj8QeWo72G" rel="noopener" target="_blank">WhatsApp-Kanal</a> teilen wir regelmäßig Updates aus Korogocho und Mathare – dazu ein bis zwei ausführliche Newsletter im Jahr.
 - type: cta
-  titel: 'Jeder Euro kommt 1 : 1 bei den Kindern an.'
+  notiz: Jeder Euro kommt 1 : 1 bei den Kindern an.
+  titel: Jeder Euro kommt 1 : 1 bei den Kindern an.
   button: Jetzt spenden
   link: '#spende'

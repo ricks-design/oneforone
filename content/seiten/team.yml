@@ -10,6 +10,13 @@ bloecke:
   notiz: ▸ INHALT
   element: section
   wrap_klasse: wrap
+- type: bild_gross
+  notiz: Gruppenfoto Team in Kenia – Bild fehlt noch
+  ueberschrift: Unser Team in Kenia
+- type: portraits
+  notiz: Freiwillige – Bilder fehlen noch
+  ueberschrift: Unsere Freiwilligen
+  personen: []
 - type: personen
   notiz: Team Deutschland, Teddy · Korogocho, Joseph ·…
   raster: teamgrid

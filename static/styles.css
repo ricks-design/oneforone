@@ -498,3 +498,24 @@ footer a:hover{color:#fff}
 a:focus-visible,button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 /* Bildmosaik mobil: Verlauf hinter den dauerhaft sichtbaren Bildunterschriften */
 @media(max-width:920px){.mosaic figure::after{opacity:1}}
+
+/* Schulstufen: Einheit „Jahre“ im Balken */
+.ky b small{font-family:'Space Grotesk';font-weight:500;font-size:11.5px;letter-spacing:.01em;margin-left:5px;opacity:.9}
+/* Einzelbild groß (z. B. Gruppenfoto) – ganzes Bild sichtbar, nicht beschnitten */
+.imgrow.bild-gross{grid-template-columns:1fr;max-width:980px}
+.imgrow.bild-gross img{aspect-ratio:auto;height:auto}
+/* Porträt-Galerie (z. B. Freiwillige) */
+.portraits-titel{margin-top:56px}
+.portraits{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:22px 16px;margin-top:24px}
+.portraits figure{margin:0;cursor:zoom-in}
+.portraits img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;border:1px solid var(--sand);display:block}
+.portraits figcaption{margin-top:9px;font-size:14.5px;line-height:1.35}
+.portraits figcaption b{display:block;font-weight:600}
+.portraits figcaption span{display:block;font-size:13px;color:rgba(24,26,23,.6)}
+.bild-gross + .teamgrid,.portraits + .teamgrid{margin-top:56px}
+@media(max-width:600px){.portraits{grid-template-columns:repeat(2,1fr)}}
+/* Spendenseite: Hinweis Spendenquittung, QR-Code für die Banking-App */
+.quittung{background:var(--green-tint);border-radius:12px;padding:13px 16px;font-size:14.5px!important;line-height:1.5;color:var(--ink)!important;margin:12px 0 0!important}
+.giro{display:flex;gap:16px;align-items:center;margin:12px 0 0}
+.giro img{width:128px;height:128px;flex:0 0 128px;border-radius:10px;border:1px solid var(--sand);background:#fff}
+.giro p{font-size:14px!important;margin:0!important;color:rgba(24,26,23,.7)}

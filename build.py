@@ -26,6 +26,7 @@ BILDER = ROOT / "bilder"
 # Bilder, deren längere Seite darüber liegt, werden verkleinert
 MAX_KANTE = 1600
 JPEG_QUALITAET = 82
+WEBP_QUALITAET = 78
 BILD_ENDUNGEN = {".jpg", ".jpeg", ".png", ".webp", ".heic", ".heif"}
 # Formate, die Browser nicht zuverlässig anzeigen → werden immer in JPEG umgewandelt
 NACH_JPEG = {".heic", ".heif"}
@@ -128,6 +129,54 @@ def nbsp(text):
     return Markup((text or "").replace(" ", "&nbsp;"))
 
 
+def zentrale_werte(e):
+    """Einstellungen → Zentrale Kostenwerte: z = Zahlen, k = formatiert ('1,50')."""
+    z = {x["schluessel"]: x["betrag"] for x in e.get("kosten") or [] if x.get("schluessel")}
+    return {name: euro(wert) for name, wert in z.items()}, z
+
+
+def platzhalter_einsetzen(daten, env, kontext):
+    """Ersetzt {{ k.name }} / {{ z.name }} / {{ e.name }} in allen Texten (rekursiv)."""
+    if isinstance(daten, str):
+        return str(env.from_string(daten).render(**kontext)) if "{{" in daten else daten
+    if isinstance(daten, list):
+        return [platzhalter_einsetzen(x, env, kontext) for x in daten]
+    if isinstance(daten, dict):
+        return {key: platzhalter_einsetzen(x, env, kontext) for key, x in daten.items()}
+    return daten
+
+
+def bloecke_vorbereiten(bloecke, z):
+    """Kostendiagramm: Posten mit „Zentraler Wert“ bekommen ihren Betrag aus den Einstellungen."""
+    for b in bloecke or []:
+        if b.get("type") == "kostendiagramm":
+            for p in b.get("posten") or []:
+                if p.get("kosten") in z:
+                    p["betrag"] = z[p["kosten"]]
+    return bloecke
+
+
+def iban_gueltig(iban):
+    roh = re.sub(r"\s+", "", iban or "").upper()
+    if not re.fullmatch(r"[A-Z]{2}\d{2}[A-Z0-9]{11,30}", roh) or set(roh[4:]) == {"0"}:
+        return False
+    umgestellt = roh[4:] + roh[:4]
+    return int("".join(str(int(c, 36)) for c in umgestellt)) % 97 == 1
+
+
+def girocode_erzeugen(e):
+    """QR-Code für Banking-Apps (EPC069-12). Nur bei gültiger IBAN – nie für den Platzhalter."""
+    if not iban_gueltig(e.get("iban")):
+        return None
+    import segno
+
+    zeilen = ["BCD", "002", "1", "SCT", re.sub(r"\s+", "", e.get("bic") or ""), (e.get("kontoinhaber") or "")[:70],
+              re.sub(r"\s+", "", e["iban"]).upper(), "", "", "", e.get("girocode_zweck") or "Spende"]
+    segno.make("\n".join(zeilen), error="m", micro=False).save(
+        str(DIST / "girocode.svg"), scale=4, border=2, dark="#181a17", light="#ffffff")
+    return "girocode.svg"
+
+
 def baue_env(einstellungen):
     env = Environment(
         loader=FileSystemLoader(ROOT / "templates"),
@@ -143,7 +192,8 @@ def baue_env(einstellungen):
     env.filters["farbwert"] = farbwert
     env.filters["basis_url"] = basis_url
     # HTML-Blöcke dürfen {{ e.iban }}, {{ e.paypal_link }} usw. verwenden
-    env.filters["roh"] = lambda html: Markup(env.from_string(html or "").render(e=einstellungen))
+    k, z = zentrale_werte(einstellungen)
+    env.filters["roh"] = lambda html: Markup(env.from_string(html or "").render(e=einstellungen, k=k, z=z))
     return env
 
 
@@ -220,6 +270,26 @@ def bilder_kopieren():
             else:
                 im.save(out)
             print(f"  Bild optimiert: {quelle.name} → {out.name} {im.size[0]}×{im.size[1]}")
+    # Zusätzlich WebP (deutlich kleiner); die Seiten verweisen darauf, JPEG/PNG bleiben als Rückfall liegen
+    for bild in sorted(ziel.rglob("*")):
+        if bild.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
+            continue
+        webp = bild.with_suffix(".webp")
+        if webp.exists():
+            continue  # gleichnamige .webp-Datei wurde hochgeladen
+        with Image.open(bild) as im:
+            im.save(webp, "WEBP", quality=WEBP_QUALITAET, method=4)
+        if webp.stat().st_size >= bild.stat().st_size:
+            webp.unlink()
+
+
+def webp_verweise(html):
+    """Bildverweise auf die WebP-Fassung umstellen, wo es eine gibt (nicht im Teilen-Vorschaubild)."""
+    def ersetze(treffer):
+        pfad = treffer.group(2)
+        webp = (DIST / pfad).with_suffix(".webp")
+        return treffer.group(1) + (str(webp.relative_to(DIST)) if webp.is_file() else pfad) + treffer.group(3)
+    return re.sub(r'((?:src="|"img":\s*"))(bilder/[^"]+\.(?:jpe?g|png))(")', ersetze, html, flags=re.I)
 
 
 def verweise_pruefen():
@@ -248,12 +318,21 @@ def main():
 
     e = lade_yaml(CONTENT / "einstellungen.yml")
     env = baue_env(e)
+    k, z = zentrale_werte(e)
+    kontext = {"e": e, "k": k, "z": z}
+    e["wirkungsrechner"] = platzhalter_einsetzen(e.get("wirkungsrechner"), env, kontext)
+    e["girocode"] = girocode_erzeugen(e)
     base = env.get_template("base.html")
+    seiten = {}
     neuigkeiten = lade_neuigkeiten()
     env.globals["neuigkeiten"] = neuigkeiten
 
     for pfad in sorted((CONTENT / "seiten").glob("*.yml")):
         seite = lade_yaml(pfad)
+        # HTML-Blöcke werden beim Rendern aufgelöst (dort sind auch {% if %}-Anweisungen erlaubt)
+        seite["bloecke"] = bloecke_vorbereiten(
+            [b if b.get("type") in ("html", "html_bereich") else platzhalter_einsetzen(b, env, kontext)
+             for b in seite.get("bloecke") or []], z)
         datei = pfad.stem + ".html"
         html = base.render(
             seite=seite,
@@ -262,7 +341,7 @@ def main():
             inhalt=render_bloecke(env, seite.get("bloecke")),
             popups=popups_sammeln(seite.get("bloecke")),
         )
-        (DIST / datei).write_text(html, encoding="utf-8")
+        seiten[datei] = html
         print(f"Seite: {datei}")
 
     artikel = env.get_template("neuigkeit.html")
@@ -271,11 +350,13 @@ def main():
                  "teilen_bild": n.get("bild"), "artikel": True}
         html = base.render(seite=seite, e=e, datei=n["datei"], popups={},
                            inhalt=Markup(artikel.render(n=n, e=e)))
-        (DIST / n["datei"]).write_text(html, encoding="utf-8")
+        seiten[n["datei"]] = html
         print(f"Neuigkeit: {n['datei']}")
 
     shutil.copytree(ROOT / "static", DIST, dirs_exist_ok=True)
     bilder_kopieren()
+    for datei, html in seiten.items():
+        (DIST / datei).write_text(webp_verweise(html), encoding="utf-8")
     (DIST / ".nojekyll").touch()
     verweise_pruefen()
     print("Fertig → dist/")

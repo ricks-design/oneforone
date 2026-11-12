@@ -1,0 +1,7 @@
+{% set leute = (b.personen or []) | selectattr('bild') | list %}
+{% if leute %}{% if b.ueberschrift %}<h2 class="portraits-titel">{{ b.ueberschrift }}</h2>
+{% endif %}{% if b.text %}<p>{{ b.text }}</p>
+{% endif %}<div class="portraits lbgroup">
+{% for p in leute %}<figure data-cap="{{ p.name }}{% if p.zusatz %} · {{ p.zusatz }}{% endif %}"><img src="{{ p.bild | bild }}" alt="{{ p.alt or p.name }}" loading="lazy"><figcaption>{% if p.name %}<b>{{ p.name }}</b>{% endif %}{% if p.zusatz %}<span>{{ p.zusatz }}</span>{% endif %}</figcaption></figure>
+{% endfor %}</div>
+{% endif %}

@@ -1,293 +1,1026 @@
 # Konfiguration für Pages CMS (https://app.pagescms.org)
+#
 # Inhalte liegen in content/, Bilder in bilder/. Nach jedem Speichern baut die
 # GitHub Action die Website neu (Reiter „Actions“), nach ca. 1–2 Minuten ist sie online.
+#
+# Neuer Block-Typ: Template in templates/blocks/<name>.html anlegen und hier unter
+# components → bloecke → blocks ergänzen (siehe README).
 
 media:
   input: bilder
   output: bilder
-  extensions: [jpg, jpeg, png, webp, heic, heif]
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+  - heic
+  - heif
   rename: safe
-
 components:
-  # ---------- wiederverwendbare Felder ----------
-  bild:
-    type: object
-    fields:
-      - { name: bild, label: Bild, type: image }
-      - { name: alt, label: Alternativtext, type: string, description: "Kurze Bildbeschreibung für Screenreader und Suchmaschinen" }
-      - { name: unterschrift, label: Bildunterschrift, type: string }
-
   bloecke:
-    label: Inhaltsblöcke
+    label: Inhalt der Seite
+    description: Blöcke von oben nach unten. „▸ Neuer Abschnitt“ beginnt einen Seitenabschnitt; die Blöcke danach gehören dazu.
     type: block
     list:
       collapsible:
         collapsed: true
+        summary: '{notiz}'
     blockKey: type
     blocks:
-      - name: hero
-        label: Titelbild groß (Startseite)
+    - name: hero
+      label: Titelbild groß (Startseite)
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: bild
+        label: Hintergrundbild
+        type: image
+      - name: alt
+        label: Alternativtext
+        type: string
+      - name: eyebrow
+        label: Zeile über dem Titel
+        type: string
+      - name: titel
+        label: Titel
+        type: string
+        description: 'HTML erlaubt: <em>…</em> färbt die Stelle ocker'
+      - name: text
+        label: Untertitel
+        type: text
+      - name: buttons
+        label: Buttons
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{text}'
         fields:
-          - { name: bild, label: Hintergrundbild, type: image }
-          - { name: alt, label: Alternativtext, type: string }
-          - { name: eyebrow, label: Zeile über dem Titel, type: string }
-          - { name: titel, label: Titel, type: string, description: "HTML erlaubt, z. B. <em>hervorgehoben</em>" }
-          - { name: text, label: Untertitel, type: text }
-          - name: buttons
-            label: Buttons
-            type: object
-            list: true
-            fields:
-              - { name: text, label: Text, type: string }
-              - { name: link, label: Link, type: string }
-              - name: stil
-                label: Stil
-                type: select
-                options:
-                  values:
-                    - { name: primary, label: Gefüllt }
-                    - { name: ghost, label: Umriss }
-          - { name: anker, label: Anker-ID, type: string, description: "Technisch: id-Attribut" }
-
-      - name: seitenkopf
-        label: Seitenkopf (Unterseiten)
-        fields:
-          - { name: brotkrume, label: Brotkrume, type: string, description: "Text hinter „Home ›“" }
-          - { name: titel, label: Titel, type: string }
-          - { name: text, label: Untertitel, type: text }
-
-      - name: abschnitt
-        label: "── Neuer Abschnitt ──"
-        fields:
-          - { name: eyebrow, label: Kleine Überschrift (Eyebrow), type: string }
-          - { name: anker, label: Anker-ID, type: string, description: "Für Sprunglinks, z. B. porridge → projekte.html#porridge" }
-          - { name: stil, label: Inline-Stil (CSS), type: string, description: "Technisch, z. B. background:var(--white)" }
-          - { name: klasse, label: CSS-Klasse des Abschnitts, type: string, description: "Technisch, z. B. kidstory, calc, patenband" }
-          - { name: wrap_klasse, label: CSS-Klasse des Inhalts, type: string, description: "wrap = normale Breite, wrap prose = Lesetext" }
-          - name: element
-            label: HTML-Element
-            type: select
-            options:
-              values: [section, div]
-
+        - name: text
+          label: Text
+          type: string
+        - name: link
+          label: Link
+          type: string
+        - name: stil
+          label: Stil
+          type: select
+          options:
+            values:
+            - value: primary
+              label: Gefüllt
+            - value: ghost
+              label: Umriss
+      - name: anker
+        label: Anker-ID
+        type: string
+        description: 'Technisch: id-Attribut'
+    - name: seitenkopf
+      label: Seitenkopf (Unterseiten)
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: brotkrume
+        label: Brotkrume
+        type: string
+        description: Text hinter „Home ›“
+      - name: titel
+        label: Titel
+        type: string
+      - name: text
+        label: Untertitel
+        type: text
+    - name: abschnitt
+      label: ▸ Neuer Abschnitt
+      description: Beginnt einen neuen Seitenabschnitt. Alle folgenden Inhaltsblöcke gehören dazu.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: eyebrow
+        label: Kleine Überschrift (Eyebrow)
+        type: string
+        description: Steht in Großbuchstaben über dem Abschnitt
+      - name: anker
+        label: Anker-ID
+        type: string
+        description: Für Sprunglinks, z. B. porridge → projekte.html#porridge
+      - name: wrap_klasse
+        label: Breite des Inhalts
+        type: select
+        default: wrap prose
+        options:
+          values:
+          - value: wrap prose
+            label: Lesetext (schmale Textspalte)
+          - value: wrap
+            label: Volle Breite
+          - value: wrap patenband-inner
+            label: Band (Text links, Button rechts)
+      - name: stil
+        label: Hintergrund / Inline-Stil (CSS)
+        type: string
+        description: Technisch, z. B. background:var(--white)
+      - name: klasse
+        label: CSS-Klasse
+        type: string
+        description: Technisch, z. B. kidstory, calc, patenband
+      - name: element
+        label: HTML-Element
+        type: select
+        default: section
+        options:
+          values:
+          - value: section
+            label: section
+          - value: div
+            label: div
+    - name: text
+      label: Text
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: inhalt
+        label: Text
+        type: rich-text
+        options:
+          format: html
+    - name: einleitung
+      label: Einleitungssatz (größer)
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
       - name: text
         label: Text
-        fields:
-          - { name: inhalt, label: Text, type: rich-text, options: { format: html } }
-
-      - name: bildreihe
-        label: Bildreihe (2–3 Bilder, Lightbox)
-        fields:
-          - name: bilder
-            label: Bilder
-            component: bild
-            list: true
-
-      - name: galerie
-        label: Bildmosaik
-        fields:
-          - name: bilder
-            label: Bilder
-            type: object
-            list: true
-            fields:
-              - { name: bild, label: Bild, type: image }
-              - { name: alt, label: Alternativtext, type: string }
-              - { name: unterschrift, label: Bildunterschrift, type: string }
-              - { name: lightbox, label: Text in der Großansicht, type: string }
-              - name: format
-                label: Kachelgröße
-                type: select
-                options:
-                  values:
-                    - { name: normal, label: Normal }
-                    - { name: big, label: Groß }
-                    - { name: tall, label: Hoch }
-                    - { name: wide, label: Breit }
-          - { name: anker, label: Anker-ID, type: string }
-
-      - name: faq
-        label: Fragen & Antworten
-        fields:
-          - name: eintraege
-            label: Einträge
-            type: object
-            list: true
-            fields:
-              - { name: frage, label: Frage, type: string }
-              - { name: antwort, label: Antwort, type: rich-text, options: { format: html } }
-
-      - name: zeitleiste
-        label: Zeitleiste
-        fields:
-          - name: eintraege
-            label: Einträge
-            type: object
-            list: true
-            fields:
-              - { name: datum, label: Datum / Status, type: string, description: "z. B. „Mai 2026 · Erledigt“" }
-              - { name: titel, label: Titel, type: string }
-              - { name: text, label: Text, type: text }
-              - { name: zukunft, label: Noch geplant (heller dargestellt), type: boolean }
-
-      - name: personen
-        label: Personen- / Bildkarten
-        fields:
-          - name: karten
-            label: Karten
-            type: object
-            list: true
-            fields:
-              - { name: bild, label: Bild, type: image }
-              - { name: alt, label: Alternativtext, type: string }
-              - { name: titel, label: Titel, type: string }
-              - { name: text, label: Text, type: rich-text, options: { format: html } }
-              - name: bildklasse
-                label: Bildformat
-                type: select
-                options:
-                  values:
-                    - { name: "ph ph-portrait", label: Hochformat }
-                    - { name: ph, label: Querformat }
-          - name: raster
-            label: Raster
-            type: select
-            options:
-              values:
-                - { name: teamgrid, label: Team (3 Spalten) }
-                - { name: vg, label: Karten }
-          - { name: stil, label: Inline-Stil (CSS), type: string }
-
-      - name: projektkacheln
-        label: Projekt-Kacheln mit Pop-up
-        fields:
-          - name: kacheln
-            label: Kacheln
-            type: object
-            list: true
-            fields:
-              - { name: schluessel, label: Interner Name, type: string, description: "Eindeutig, ohne Leerzeichen, z. B. porridge" }
-              - { name: titel, label: Titel, type: string }
-              - { name: text, label: Kurztext, type: text }
-              - { name: bild, label: Bild, type: image }
-              - { name: alt, label: Alternativtext, type: string }
-              - name: popup
-                label: Pop-up
-                type: object
-                fields:
-                  - { name: bild, label: Bild, type: image }
-                  - { name: titel, label: Titel, type: string }
-                  - { name: text, label: Text, type: rich-text, options: { format: html } }
-                  - { name: link, label: Link, type: string }
-                  - { name: linktext, label: Linktext, type: string }
-
-      - name: neuigkeiten
-        label: Neuigkeiten-Liste
-        fields:
-          - { name: anzahl, label: Anzahl, type: number, description: "Leer = alle. Z. B. 3 für die neuesten drei auf der Startseite" }
-          - { name: leer_text, label: Text, solange es keine Beiträge gibt, type: string }
-
-      - name: cta
-        label: Aufruf-Band (Button)
-        fields:
-          - { name: titel, label: Text, type: string }
-          - { name: button, label: Button-Text, type: string }
-          - { name: link, label: Link, type: string }
-
-      - name: html
-        label: HTML im Abschnitt
-        fields:
-          - { name: html, label: HTML, type: code, options: { format: html }, description: "Platzhalter: {{ e.iban }}, {{ e.bic }}, {{ e.paypal_link }}" }
-
-      - name: html_bereich
-        label: HTML-Bereich (eigenständig)
-        fields:
-          - { name: html, label: HTML, type: code, options: { format: html }, description: "Kompletter Bereich inkl. <section>. Platzhalter: {{ e.iban }}, {{ e.paypal_link }}" }
-
-content:
-  - { name: index, label: "Seite: Home", type: file, path: content/seiten/index.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: leben-in-kenia, label: "Seite: Vor Ort", type: file, path: content/seiten/leben-in-kenia.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: projekte, label: "Seite: Projekte", type: file, path: content/seiten/projekte.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: kinder, label: "Seite: Die Kinder", type: file, path: content/seiten/kinder.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: community-center, label: "Seite: Community Center", type: file, path: content/seiten/community-center.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: team, label: "Seite: Team", type: file, path: content/seiten/team.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: spenden, label: "Seite: Spenden", type: file, path: content/seiten/spenden.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: neuigkeiten-seite, label: "Seite: Neuigkeiten", type: file, path: content/seiten/neuigkeiten.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: impressum, label: "Seite: Impressum", type: file, path: content/seiten/impressum.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-  - { name: datenschutz, label: "Seite: Datenschutz", type: file, path: content/seiten/datenschutz.yml, format: yaml, fields: [ { name: seitentitel, label: Seitentitel, type: string }, { name: beschreibung, label: Beschreibung, type: text }, { name: teilen_bild, label: Vorschaubild beim Teilen (optional), type: image }, { name: bloecke, component: bloecke } ] }
-
-  - name: neuigkeiten
-    label: Neuigkeiten (Beiträge)
-    type: collection
-    path: content/neuigkeiten
-    format: yaml-frontmatter
-    filename: "{year}-{month}-{day}-{primary}.md"
-    view:
-      fields: [titel, datum, entwurf]
-      primary: titel
-      sort: [datum, titel]
-      default: { sort: datum, order: desc }
-    fields:
-      - { name: titel, label: Titel, type: string, required: true }
-      - { name: datum, label: Datum, type: date, required: true }
-      - { name: entwurf, label: Entwurf (noch nicht veröffentlichen), type: boolean }
-      - { name: kurztext, label: Kurztext (Vorschau und Teilen), type: text }
-      - { name: bild, label: Titelbild, type: image, description: "Erscheint in der Übersicht und als Vorschaubild beim Teilen" }
-      - { name: alt, label: Alternativtext Titelbild, type: string }
-      - { name: bildunterschrift, label: Bildunterschrift Titelbild, type: string }
-      - { name: body, label: Text, type: rich-text, options: { format: html } }
+        type: text
+    - name: bildreihe
+      label: Bildreihe (2–3 Bilder)
+      description: Bilder nebeneinander; ein Klick öffnet die Großansicht.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
       - name: bilder
-        label: Weitere Bilder (je 3 in einer Reihe)
-        component: bild
+        label: Bilder
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{index} · {unterschrift}'
+        fields:
+        - name: bild
+          label: Bild
+          type: image
+        - name: alt
+          label: Alternativtext
+          type: string
+          description: Kurze Bildbeschreibung für Screenreader und Suchmaschinen
+        - name: unterschrift
+          label: Bildunterschrift
+          type: string
+    - name: galerie
+      label: Bildmosaik
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: bilder
+        label: Bilder
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{index} · {unterschrift}'
+        fields:
+        - name: bild
+          label: Bild
+          type: image
+        - name: alt
+          label: Alternativtext
+          type: string
+          description: Kurze Bildbeschreibung für Screenreader und Suchmaschinen
+        - name: unterschrift
+          label: Bildunterschrift
+          type: string
+        - name: lightbox
+          label: Text in der Großansicht
+          type: string
+        - name: format
+          label: Kachelgröße
+          type: select
+          default: normal
+          options:
+            values:
+            - value: normal
+              label: Normal
+            - value: big
+              label: Groß (2 × 2)
+            - value: tall
+              label: Hoch
+            - value: wide
+              label: Breit
+      - name: anker
+        label: Anker-ID
+        type: string
+    - name: personen
+      label: Personen- / Bildkarten
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: karten
+        label: Karten
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{titel}'
+        fields:
+        - name: bild
+          label: Bild
+          type: image
+        - name: alt
+          label: Alternativtext
+          type: string
+          description: Kurze Bildbeschreibung für Screenreader und Suchmaschinen
+        - name: titel
+          label: Titel
+          type: string
+        - name: text
+          label: Text
+          type: rich-text
+          options:
+            format: html
+        - name: bildklasse
+          label: Bildformat
+          type: select
+          default: ph ph-portrait
+          options:
+            values:
+            - value: ph ph-portrait
+              label: Hochformat
+            - value: ph
+              label: Querformat
+      - name: raster
+        label: Raster
+        type: select
+        default: teamgrid
+        options:
+          values:
+          - value: teamgrid
+            label: Team (3 Spalten)
+          - value: vg
+            label: Karten
+      - name: stil
+        label: Inline-Stil (CSS)
+        type: string
+        description: Technisch
+    - name: projektkacheln
+      label: Projekt-Kacheln mit Pop-up
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: kacheln
+        label: Kacheln
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{titel}'
+        fields:
+        - name: titel
+          label: Titel
+          type: string
+        - name: text
+          label: Kurztext
+          type: text
+        - name: bild
+          label: Bild
+          type: image
+        - name: alt
+          label: Alternativtext
+          type: string
+        - name: popup
+          label: Pop-up
+          type: object
+          fields:
+          - name: bild
+            label: Bild
+            type: image
+          - name: titel
+            label: Titel
+            type: string
+          - name: text
+            label: Text
+            type: rich-text
+            options:
+              format: html
+          - name: link
+            label: Link
+            type: string
+          - name: linktext
+            label: Linktext
+            type: string
+        - name: schluessel
+          label: Interner Name
+          type: string
+          description: Eindeutig, ohne Leerzeichen, z. B. porridge
+    - name: faq
+      label: Fragen & Antworten
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: eintraege
+        label: Einträge
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{frage}'
+        fields:
+        - name: frage
+          label: Frage
+          type: string
+        - name: antwort
+          label: Antwort
+          type: rich-text
+          options:
+            format: html
+    - name: zeitleiste
+      label: Zeitleiste
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: eintraege
+        label: Einträge
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{datum} — {titel}'
+        fields:
+        - name: datum
+          label: Datum / Status
+          type: string
+          description: z. B. „Mai 2026 · Erledigt“
+        - name: titel
+          label: Titel
+          type: string
+        - name: text
+          label: Text
+          type: text
+        - name: zukunft
+          label: Noch geplant (heller dargestellt)
+          type: boolean
+    - name: neuigkeiten
+      label: Neuigkeiten-Liste
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: anzahl
+        label: Anzahl
+        type: number
+        description: Leer = alle. Z. B. 3 für die neuesten drei auf der Startseite
+      - name: leer_text
+        label: Text, solange es keine Beiträge gibt
+        type: string
+    - name: kennzahlen
+      label: Kennzahlen mit Balken
+      description: Dunkler Zahlenbereich der Startseite. Steht für sich, nicht in einem Abschnitt.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: zahlen
+        label: Zahlen
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{wert} · {text}'
+        fields:
+        - name: wert
+          label: Zahl / Wert
+          type: string
+          description: z. B. 237 oder 150–250
+        - name: text
+          label: Beschriftung
+          type: string
+        - name: zaehlen
+          label: Hochzählen (nur bei reinen Zahlen)
+          type: boolean
+        - name: akzent
+          label: In Ocker hervorheben
+          type: boolean
+      - name: balken_titel
+        label: Überschrift der Balken
+        type: string
+      - name: balken
+        label: Balken
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{jahr}: {wert}'
+        fields:
+        - name: jahr
+          label: Beschriftung (Jahr)
+          type: string
+        - name: wert
+          label: Wert
+          type: number
+          description: Die Balkenhöhe wird automatisch im Verhältnis berechnet.
+    - name: schulstufen
+      label: Schulstufen-Grafik
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: stufen
+        label: Stufen
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{name}: {jahre} Jahre'
+        fields:
+        - name: name
+          label: Name
+          type: string
+        - name: jahre
+          label: Dauer in Jahren
+          type: number
+          description: Die Balkenlänge richtet sich nach der Dauer.
+      - name: hinweis
+        label: Hinweis unter der Grafik
+        type: text
+        description: HTML erlaubt, z. B. <strong>…</strong>
+    - name: kostendiagramm
+      label: Kostendiagramm (jährliche Kosten)
+      description: Kreisdiagramm; Anteile und Gesamtsumme werden aus den Beträgen berechnet.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: posten
+        label: Jährliche Posten
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{name}: {betrag} €'
+        fields:
+        - name: name
+          label: Bezeichnung
+          type: string
+        - name: betrag
+          label: Betrag pro Jahr (€)
+          type: number
+        - name: farbe
+          label: Farbe
+          type: select
+          options:
+            values:
+            - value: gruen
+              label: Grün
+            - value: ocker
+              label: Ocker
+            - value: grau
+              label: Grau
+            - value: hell
+              label: Hellgrau
+      - name: summe_text
+        label: Beschriftung der Summe
+        type: string
+        description: Die Summe selbst wird automatisch aus den Posten berechnet.
+      - name: zusatz
+        label: Weitere Zeilen (nicht in der Summe)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{name}'
+        fields:
+        - name: name
+          label: Bezeichnung
+          type: string
+        - name: hinweis
+          label: Kleiner Zusatztext
+          type: string
+        - name: betrag_text
+          label: Betrag als Text
+          type: string
+          description: z. B. „35 € einmalig“
+      - name: fussnote
+        label: Fußnote
+        type: string
+    - name: tabelle
+      label: Tabelle (2 Spalten)
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: titel
+        label: Überschrift
+        type: string
+      - name: spalte_1
+        label: Kopf Spalte 1
+        type: string
+        default: Beschreibung
+      - name: spalte_2
+        label: Kopf Spalte 2
+        type: string
+        default: Kosten
+      - name: zeilen
+        label: Zeilen
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: '{beschreibung}: {wert}'
+        fields:
+        - name: beschreibung
+          label: Beschreibung
+          type: string
+        - name: wert
+          label: Wert
+          type: string
+    - name: wirkungsrechner
+      label: Wirkungsrechner
+      description: Die Beispiele je Betrag stehen unter Einstellungen → Wirkungsrechner.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: startwert
+        label: Startbetrag (€)
+        type: number
+        default: 25
+      - name: schnellwahl
+        label: Schnellwahl-Beträge (€)
+        type: number
         list: true
-
-  - name: einstellungen
-    label: Einstellungen (Navigation, Footer, Konto)
+        description: Buttons unter dem Schieberegler. Werte zwischen 5 und 200.
+      - name: button_text
+        label: Button-Text
+        type: string
+      - name: button_link
+        label: Button-Link
+        type: string
+      - name: hinweis
+        label: Kleingedrucktes
+        type: text
+    - name: cta
+      label: Aufruf-Band (Button)
+      description: Farbiges Band mit Button. Steht für sich, nicht in einem Abschnitt.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: titel
+        label: Text
+        type: string
+      - name: button
+        label: Button-Text
+        type: string
+      - name: link
+        label: Link
+        type: string
+    - name: html
+      label: HTML im Abschnitt
+      description: Für Sonderelemente mit eigenem Markup.
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: html
+        label: HTML
+        type: code
+        options:
+          format: html
+        description: 'Platzhalter: {{ e.iban }}, {{ e.bic }}, {{ e.bank }}, {{ e.kontoinhaber }}, {{ e.paypal_link }}'
+    - name: html_bereich
+      label: HTML-Bereich (eigenständig)
+      fields:
+      - name: notiz
+        label: Interne Bezeichnung
+        type: string
+        description: Nur für die Blockliste hier im CMS – erscheint nicht auf der Website.
+      - name: html
+        label: HTML
+        type: code
+        options:
+          format: html
+        description: Kompletter Bereich inkl. <section>.
+content:
+- name: seiten
+  label: Seiten
+  type: group
+  items:
+  - name: index
+    label: Home
     type: file
-    path: content/einstellungen.yml
+    path: content/seiten/index.yml
     format: yaml
     fields:
-      - { name: logo, label: Logo, type: image }
-      - name: navigation
-        label: Navigation
-        type: object
-        list: true
-        fields:
-          - { name: titel, label: Text, type: string }
-          - { name: link, label: Datei, type: string, description: "z. B. projekte.html" }
-      - name: spenden_button
-        label: Spenden-Button
-        type: object
-        fields:
-          - { name: text, label: Text (Desktop), type: string }
-          - { name: text_mobil, label: Text (Mobil-Menü), type: string }
-          - { name: link, label: Link, type: string }
-      - { name: footer_text, label: Footer-Text, type: text }
-      - name: links
-        label: Footer-Links („Folge uns“)
-        type: object
-        list: true
-        fields:
-          - { name: text, label: Text, type: string }
-          - { name: link, label: URL, type: string }
-      - { name: kontoinhaber, label: Kontoinhaber, type: string }
-      - { name: bank, label: Bank, type: string }
-      - { name: iban, label: IBAN, type: string, description: "Mit Leerzeichen in Vierergruppen; erscheint im Footer aller Seiten und auf der Spendenseite" }
-      - { name: bic, label: BIC, type: string }
-      - { name: paypal_link, label: PayPal-Spendenlink, type: string }
-      - { name: website_url, label: Adresse der Website, type: string, description: "Vollständige Adresse mit / am Ende; wird für Vorschaubilder beim Teilen gebraucht. Bei Domainwechsel anpassen." }
-      - { name: teilen_bild, label: Standard-Vorschaubild beim Teilen, type: image, description: "Empfohlen 1200 × 630 px" }
-      - { name: copyright, label: Copyright-Zeile, type: string }
-      - { name: version, label: Versionshinweis im Footer, type: string }
-      - name: wirkungsrechner
-        label: Wirkungsrechner (Stufen)
-        description: "Lückenlos von 5 bis 200 €. Für einen einzelnen Betrag „von“ und „bis“ gleich setzen."
-        type: object
-        list: true
-        fields:
-          - { name: von, label: Von (€), type: number }
-          - { name: bis, label: Bis (€), type: number }
-          - { name: icon, label: Symbol, type: string }
-          - { name: text, label: Haupt-Beispiel, type: string, description: "HTML erlaubt, z. B. <strong>…</strong>" }
-          - { name: alternativ_icon, label: Symbol Alternative, type: string }
-          - { name: alternativ, label: Alternativ-Beispiel (optional), type: string, description: "Wird mit „Oder:“ angezeigt" }
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: leben-in-kenia
+    label: Vor Ort
+    type: file
+    path: content/seiten/leben-in-kenia.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: projekte
+    label: Projekte
+    type: file
+    path: content/seiten/projekte.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: kinder
+    label: Die Kinder
+    type: file
+    path: content/seiten/kinder.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: community-center
+    label: Community Center
+    type: file
+    path: content/seiten/community-center.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: team
+    label: Team
+    type: file
+    path: content/seiten/team.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: spenden
+    label: Spenden
+    type: file
+    path: content/seiten/spenden.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: neuigkeiten-seite
+    label: Neuigkeiten (Übersicht)
+    type: file
+    path: content/seiten/neuigkeiten.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: impressum
+    label: Impressum
+    type: file
+    path: content/seiten/impressum.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: datenschutz
+    label: Datenschutz
+    type: file
+    path: content/seiten/datenschutz.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+  - name: '404'
+    label: Fehlerseite (404)
+    type: file
+    path: content/seiten/404.yml
+    format: yaml
+    fields:
+    - name: seitentitel
+      label: Seitentitel (Browser-Tab, Suchmaschinen)
+      type: string
+    - name: beschreibung
+      label: Beschreibung (Suchmaschinen, Vorschau beim Teilen)
+      type: text
+    - name: teilen_bild
+      label: Vorschaubild beim Teilen (optional)
+      type: image
+      description: Leer = Standardbild aus den Einstellungen
+    - name: bloecke
+      component: bloecke
+- name: neuigkeiten
+  label: Neuigkeiten (Beiträge)
+  type: collection
+  description: Jeder Beitrag wird eine eigene Seite und erscheint in der Übersicht „Neuigkeiten“.
+  path: content/neuigkeiten
+  format: yaml-frontmatter
+  filename: '{year}-{month}-{day}-{primary}.md'
+  view:
+    fields:
+    - titel
+    - datum
+    - entwurf
+    primary: titel
+    sort:
+    - datum
+    - titel
+    default:
+      sort: datum
+      order: desc
+  fields:
+  - name: titel
+    label: Titel
+    type: string
+    required: true
+  - name: datum
+    label: Datum
+    type: date
+    required: true
+  - name: entwurf
+    label: Entwurf (noch nicht veröffentlichen)
+    type: boolean
+  - name: kurztext
+    label: Kurztext (Übersicht und Vorschau beim Teilen)
+    type: text
+  - name: bild
+    label: Titelbild
+    type: image
+    description: Erscheint in der Übersicht und als Vorschaubild beim Teilen
+  - name: alt
+    label: Alternativtext Titelbild
+    type: string
+  - name: bildunterschrift
+    label: Bildunterschrift Titelbild
+    type: string
+  - name: body
+    label: Text
+    type: rich-text
+    options:
+      format: html
+  - name: bilder
+    label: Weitere Bilder (je 3 in einer Reihe)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{index} · {unterschrift}'
+    fields:
+    - name: bild
+      label: Bild
+      type: image
+    - name: alt
+      label: Alternativtext
+      type: string
+      description: Kurze Bildbeschreibung für Screenreader und Suchmaschinen
+    - name: unterschrift
+      label: Bildunterschrift
+      type: string
+- name: einstellungen
+  label: Einstellungen
+  type: file
+  description: Navigation, Footer, Spendenkonto, Wirkungsrechner – gilt für alle Seiten.
+  path: content/einstellungen.yml
+  format: yaml
+  fields:
+  - name: navigation
+    label: Navigation
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{titel}'
+    fields:
+    - name: titel
+      label: Text
+      type: string
+    - name: link
+      label: Datei
+      type: string
+      description: z. B. projekte.html
+  - name: spenden_button
+    label: Spenden-Button
+    type: object
+    fields:
+    - name: text
+      label: Text (Desktop)
+      type: string
+    - name: text_mobil
+      label: Text (Mobil-Menü)
+      type: string
+    - name: link
+      label: Link
+      type: string
+  - name: kontoinhaber
+    label: Kontoinhaber
+    type: string
+  - name: bank
+    label: Bank
+    type: string
+  - name: iban
+    label: IBAN
+    type: string
+    description: Mit Leerzeichen in Vierergruppen. Erscheint im Footer aller Seiten und auf der Spendenseite.
+  - name: bic
+    label: BIC
+    type: string
+  - name: paypal_link
+    label: PayPal-Spendenlink
+    type: string
+  - name: wirkungsrechner
+    label: 'Wirkungsrechner: Beispiele je Betrag'
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{von}–{bis} €'
+    description: Lückenlos von 5 bis 200 €. Für einen einzelnen Betrag „von“ und „bis“ gleich setzen.
+    fields:
+    - name: von
+      label: Von (€)
+      type: number
+    - name: bis
+      label: Bis (€)
+      type: number
+    - name: icon
+      label: Symbol
+      type: string
+    - name: text
+      label: Haupt-Beispiel
+      type: string
+      description: HTML erlaubt, z. B. <strong>…</strong>
+    - name: alternativ_icon
+      label: Symbol Alternative
+      type: string
+    - name: alternativ
+      label: Alternativ-Beispiel (optional)
+      type: string
+      description: Wird mit „Oder:“ angezeigt
+  - name: footer_text
+    label: Footer-Text
+    type: text
+  - name: links
+    label: Footer-Links („Folge uns“)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{text}'
+    fields:
+    - name: text
+      label: Text
+      type: string
+    - name: link
+      label: URL
+      type: string
+  - name: copyright
+    label: Copyright-Zeile
+    type: string
+  - name: version
+    label: Versionshinweis im Footer
+    type: string
+  - name: logo
+    label: Logo
+    type: image
+  - name: website_url
+    label: Adresse der Website
+    type: string
+    description: Vollständige Adresse mit / am Ende; nötig für Vorschaubilder beim Teilen. Bei Domainwechsel anpassen.
+  - name: teilen_bild
+    label: Standard-Vorschaubild beim Teilen
+    type: image
+    description: Empfohlen 1200 × 630 px

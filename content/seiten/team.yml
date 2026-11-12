@@ -2,13 +2,16 @@ seitentitel: Team | One for One
 beschreibung: Das ehrenamtliche Team in Deutschland und die Projektkoordinatoren Teddy und Joseph in Nairobi.
 bloecke:
 - type: seitenkopf
+  notiz: Die Menschen hinter One for One
   brotkrume: Team
   titel: Die Menschen hinter One for One
   text: Ein ehrenamtliches Team in Deutschland und unsere Kolleginnen und Kollegen vor Ort in Nairobi.
 - type: abschnitt
+  notiz: ▸ INHALT
   element: section
   wrap_klasse: wrap
 - type: personen
+  notiz: Team Deutschland, Teddy · Korogocho, Joseph ·…
   raster: teamgrid
   karten:
   - bild: bilder/team-deutschland.jpg
@@ -27,6 +30,7 @@ bloecke:
     titel: Joseph · Mathare
     text: <p>Joseph arbeitet seit Jahren als Kinderschutzbeauftragter und hat täglich mit Familien am Existenzminimum zu tun. Schon lange träumte er davon, aktiv etwas zu verändern. Für One for One koordiniert er das Projekt in Mathare und die Auswahl der Kinder.</p>
 - type: cta
+  notiz: Unterstütze die Arbeit unseres Teams.
   titel: Unterstütze die Arbeit unseres Teams.
   button: Jetzt spenden
   link: spenden.html

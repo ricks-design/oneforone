@@ -2,9 +2,12 @@ seitentitel: Neuigkeiten | One for One
 beschreibung: Berichte und Neuigkeiten von One for One e.V. aus Korogocho und Mathare (Nairobi).
 bloecke:
 - type: seitenkopf
+  notiz: Neuigkeiten
   brotkrume: Neuigkeiten
   titel: Neuigkeiten
   text: Berichte aus Korogocho und Mathare.
 - type: abschnitt
+  notiz: ▸ INHALT
 - type: neuigkeiten
+  notiz: Liste der Beiträge
   leer_text: Hier erscheinen bald Berichte aus Korogocho und Mathare.

@@ -1,0 +1,11 @@
+<div class="stats">
+<div class="stats-inner">
+{% for z in b.zahlen %}<div class="stat"><div class="num">{% if z.zaehlen %}<span class="counter" data-target="{{ z.wert }}">0</span>{% elif z.akzent %}<span class="accent">{{ z.wert }}</span>{% else %}{{ z.wert }}{% endif %}</div><div class="lbl">{{ z.text }}</div></div>
+{% endfor %}</div>
+{% if b.balken %}{% set hoechst = b.balken | map(attribute='wert') | max %}<div class="wrap growth">
+{% if b.balken_titel %}<div class="growth-label">{{ b.balken_titel }}</div>{% endif %}
+<div class="growth-bars">
+{% for x in b.balken %}<div class="gbar"><span class="val">{{ x.wert }}</span><div class="fill" data-h="{{ (x.wert / hoechst * 120) | round | int }}px"></div><div class="yr">{{ x.jahr }}</div></div>
+{% endfor %}</div>
+</div>{% endif %}
+</div>

@@ -2,13 +2,16 @@ seitentitel: Impressum | One for One
 beschreibung: Impressum und Angaben gemäß § 5 DDG von One for One e.V.
 bloecke:
 - type: seitenkopf
+  notiz: Impressum
   brotkrume: Impressum
   titel: Impressum
   text: Angaben gemäß § 5 DDG.
 - type: abschnitt
+  notiz: ▸ INHALT
   element: section
   wrap_klasse: wrap prose
 - type: text
+  notiz: Angaben gemäß § 5 DDG
   inhalt: |-
     <h3>Angaben gemäß § 5 DDG</h3>
     <p>One for One e.V.<br/>Salinenstraße 23a<br/>83278 Traunstein</p>
@@ -22,4 +25,5 @@ bloecke:
     <h3>Haftung für Inhalte &amp; Links</h3>
     <p>Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten verantwortlich. Für Inhalte externer Links sind ausschließlich deren Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine rechtswidrigen Inhalte erkennbar.</p>
 - type: html
+  notiz: 'Hinweis: Bitte durch eine juristisch geprüfte…'
   html: '<p style="margin-top:26px;font-size:14px;color:rgba(38,38,28,.55)">Hinweis: Bitte durch eine juristisch geprüfte Fassung bestätigen lassen.</p>'
